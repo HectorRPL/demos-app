@@ -40,19 +40,19 @@ export const actualizar = new ValidatedMethod({
     }
 });
 
-export const actualizarFechaNacimiento = new ValidatedMethod({
-    name: 'candidato.actualizarFechaNacimiento',
+export const actualizarRegFacebook = new ValidatedMethod({
+    name: 'candidato.actualizarRegFacebook',
     mixins: [LoggedInMixin],
     checkLoggedInError: {
         error: 'noLogeado',
         message: 'Para modificar estos campos necesita registrarse.',
         reason: 'Usuario no logeado'
     },
-    validate: Candidatos.simpleSchema().pick(['nacimientoDia', 'nacimientoMes', 'nacimientoAnio']).validator({
+    validate: Candidatos.simpleSchema().pick(['nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'celular']).validator({
         clean: true,
         filter: false
     }),
-    run({nacimientoDia, nacimientoMes, nacimientoAnio}) {
+    run({nacimientoDia, nacimientoMes, nacimientoAnio, celular}) {
 
         return Candidatos.update({
             propietario: this.userId
@@ -61,6 +61,7 @@ export const actualizarFechaNacimiento = new ValidatedMethod({
                 nacimientoDia: nacimientoDia,
                 nacimientoMes: nacimientoMes,
                 nacimientoAnio: nacimientoAnio,
+                celular: celular
             }
         });
     }
