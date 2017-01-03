@@ -1,0 +1,58 @@
+<form
+        id="userPassFrmId"
+        class="property-submit-form"
+        name="userPassFrm"
+        role="form"
+        nonvalidate>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <!-- CORREO-->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userPassFrm.usuario.$invalid && !userPassFrm.usuario.$pristine }">
+            <input
+                    id="candidatoEmailID"
+                    class="form-control"
+                    name="usuario"
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    aria-describedby="basic-addon1"
+                    required
+                    ng-model="contraseniaCorreo.credentials.email">
+            <div ng-messages="userPassFrm.usuario.$dirty && userPassFrm.usuario.$error" role="alert">
+                <div style="color:red" ng-message="required">Campo requerido</div>
+                <div style="color:red" ng-message="email">Formato de email incorrecto.</div>
+            </div>
+        </div>
+        <!-- CONTASEÑA -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userPassFrm.password.$invalid && !userPassFrm.password.$pristine }">
+            <input
+                    id="candidatoPasswordID"
+                    class="form-control"
+                    name="password"
+                    type="password"
+                    placeholder="Contraseña"
+                    aria-describedby="basic-addon1"
+                    required
+                    ng-model="contraseniaCorreo.credentials.password">
+            <div ng-messages="userPassFrm.password.$dirty && userPassFrm.password.$error" role="alert">
+                <div style="color:red" ng-message="required">Campo requerido</div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- BOTON GUARDAR CAMBIOS-->
+            <div class="col-xs-12">
+                <button class="btn btn-default" type="submit" ng-click="contraseniaCorreo.actualizar()"
+                        ng-disabled="userPassFrm.$invalid">
+                    Guardar Cambios
+                </button>
+            </div>
+            <!-- ALERTA: CAMBIOS EXITOSO -->
+            <div class="col-xs-12" ng-show="contraseniaCorreo.error">
+                <uib-alert type="{{ tarjeta.respuesta.tipo }}">
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <strong> {{ tarjeta.respuesta.mensaje }} </strong>
+                </uib-alert>
+            </div>
+        </div>
+    </div>
+</form>

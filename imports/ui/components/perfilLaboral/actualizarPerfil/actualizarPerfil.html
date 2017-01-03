@@ -1,0 +1,158 @@
+<form id="actualiarPerfilFrmId" class="property-submit-form" name="actualizarPerfilFrm" role="form" nonvalidate>
+    <!-- EXPERIENCIA  -->
+    <div class="form-group row">
+        <!-- TEXTO Tengo experiencia: -->
+        <div class="col-xs-12">
+            <label for="horario">Selecciona tu experiencia en:</label>
+        </div>
+        <!-- EXPERIENCIAS USANDO EL COMPONENT CHECKBOX-EXPERIENCIAS -->
+        <div class="col-xs-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.textExperiencias.$invalid && !actualizarPerfilFrm.textExperiencias.$pristine}">
+                <checkbox-experiencias listado="actualizarPerfil.perfil.experiencias.listado"
+                                       otraexperiencia="actualizarPerfil.perfil.experiencias.otra"></checkbox-experiencias>
+                <div ng-messages="actualizarPerfilFrm.textExperiencias.$dirty && actualizarPerfilFrm.textExperiencias.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="pattern">Sólo caracteres alfabéticos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HABILIDADES  -->
+    <div class="form-group row">
+        <!-- TEXTO Tengo Habilidades: -->
+        <div class="col-xs-12">
+            <label for="horario">Selecciona tus habilidades:</label>
+        </div>
+        <!-- HABILIDADES USANDO EL COMPONENT CHECKBOX-HABILIDADES -->
+        <div class="col-xs-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.textHabilidades.$invalid && !actualizarPerfilFrm.textHabilidades.$pristine}">
+                <checkbox-habilidades listado="actualizarPerfil.perfil.habilidades.listado"
+                                      otrahabilidad="actualizarPerfil.perfil.habilidades.otra"></checkbox-habilidades>
+                <div ng-messages="actualizarPerfilFrm.textHabilidades.$dirty && actualizarPerfilFrm.textHabilidades.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="pattern">Sólo caracteres alfabéticos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <!-- ESTATURA  -->
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <!-- TÍTULO: FECHA DE NACIMIENTO -->
+            <div class="form-group text-left">
+                <label class="control-label">
+                    Estatura:
+                </label>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.estatura.$invalid && !actualizarPerfilFrm.estatura.$pristine}">
+                <div class="input-group input-group-sm">
+              <span class="input-group-addon ">
+                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </span>
+                    <elegir-estatura estatura="actualizarPerfil.perfil.estatura"></elegir-estatura>
+                </div>
+                <div ng-messages="actualizarPerfilFrm.estatura.$dirty && actualizarPerfilFrm.estatura.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                    <div style="color:red;" ng-message="max">Máx 2.30 mts.</div>
+                    <div style="color:red;" ng-message="min">Min 1.30 mts.</div>
+                </div>
+            </div>
+        </div>
+        <!-- TALLA -->
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <!-- TÍTULO: FECHA DE NACIMIENTO -->
+            <div class="form-group text-left">
+                <label class="control-label">
+                    Talla:
+                </label>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.elegirTalla.$invalid && !actualizarPerfilFrm.elegirTalla.$pristine}">
+                <div class="input-group input-group-sm">
+            <span id="basic-addon1" class="input-group-addon">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+                    <elegir-talla talla="actualizarPerfil.perfil.talla"></elegir-talla>
+                </div>
+                <div ng-messages="actualizarPerfilFrm.elegirTalla.$dirty && actualizarPerfilFrm.elegirTalla.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                </div>
+            </div>
+        </div>
+        <!-- PUESTO -->
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <!-- TÍTULO: FECHA DE NACIMIENTO -->
+            <div class="form-group text-left">
+                <label class="control-label">
+                    Puesto:
+                </label>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.elegirPuesto.$invalid && !actualizarPerfilFrm.elegirPuesto.$pristine}">
+                <div class="input-group input-group-sm">
+              <span class="input-group-addon" id="basic-addon1">
+                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </span>
+                    <elegir-puesto puestoid="actualizarPerfil.perfil.puestoId"></elegir-puesto>
+                </div>
+                <div ng-messages="actualizarPerfilFrm.elegirPuesto.$dirty && actualizarPerfilFrm.elegirPuesto.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ESCUELA -->
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <!-- TÍTULO: FECHA DE NACIMIENTO -->
+            <div class="form-group text-left">
+                <label class="control-label">
+                    Escolaridad:
+                </label>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarPerfilFrm.elegirEscuela.$invalid && !actualizarPerfilFrm.elegirEscuela.$pristine}">
+                <div class="input-group input-group-sm">
+              <span id="basic-addon1" class="input-group-addon">
+                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </span>
+                    <elegir-escuela escolaridad="actualizarPerfil.perfil.escolaridadId"></elegir-escuela>
+                </div>
+                <div ng-messages="actualizarPerfilFrm.elegirEscuela.$dirty && actualizarPerfilFrm.elegirEscuela.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BOTON GUARDAR CAMBIOS-->
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-default btn-md btn-block"
+                    type="submit"
+                    ng-class="{'disabled': actualizarPerfil.cargando === false}"
+                    ng-disabled="actualizarPerfilFrm.$invalid || actualizarPerfil.cargando === false"
+                    ng-click="actualizarPerfil.actualizar()">
+                <span ng-hide="actualizarPerfil.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
+                <span ng-hide="actualizarPerfil.cargando">Procesando...</span>
+                <span ng-show="actualizarPerfil.cargando">Actualizar Perfil</span>
+            </button>
+        </div>
+    </div>
+    <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
+    <div class="row">
+        <br>
+        <div class="col-xs-12" ng-show="actualizarPerfil.respuesta.mostrar">
+            <uib-alert type="{{ actualizarPerfil.respuesta.tipo }}">
+                <span class="fa fa-exclamation-triangle"></span>
+                <strong> {{ actualizarPerfil.respuesta.mensaje }} </strong>
+            </uib-alert>
+        </div>
+    </div>
+</form>

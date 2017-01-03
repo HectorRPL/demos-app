@@ -1,0 +1,12 @@
+<div class="col-xs-12">
+    <h4 class="text-center">{{datosContacto.datosAgencia.nombre}}</h4>
+    <strong>Calle</strong> {{datosContacto.direccionAgencia.calle}} <br>
+    <strong>Num.</strong> {{datosContacto.direccionAgencia.numExt}} <br>
+    <span ng-hide="!datosContacto.direccionAgencia.numInt.length">Num Interior {{datosContacto.direccionAgencia.numInt}}</span>
+    <strong>Col.</strong> {{datosContacto.direccionAgencia.colonia}} <br>
+    <strong>Del/Mun</strong> {{datosContacto.direccionAgencia.delMpio}} <br>
+    <strong>C.P.</strong> {{datosContacto.direccionAgencia.codigoPostal}} <br>
+    <strong>Estado</strong> {{datosContacto.direccionAgencia.estado}}&nbsp;  <br><br>
+    <strong>Teléfono</strong>: {{datosContacto.datosAgencia.telefono}} <br><br>
+    <!--<strong>Registro</strong>: {{datosContacto.direccionAgencia.fechaCreacion}}&nbsp;-->
+</div>

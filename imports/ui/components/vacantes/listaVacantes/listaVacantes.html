@@ -1,0 +1,58 @@
+<!--
+<vacantes-ordenar on-change="listaVacantes.busqueda(sort)" property="fechaCreacion" order="1"></vacantes-ordenar>
+ -->
+<titulo nuevotitulo="{{listaVacantes.nuevotitulo}}"></titulo>
+<div class="col-xs-12 col-md-4"
+     dir-paginate="vacante in listaVacantes.vacantes | itemsPerPage: listaVacantes.perPage"
+     total-items="listaVacantes.vacantesCount">
+    <!--<pre>{{ vacante | json}}</pre>-->
+    <!-- TARJETA (EN SU MÁS PURA EXPRESIÓN) -->
+    <a style="text-decoration:none" ui-sref="demos.vacantes.detalle({vacanteId:vacante._id})">
+        <div class="panel panel-default">
+            <!-- BODY DE TARJETA -->
+            <div class="panel-body" style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">
+                <!--PUESTO Y NUMERO DE TIENDAS-->
+                <div class="row">
+                    <div class="col-xs-7 componer-textos-largos">
+                        <small>Puesto: {{vacante.puesto().descripcion}}</small>
+                    </div>
+                    <div class="col-xs-5 componer-textos-largos text-right">
+                        <!--Aqui va el componente para saber si estoy postulado -->
+                        <estoy-postulado vacanteid="vacante._id" totaltiendas="vacante.totalTiendas"></estoy-postulado>
+                    </div>
+                </div>
+                <!--MARCA-->
+                <div class="row">
+                    <div class="col-xs-12 componer-textos-largos">
+                        <small>Marca: {{vacante.marca}}</small>
+                    </div>
+                </div>
+                <!--ESTADO UBICACIÓN-->
+                <div class="row">
+                    <div class="col-xs-12 componer-textos-largos">
+                        <small>{{vacante.estado().descripcion}}</small>
+                    </div>
+                </div>
+                <!--FECHA DE PUBLICACIÓN-->
+                <div class="row">
+                    <div class="col-xs-8 componer-textos-largos">
+                        <vacante-nueva fechacreacion="vacante.fechaCreacion"></vacante-nueva>
+                    </div>
+                    <div class="col-xs-4 componer-textos-largos text-right">
+
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER DE TARJETA, EN ESTA PARTE SE ENCUENTRA EL SUELDO Y  -->
+            <div class="panel-footer">
+                <strong class="pull-left">{{vacante.sueldo | currency}} x día</strong>
+                <span class="pull-right"> <strong><small>Detalles</small></strong>&nbsp;<i class="fa fa-arrow-circle-right fa-lg"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="col-xs-12">
+    <dir-pagination-controls on-page-change="listaVacantes.pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>

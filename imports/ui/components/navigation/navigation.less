@@ -1,0 +1,206 @@
+navigation {
+
+  /* Top Navigation */
+
+  .top-nav {
+    padding: 0 15px;
+  }
+
+  // Esta clase ya no es necesaria ya que estamos usando row/col y estos mismos sustituyen y mejoran
+  // los botones en una sóla fila. Cuando es una lista usando ul y li está bien.
+  /*
+  .top-nav > li > alertapostvistoagencia,
+  .top-nav > li > numNuevasSelecciones,
+  .top-nav > li > numNuevasVacantes {
+    display: inline-block;
+    float: left;
+  }
+  */
+
+  .top-nav > li > alertapostvistoagencia > a,
+  .top-nav > li > alertaselecvistocandidato > a,
+  .top-nav > li > alertanuevasvacantes > a,
+  .top-nav > li {
+    padding-top: 10px; // Se necesita poner a 10 (antes 15px) porque con el row aumenta a 20px,
+    padding-bottom: 10px; // Se necesita poner a 10 (antes 15px) porque con el row aumenta a 20px,
+    line-height: 20px;
+    color: #999;
+  }
+
+  a:active,
+  a:hover,
+  a:focus {
+    color: #fff;
+  }
+
+  .top-nav > .open > .dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  }
+
+  .top-nav > .open > .dropdown-menu > li > a {
+    white-space: normal;
+  }
+
+  // Esta clase activa los iconos cuando están en el menú de navegación principal
+  .icono-uisref-activo {
+    color: black !important;
+  }
+
+  // Es necesario guardar este estilo para cuando se quiera
+  // poner alertas a un lado de la navegación principal
+  // es decir; con los íconos de lista de vacantes, cv revisado y cv aceptado.
+  // Además no olvidar poner alertas-navegacion en su respectivo css bien apuntado.
+  /*
+  .nav > alertas-navegacion > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+  }
+  */
+
+  ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+  }
+
+  li.message-preview > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  li.message-footer {
+    margin: 5px 0;
+  }
+
+  ul.alert-dropdown {
+    width: 200px;
+  }
+
+  /* Side Navigation */
+
+  @media (min-width: 768px) {
+    .side-nav {
+      position: fixed;
+      top: 51px;
+      left: 225px;
+      width: 225px;
+      margin-left: -225px;
+      border: none;
+      border-radius: 0;
+      overflow-y: auto;
+      background-color: #222;
+      bottom: 0;
+      overflow-x: hidden;
+      padding-bottom: 40px;
+    }
+
+    .side-nav > li > a {
+      width: 225px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+      outline: none;
+      background-color: #000 !important;
+    }
+  }
+
+  .side-nav > li > ul {
+    padding: 0;
+  }
+
+  .side-nav > li > ul > li > a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+  }
+
+  .side-nav > li > ul > li > a:hover {
+    color: #fff;
+  }
+
+  logout > a {
+    color: #9d9d9d !important;
+    padding: 10px 15px !important;
+    position: relative !important;
+    display: block !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    line-height: 20px !important;
+    width: 225px !important;
+  }
+  logout > a:hover {
+    color: #fff !important;
+    text-decoration:none !important;
+  }
+
+/*
+  // Especial para que el ícono de user pueda soportar
+  // nombres de usuario muy largos.
+  // Cuando sea de ipad para arriba se verá el nombre
+  // completo, pero limitado a 300px.
+  ul > li > a.dropdown-toggle  {
+    max-width: 300px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+  }
+  // CEL UTRA FEO
+   @media (max-width:320px) and (min-width:1px) {
+    ul > li > a.dropdown-toggle  {
+      width: 145px;
+    }
+  }
+
+  // CEL IPHONE
+  @media (max-width:320px) and (min-width:241px) {
+    ul > li > a.dropdown-toggle  {
+      width: 145px;
+    }
+  }
+
+  // CEL GALAXY s III
+  @media (max-width:768px) and (min-width:321px) {
+    ul > li > a.dropdown-toggle  {
+      width: 225px;
+    }
+  }
+*/
+
+// Este CSS fue creado por Héctor, porque el sb-admin-1.0 tiene un defecto: No cuenta
+// con su propio active para un menú con dos niveles. Por eso he creado esta clase.
+// Si se van a crear menús con segundos nives es bueno activarlo. Mientras podría permanecer
+// en modo comentado.
+/*
+.sub-nivel-activo{
+  background-color: #000;
+  color: #ffffff !important;
+}
+*/
+
+  // Esta clase fue creada para que los nombres estén homogeneos, convierte a mayúsculas la primera
+  // letra de cada palabra, ejemplo: Héctor Flores Vizuet
+  .capitalizar-textos {
+    text-transform: capitalize;
+  }
+
+
+
+}
+

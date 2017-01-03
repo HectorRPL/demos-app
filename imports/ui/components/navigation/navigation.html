@@ -1,0 +1,56 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="isCollapsed = false">
+    <div class="navbar-header">
+        <button type="button" style="border: none; color: grey" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-ellipsis-v fa-lg"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+            <small>
+                <small>
+                    <small>Demostradoras Con Experiencia</small>
+                </small>
+            </small>
+        </a>
+    </div>
+    <ul class="row nav navbar-right top-nav">
+        <li class="col-xs-4 text-center">
+            <a ui-sref="demos.postulaciones.enproceso" class="icono-uisref-activo" ui-sref-active="icono-uisref-activo" active="false">
+                <i class="fa fa-hourglass"></i>
+                <num-postulaciones-vistas candidatoid="navigation.candidatoLoggeado._id"></num-postulaciones-vistas>
+            </a>
+        </li>
+        <li class="col-xs-4 text-center">
+            <a ui-sref="demos.vacantes.lista" class="icono-uisref-activo" ui-sref-active="icono-uisref-activo" active="false">
+                <i class="fa fa-thumbs-up fa-lg"></i>
+            </a>
+        </li>
+        <li class="col-xs-4 text-center">
+            <a ui-sref="demos.postulaciones.seleccionada" class="icono-uisref-activo" ui-sref-active="icono-uisref-activo" active="false">
+                <i class="fa fa-heart"></i>
+                <num-selecciones-nuevas candidatoid="navigation.candidatoLoggeado._id"></num-selecciones-nuevas>
+            </a>
+        </li>
+    </ul>
+    <div class="navbar-collapse navbar-ex1-collapse" ng-class="{'collapse':!isCollapsed}">
+        <ul class="nav navbar-nav side-nav">
+            <!--MENUS con un sólo nivel-->
+            <li ng-repeat="menu in navigation.menusSidebar" data-toggle="collapse" data-target=".navbar-ex1-collapse"
+                ui-sref-active="active" active="false">
+                <a ui-sref="{{menu.stateUiSref}}">
+                    <i class="{{menu.fontAwesome}}"></i>&nbsp;{{menu.titulo}}
+                </a>
+            </li>
+            <!--LOGOUT-->
+            <li data-toggle="collapse" data-target=".navbar-ex1-collapse" ui-sref-active="active" active="false">
+                <logout></logout>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--Las siguientes líneas son hechas para que el nombre de la chava siempre aparezca homogeneamente-->
+<!--con la primera letra de cada palabra en mayusculas-->
+<!--<small class="capitalizar-textos">-->
+    <!--{{navigation.candidatoLoggeado.nombre.toLowerCase()}}-->
+<!--</small>-->

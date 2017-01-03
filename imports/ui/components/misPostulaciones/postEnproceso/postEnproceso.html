@@ -1,0 +1,52 @@
+<style>
+    .tarjeta-post-en-proceso a div div div div {
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        overflow:hidden;
+    }
+</style>
+<!--TÍTULO-->
+<titulo nuevotitulo="{{postEnproceso.nuevotitulo}}"></titulo>
+<!--TARJETAS-->
+<div class="col-xs-12 col-md-4 tarjeta-post-en-proceso"
+     dir-paginate="postulacion in postEnproceso.misPostulaciones | itemsPerPage: postEnproceso.perPage">
+    <!--<pre>{{postulacion | json}}</pre>-->
+    <a style="text-decoration:none; color: inherit;" href="" ng-click="postEnproceso.verMas(postulacion.vacanteId, postulacion._id)">
+        <div class="panel panel-default">
+            <!-- BODY DE TARJETA -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            <strong class="text-uppercase">{{postulacion.tienda().cadena().descripcion}}</strong>
+                            <small style="color: gray;">{{postulacion.tienda().sucursal}}</small>
+                        </div>
+                        <div style="color: gray;">
+                            <small>
+                                {{postulacion.vacante().puesto().descripcion}}&nbsp;de&nbsp;{{postulacion.vacante().marca}}
+                            </small>
+                        </div>
+                        <div style="color: gray;">
+                            <small>
+                                Postulado(a): {{postulacion.fechaPostulacion | date : 'dd MMM, yyyy'}}
+                                <span class="pull-right" style="color: lightgrey">ver más</span>
+                            </small>
+                        </div>
+                        <div style="color: lightgrey">
+                            <small style="color: gray">{{postulacion.vacante().sueldo | currency}}&nbsp;x&nbsp;día</small>
+                            <span class="pull-right" ng-class="{'text-primary': postulacion.postVistoCandidato === false}">
+                                <small>Solicitud Revisada</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="col-xs-12">
+    <dir-pagination-controls on-page-change="postEnproceso.pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>
+
+
+

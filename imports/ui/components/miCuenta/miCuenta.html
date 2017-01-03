@@ -1,0 +1,22 @@
+<titulo nuevotitulo="{{miCuenta.nuevotitulo}}"></titulo>
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+        <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group heading=" {{ miCuenta.subtitulo1 }} ">
+                <actualizar-perfil perfil="miCuenta.perfil" id="miCuenta.perfil._id">
+                </actualizar-perfil>
+            </uib-accordion-group>
+            <uib-accordion-group heading=" {{ miCuenta.subtitulo2 }} ">
+                <actualizar-candidato datos="miCuenta.candidato" id="miCuenta.candidato._id">
+                </actualizar-candidato>
+            </uib-accordion-group>
+            <uib-accordion-group heading=" {{ miCuenta.subtitulo3 }} ">
+                <actualizar-direccion direccion="miCuenta.direccion" id="miCuenta.direccion._id">
+                </actualizar-direccion>
+            </uib-accordion-group>
+            <uib-accordion-group heading=" {{ miCuenta.subtitulo4 }} ">
+                <constrasenia-correo></constrasenia-correo>
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
+</div>

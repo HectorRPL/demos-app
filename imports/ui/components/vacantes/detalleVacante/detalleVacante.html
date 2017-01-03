@@ -1,0 +1,96 @@
+<titulo nuevotitulo="{{detalleVacante.nuevotitulo}}"></titulo>
+<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <uib-tabset active="activeForm">
+                <!--TAB DATOS-->
+                <uib-tab index="0" heading="Datos"">
+                    <br>
+                    <strong>Marca:</strong>
+                    {{ detalleVacante.vacante.marca}}<br>
+                    <strong>Tipo Vacante:</strong>
+                    {{ detalleVacante.vacante.puesto().descripcion }}<br>
+                    <strong>Estado:</strong>
+                    {{ detalleVacante.vacante.estado().descripcion }}<br>
+                    <strong>Sueldo:</strong>
+                    {{ detalleVacante.vacante.sueldo | currency }} por día<br><br><br>
+                </uib-tab>
+                <!--TAB PERFIL-->
+                <uib-tab index="1" heading="Perfil">
+                    <br>
+                    <strong>Sexo:</strong>
+                    {{detalleVacante.vacante.perfil.sexo}} <br>
+                    <strong>Talla:</strong>
+                    {{detalleVacante.vacante.perfil.talla}} <br>
+                    <strong>Escolaridad:</strong>
+                    {{detalleVacante.vacante.perfil.escolaridad}} <br>
+                    <strong>Habilidades:</strong>
+                    Facilidad de Palabra, Buena Presentación, Disp. de Trasladarse, Gusto por las Ventas <br>
+                    <strong>Exp. Descripcion:</strong>
+                    Alimentos y {{detalleVacante.vacante.perfil.experiencia.otra}}
+                </uib-tab>
+                <!-- TAB HORARIOS-->
+                <uib-tab index="2" heading="Horario">
+                    <br>
+                    <dl class="dl-horizontal">
+                        <strong>Dias a laborar:</strong>
+                        <span ng-repeat="dia in detalleVacante.vacante.horarios.dias"> {{ dia.id }} </span> <br>
+                        <strong>Horario:</strong>
+                        de {{detalleVacante.vacante.horarios.hrsInicio | date : "shortTime" }} a
+                        {{detalleVacante.vacante.horarios.hrsFin | date : "shortTime" }} <br>
+                        <strong>Duracion:</strong>
+                        {{detalleVacante.vacante.horarios.duracion}}
+                        <br><br><br>
+                    </dl>
+                </uib-tab>
+            </uib-tabset>
+            <br>
+            <ol class="breadcrumb">
+                <li>Tiendas disponibles para ti, elige una:</li>
+            </ol>
+            <!-- TABLA / CONTIENE LA LISTA DE TIENDAS (CADENA / DELEG.MUN / SUCURSAL) -->
+            <div class="list-group">
+                <button class="list-group-item" type="button" ng-repeat="tienda in detalleVacante.tiendas"
+                        ng-disabled="tienda.cubierta || detalleVacante.postulado"
+                        ng-class="{'disabled' : tienda.cubierta || detalleVacante.postulado}"
+                        ng-click="detalleVacante.abrirConfirmacion(tienda, detalleVacante.vacante.marca, cadena.descripcion)">
+                    <div class="row">
+                        <div class="col-xs-2">
+                                <span class="badge">
+                                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>{{tienda.numPostulados}}
+                                </span>
+                        </div>
+                        <div class="col-xs-10">
+                            <small>
+                                <strong>{{ tienda.cadena().descripcion }}</strong> /
+                                {{ tienda.delMpio }} /
+                                {{ tienda.sucursal }}
+                            </small>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-show="detalleVacante.postulado" uib-alert type="{{detalleVacante.success.tipo}}" class="text-center">
+                        <span class="{{detalleVacante.success.icono}}"></span>&nbsp;&nbsp;
+                        <strong>{{detalleVacante.success.mensaje}} </strong>
+                        <br>
+                    </div>
+                    <div ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
+                         uib-alert type="{{detalleVacante.warning.tipo}}" class="text-center">
+                        <span class="{{detalleVacante.warning.icono}}"></span>&nbsp;&nbsp;
+                        <strong>{{detalleVacante.warning.mensaje}} </strong>
+                    </div>
+                </div>
+            </div>
+            <!--BOTÓN REGRESAR -->
+            <div class="pull-left">
+                <a class="btn btn-block btn-danger" ui-sref="^.lista">
+                    <span class="fa fa-chevron-left " aria-hidden="true"></span>
+                    Regregsar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

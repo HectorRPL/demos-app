@@ -1,0 +1,18 @@
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="btn close" ng-click="modalRegistroVacante.cancelar()">
+                <span class="fa fa-times" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div uib-alert type="{{modalRegistroVacante.respuesta.tipo}}" class="text-center">
+                <span class="{{modalRegistroVacante.respuesta.icono}}"></span>&nbsp;&nbsp;
+                <strong>{{modalRegistroVacante.respuesta.mensaje}} </strong><br>
+                <strong><h5><a href ng-click="modalRegistroVacante.registrarme()">¡REGISTRARME!</a></h5></strong>
+            </div>
+        </div>
+    </div>
+</div>
