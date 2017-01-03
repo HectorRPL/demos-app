@@ -56,18 +56,19 @@ class RegistroFacebook {
 
     guardar() {
         crear.call(this.direccion, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
             if (err) {
                 this.respuesta.mensaje = ' No se pudieron guardar la registroDireccion. ' + err;
                 this.respuesta.tipo = 'danger';
             } else {
                 this.actulaizarDatosCandidato();
+
             }
         }));
     }
 
     actulaizarDatosCandidato(){
         actualizarRegFacebook.call(this.datos, this.$bindToContext((err) => {
+            this.respuesta.mostrar = true;
             if (err) {
                 this.respuesta.mensaje = ' No se pudo guardar la fecha de nacimiento. ' + err;
                 this.respuesta.tipo = 'danger';
