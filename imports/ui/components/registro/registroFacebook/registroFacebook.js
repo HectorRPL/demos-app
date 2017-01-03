@@ -6,7 +6,7 @@ import angularMeteor from "angular-meteor";
 import angularMessages from "angular-messages";
 import {crear} from "../../../../api/direcciones/methods.js";
 import {obtenerColonias} from "../../../../api/codigosPostales/methods.js";
-import {actualizarFechaNacimiento} from "../../../../api/candidatos/methods.js";
+import {actualizarRegFacebook} from "../../../../api/candidatos/methods.js";
 import {Candidatos} from "../../../../api/candidatos/collection";
 import {name as ElegirAnio} from "../../comun/selects/elegirFechaNacimiento/elegirAnio/elegirAnio";
 import {name as ElegirMes} from "../../comun/selects/elegirFechaNacimiento/elegirMes/elegirMes";
@@ -61,15 +61,18 @@ class RegistroFacebook {
                 this.respuesta.mensaje = ' No se pudieron guardar la registroDireccion. ' + err;
                 this.respuesta.tipo = 'danger';
             } else {
-                actualizarFechaNacimiento.call(this.fechaNacimiento, (err) => {
-                    if (err) {
-                        this.respuesta.mensaje = ' No se pudo guardar la fecha de nacimiento. ' + err;
-                        this.respuesta.tipo = 'danger';
-                    } else {
-                        this.$state.go('inicio.registro.perfil');
-                    }
-                });
+                this.actulaizarDatosCandidato();
+            }
+        }));
+    }
 
+    actulaizarDatosCandidato(){
+        actualizarRegFacebook.call(this.datos, this.$bindToContext((err) => {
+            if (err) {
+                this.respuesta.mensaje = ' No se pudo guardar la fecha de nacimiento. ' + err;
+                this.respuesta.tipo = 'danger';
+            } else {
+                this.$state.go('inicio.registro.perfil');
             }
         }));
     }
