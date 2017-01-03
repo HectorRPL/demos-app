@@ -99,18 +99,18 @@
         <!-- TELÉFONO -->
         <div class="col-xs-12 col-sm-6">
             <div class="form-group"
-                 ng-class="{ 'has-error' : registroUsuarioFrm.telefono.$invalid && !registroUsuarioFrm.telefono.$pristine}">
+                 ng-class="{ 'has-error' : registroUsuarioFrm.celular.$invalid && !registroUsuarioFrm.celular.$pristine}">
                 <div class="input-group">
                             <span class="input-group-addon  span-demos">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </span>
-                    <input id="telefonoID" class="form-control" type="text" name="telefono"
+                    <input id="celularID" class="form-control" type="text" name="celular"
                            placeholder="Celular"
                            aria-describedby="sizing-addon1" maxlength="10" ng-maxlength="10"
                            ng-pattern="/^[0-9]{10}$/"
-                           required ng-model="agregarCandidato.credentials.profile.telefono">
+                           required ng-model="agregarCandidato.credentials.profile.celular">
                 </div>
-                <div ng-messages="registroUsuarioFrm.telefono.$dirty && registroUsuarioFrm.telefono.$error"
+                <div ng-messages="registroUsuarioFrm.celular.$dirty && registroUsuarioFrm.celular.$error"
                      role="alert">
                     <div style="color:yellow;" ng-message="required"> Campo requerido</div>
                     <div style="color:yellow;" ng-message="maxlength"> 10 dígitos necesarios</div>
