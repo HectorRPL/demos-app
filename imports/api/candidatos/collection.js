@@ -42,7 +42,7 @@ Schema.candidato = new SimpleSchema({
         min: 2,
         regEx: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/
     },
-    telefono: {
+    celular: {
         type: String,
         max: 10,
         min: 10,
