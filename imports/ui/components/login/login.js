@@ -7,15 +7,15 @@ import {name as Registro} from "../registro/registro";
 import {name as Facebook} from "./facebook";
 import {name as Demos} from "../demos/demos";
 import {name as Recuperar} from "../recuperar/recuperar";
+import {name as TituloInicio} from "../inicio/tituloInicio/tituloInicio";
 
 
 class Login {
     constructor($scope, $reactive, $state) {
         'ngInject';
         this.$state = $state;
-
         $reactive(this).attach($scope);
-
+        this.titulo = 'Ingresa a Demostradoras';
         this.cargando = true;
 
         this.credentials = {
@@ -52,6 +52,7 @@ export default angular.module(name, [
     Facebook,
     Demos,
     Recuperar,
+    TituloInicio
 ]).component(name, {
     templateUrl: `imports/ui/components/login/${name}.html`,
     controllerAs: name,
