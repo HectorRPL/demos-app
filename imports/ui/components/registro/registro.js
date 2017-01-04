@@ -7,6 +7,7 @@ import {name as RegistroDatos} from './registroDatos/registroDatos';
 import {name as RegistroDireccion} from './registroDireccion/registroDireccion';
 import {name as RegistroPerfil} from './registroPerfil/registroPerfil';
 import {name as RegistroFacebook} from './registroFacebook/registroFacebook';
+import {name as TituloInicio} from "../inicio/tituloInicio/tituloInicio";
 
 import './registro.html';
 
@@ -14,6 +15,7 @@ import './registro.html';
 class Registro {
     constructor() {
         'ngInject';
+        this.titulo = '¡Unete a Demostradoras!';
     }
 
 }
@@ -29,7 +31,8 @@ export default angular.module(name, [
     RegistroDatos,
     RegistroDireccion,
     RegistroPerfil,
-    RegistroFacebook
+    RegistroFacebook,
+    TituloInicio
 ]).component(name, {
     templateUrl: `imports/ui/components/registro/${name}.html`,
     controllerAs: name,
