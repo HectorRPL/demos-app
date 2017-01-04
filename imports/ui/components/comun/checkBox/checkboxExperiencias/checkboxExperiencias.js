@@ -10,7 +10,8 @@ class CheckboxExperiencias {
         $reactive(this).attach($scope);
         this.subscribe('experiencias');
 
-        this.listado = [];
+        this.expPerfil = [];
+        this.expSeleccionadas = [];
         this.otraexperiencia = '';
 
         this.otra = {
@@ -24,24 +25,25 @@ class CheckboxExperiencias {
             }
         });
 
-        this.listado = Session.get('listadoExperiencias');
+        this.expPerfil = Session.get('listadoExperiencias') || [];
 
     }
 
     agregarOEliminar(experiencia) {
         if (experiencia.activo === true) {
-            this.listado.push(experiencia._id);
+            this.expSeleccionadas.push(experiencia._id);
         } else if (experiencia.activo === false) {
             var index = this.listado.indexOf(experiencia._id);
-            this.listado.splice(index, 1);
+            this.expSeleccionadas.splice(index, 1);
         }
-        var setValores = new Set(this.listado);
-        this.listado = Array.from(setValores);
+        this.listado = this.expSeleccionadas.slice(0, this.expSeleccionadas.length);
     }
 
     habilitarCheck(experiencia) {
-        let resultado = this.listado.indexOf(experiencia._id);
+        let resultado  = -1;
+        resultado = this.expPerfil.indexOf(experiencia._id);
         if (resultado > -1) {
+            this.expSeleccionadas.push(experiencia._id);
             experiencia.activo = true;
         } else {
             experiencia.activo = false;

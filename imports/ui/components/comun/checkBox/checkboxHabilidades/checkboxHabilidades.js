@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import { Session } from 'meteor/session';
+import {Session} from 'meteor/session';
 import {Habilidades} from "../../../../../api/habilidades/collection.js";
 import "./checkboxHabilidades.html";
 
@@ -10,7 +10,8 @@ class CheckboxHabilidades {
         $reactive(this).attach($scope);
         this.subscribe('habilidades');
 
-        this.listado = [];
+        this.expPerfil = [];
+        this.expSeleccionadas = [];
         this.otrahabilidad = '';
 
         this.otra = {
@@ -23,22 +24,22 @@ class CheckboxHabilidades {
                 return Habilidades.find();
             }
         });
-
-        this.listado = Session.get('listadoHabilidades');
+        this.expPerfil = Session.get('listadoHabilidades') || [];
 
     }
 
     agregarOEliminar(habilidad) {
         if (habilidad.activo === true) {
-            this.listado.push(habilidad._id);
+            this.expSeleccionadas.push(habilidad._id);
         } else if (habilidad.activo === false) {
-            var index = this.listado.indexOf(habilidad._id);
-            this.listado.splice(index, 1);
+            var index = this.expSeleccionadas.indexOf(habilidad._id);
+            this.expSeleccionadas.splice(index, 1);
         }
+        this.listado = this.expSeleccionadas.slice(0, this.expSeleccionadas.length);
     }
 
     habilitarCheck(habilidad) {
-        let resultado = this.listado.indexOf(habilidad._id);
+        let resultado = this.expPerfil.indexOf(habilidad._id);
         if (resultado > -1) {
             habilidad.activo = true;
         } else {
