@@ -1,15 +1,72 @@
-<div class="form-group">
-    <label class="control-label" style="color:white;">
-        <h3>¡Sólo un paso más!
-            Te hemos enviado un código de confirmación a tu teléfono celular, por favor ingresalo en la siguiente casilla
-        </h3>
-    </label>
-    <!-- BOTÓN SIGUIENTE -->
-    <button
-            type="button"
-            class="btn btn-default btn-lg btn-block"
-            ng-click="confirmacionRegistro.verVacantes()">
-        Ver vacantes
-    </button>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label class="control-label" style="color:white;">
+                <h4>¡Sólo un paso más!
+                    Te hemos enviado un código de confirmación a tu teléfono celular, por favor ingresalo en la
+                    siguiente casilla
+                </h4>
+            </label>
+        </div>
+    </div>
 </div>
+<form role="form" class="property-submit-form" id="confirmarRegFrmId" name="confirmarRegFrm" novalidate>
+    <div class="row">
+        <div class="col-xs-offset-5 col-xs-2">
+            <div class="form-group"
+                 ng-class="{ 'has-error' : confirmarRegFrm.codigo.$invalid && !confirmarRegFrm.codigo.$pristine}">
+                <div class="input-group">
+                    <input id="codigoID" class="form-control" type="text" name="codigo"
+                           maxlength="4" ng-maxlength="4" ng-pattern="/^[0-9]{10}$/"
+                           aria-describedby="sizing-addon1" required
+                           ng-model="confirmacionRegistro.codigo">
+                </div>
+                <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error"
+                     role="alert">
+                    <div style="color:yellow;" ng-message="required">Campo requerido</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BOTÓN SIGUIENTE -->
+    <button type="button" class="btn btn-default btn-lg btn-block"
+            ng-disabled="confirmarRegFrm.$invalid"
+            ng-click="confirmacionRegistro.verVacantes()">
+        Confrimar Registro
+    </button>
+</form>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label class="control-label" style="color:white;">
+                ¿No tiene el SMS?
+            </label>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <span class="fa fa-paper-plane-o fa-lg" aria-hidden="true"></span>
+        <button type="button" class="btn btn-link">
+             Enviar SMS otra vez.
+        </button>
+    </div>
+    <div class="col-xs-12">
+        <span class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></span>
+        <button type="button" class="btn btn-link">
+            Cambiar celular.
+        </button>
+    </div>
+    <div class="col-xs-12">
+        <span class="fa fa-envelope-o fa-lg" aria-hidden="true"></span>
+        <button type="button" class="btn btn-link">
+            Comprobar por correo.
+        </button>
+    </div>
+</div>
+
+
+
+
 

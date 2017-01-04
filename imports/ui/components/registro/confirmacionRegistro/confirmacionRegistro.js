@@ -31,9 +31,9 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.exito', {
-            url: '/exito',
-            template: '<registro-exito></registro-exito>',
+        .state('inicio.registro.confirmacion', {
+            url: '/confirmacion',
+            template: '<confirmacion-Registro></confirmacion-Registro>',
             resolve: {
                 currentUser($q) {
                     if (Meteor.userId() === null) {
