@@ -6,7 +6,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import './registroPerfil.html';
 import { name as AgregarPerfil } from '../../perfilLaboral/agregarPerfil/agregarPerfil';
-import { name as RegistroExitoso } from '../exito/registroExito';
+import { name as ConfirmacionRegisro } from '../confirmacionRegistro/confirmacionRegistro';
 
 class RegistroPerfil {
 }
@@ -19,7 +19,7 @@ export default angular
         angularMeteor,
         uiRouter,
         AgregarPerfil,
-        RegistroExitoso
+        ConfirmacionRegisro
     ])
     .component(name, {
         templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
