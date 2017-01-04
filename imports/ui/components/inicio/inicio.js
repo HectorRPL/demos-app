@@ -4,7 +4,6 @@ import uiRouter from "angular-ui-router";
 import "./inicio.html";
 import {name as Login} from "../login/login";
 import {name as DemosFooter} from "../footer/demosFooter";
-import {name as TituloInicio} from "./tituloInicio/tituloInicio";
 
 class Inicio {
     constructor() {
@@ -20,8 +19,7 @@ export default angular.module(name, [
     angularMeteor,
     uiRouter,
     DemosFooter,
-    Login,
-    TituloInicio
+    Login
 ]).component(name, {
     templateUrl: `imports/ui/components/${name}/${name}.html`,
     controllerAs: name,
