@@ -38,7 +38,7 @@ class AgregarPerfil {
                 this.respuesta.tipo = 'danger';
                 this.cargando = true;
             } else {
-                this.$state.go('inicio.registro.exito');
+                this.$state.go('inicio.registro.confirmacion');
                 this.cargando = true;
             }
         }));
