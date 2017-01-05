@@ -37,3 +37,5 @@ ziarno:provide-mixin
 meteorhacks:aggregate
 didericis:callpromise-mixin
 u2622:persistent-session
+mys:accounts-phone
+accounts-base
