@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {Meteor} from "meteor/meteor";
+import {obtenerEstadoReg} from '../../../api/bitacoraLogin/methods';
 import "./login.html";
 import {name as Registro} from "../registro/registro";
 import {name as Facebook} from "./facebook";
@@ -34,8 +35,11 @@ class Login {
                     this.cargando = true;
                     this.error = err;
                 } else {
-                    this.$state.go('demos.vacantes.lista');
-                    this.cargando = true;
+                    obtenerEstadoReg.call({}, this.$bindToContext((err, result)=>{
+                        console.log(result);
+                        this.$state.go(result);
+                        this.cargando = true;
+                    }));
                 }
             })
         );

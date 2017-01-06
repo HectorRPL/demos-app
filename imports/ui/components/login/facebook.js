@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {Meteor} from "meteor/meteor";
+import {obtenerEstadoReg} from '../../../api/bitacoraLogin/methods';
 import "./facebook.html";
 
 class Facebook {
@@ -23,7 +24,10 @@ class Facebook {
                 this.error = err;
                 console.log('No se pudo crear el usuario, por el siguiente motivo: \b', err);
             } else {
-                this.$state.go('inicio.registro.facebook');
+                obtenerEstadoReg.call({}, this.$bindToContext((err, result)=>{
+                    console.log(result);
+                    this.$state.go(result);
+                }));
             }
         });
     }
