@@ -51,7 +51,8 @@ Schema.candidato = new SimpleSchema({
     },
     email: {
         type: String,
-        regEx: SimpleSchema.RegEx.Email
+        regEx: SimpleSchema.RegEx.Email,
+        optional: true
     },
     nacimientoDia: {
         type: Number,
