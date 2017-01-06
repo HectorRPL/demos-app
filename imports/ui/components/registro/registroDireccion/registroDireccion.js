@@ -1,10 +1,18 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
 import './registroDireccion.html';
 import {name as AgregarDireccion} from '../../direccion/agregarDireccion/agregarDireccion';
 
 class RegistroDireccion {
+    constructor(){
+        this.actulizarEstado();
+    }
+
+    actulizarEstado(){
+        actualizarEstadoReg.call({estado: 'inicio.registro.direccion'});
+    }
 }
 
 const name = 'registroDireccion';

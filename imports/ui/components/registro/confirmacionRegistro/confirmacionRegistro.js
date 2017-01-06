@@ -1,17 +1,22 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
 import './confirmacionRegistro.html';
 
 class ConfirmacionRegistro {
     constructor($scope, $reactive, $state) {
         'ngInject';
+        this.actulizarEstado();
         $reactive(this).attach($scope);
         this.$state = $state;
     }
 
     verVacantes() {
         this.$state.go('demos.vacantes.lista');
+    }
+    actulizarEstado(){
+        actualizarEstadoReg.call({estado: 'inicio.registro.confirmacion'});
     }
 }
 

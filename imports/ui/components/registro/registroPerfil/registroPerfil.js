@@ -4,11 +4,19 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
 import './registroPerfil.html';
 import { name as AgregarPerfil } from '../../perfilLaboral/agregarPerfil/agregarPerfil';
 import { name as ConfirmacionRegisro } from '../confirmacionRegistro/confirmacionRegistro';
 
 class RegistroPerfil {
+    constructor(){
+        this.actualizarEstado();
+    }
+
+    actualizarEstado(){
+        actualizarEstadoReg.call({estado: 'inicio.registro.perfil'});
+    }
 }
 
 const name = 'registroPerfil';

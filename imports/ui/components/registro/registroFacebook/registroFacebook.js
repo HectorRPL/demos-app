@@ -7,6 +7,7 @@ import angularMessages from "angular-messages";
 import {crear} from "../../../../api/direcciones/methods.js";
 import {obtenerColonias} from "../../../../api/codigosPostales/methods.js";
 import {actualizarRegFacebook} from "../../../../api/candidatos/methods.js";
+import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
 import {Candidatos} from "../../../../api/candidatos/collection";
 import {name as ElegirAnio} from "../../comun/selects/elegirFechaNacimiento/elegirAnio/elegirAnio";
 import {name as ElegirMes} from "../../comun/selects/elegirFechaNacimiento/elegirMes/elegirMes";
@@ -18,6 +19,7 @@ class RegistroFacebook {
     constructor($scope, $reactive, $state) {
         'ngInject';
         $reactive(this).attach($scope);
+        this.actualizarEstado();
         this.$state = $state;
         this.respuesta = {
             mostrar: false,
@@ -77,6 +79,9 @@ class RegistroFacebook {
             }
         }));
     }
+    actualizarEstado(){
+        actualizarEstadoReg.call({estado: 'inicio.registro.facebook'});
+     }
 }
 
 const name = 'registroFacebook';
