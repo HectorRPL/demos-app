@@ -1,4 +1,4 @@
-import '../../api/usuarios';
+import '../../api/usuarios/usuarios';
 import '../../api/vacantes/server/publish';
 import '../../api/codigosPostales/methods';
 import '../../api/candidatos/server/publish';
@@ -18,3 +18,4 @@ import '../../api/fechaNacimiento/anios/server/publish';
 import '../../api/fechaNacimiento/meses/server/publish';
 import '../../api/fechaNacimiento/dias/server/publish';
 import '../../api/agencias/server/publish';
+import '../../api/bitacoraLogin/methods';
