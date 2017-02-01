@@ -6,23 +6,49 @@ navigation {
     padding: 0 15px;
   }
 
-  // Esta clase ya no es necesaria ya que estamos usando row/col y estos mismos sustituyen y mejoran
-  // los botones en una sóla fila. Cuando es una lista usando ul y li está bien.
-  /*
-  .top-nav > li > alertapostvistoagencia,
-  .top-nav > li > numNuevasSelecciones,
-  .top-nav > li > numNuevasVacantes {
-    display: inline-block;
-    float: left;
+  @media (max-width: 5000px) {
+    .navbar-header {
+      float: none;
+    }
+    .navbar-left,.navbar-right {
+      float: none !important;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+    .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+      display: none!important;
+    }
+    .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+      float: none;
+    }
+    .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .collapse.in{
+      display:block !important;
+    }
   }
-  */
 
   .top-nav > li > alertapostvistoagencia > a,
   .top-nav > li > alertaselecvistocandidato > a,
   .top-nav > li > alertanuevasvacantes > a,
   .top-nav > li {
-    padding-top: 10px; // Se necesita poner a 10 (antes 15px) porque con el row aumenta a 20px,
-    padding-bottom: 10px; // Se necesita poner a 10 (antes 15px) porque con el row aumenta a 20px,
+    padding-top: 0px; // Controla la 'gordura' de la seccion de alertas en el navbar
+    padding-bottom: 0px; // Controla la 'gordura' de la seccion de alertas en el navbar
     line-height: 20px;
     color: #999;
   }
@@ -32,6 +58,9 @@ navigation {
   a:focus {
     color: #fff;
   }
+
+
+  /* Menú desplegable (tres puntos horizontales)*/
 
   .top-nav > .open > .dropdown-menu {
     float: left;
@@ -54,16 +83,8 @@ navigation {
     color: black !important;
   }
 
-  // Es necesario guardar este estilo para cuando se quiera
-  // poner alertas a un lado de la navegación principal
-  // es decir; con los íconos de lista de vacantes, cv revisado y cv aceptado.
-  // Además no olvidar poner alertas-navegacion en su respectivo css bien apuntado.
-  /*
-  .nav > alertas-navegacion > li > a {
-    position: relative;
-    display: block;
-    padding: 10px 10px;
-  }
+  /* ESTILO PARA CUANDO LAS ALERTAS TIENEN SUB MENUS
+     En esta primera versión de demos no saldrán.
   */
 
   ul.message-dropdown {
@@ -89,50 +110,6 @@ navigation {
 
   ul.alert-dropdown {
     width: 200px;
-  }
-
-  /* Side Navigation */
-
-  @media (min-width: 768px) {
-    .side-nav {
-      position: fixed;
-      top: 51px;
-      left: 225px;
-      width: 225px;
-      margin-left: -225px;
-      border: none;
-      border-radius: 0;
-      overflow-y: auto;
-      background-color: #222;
-      bottom: 0;
-      overflow-x: hidden;
-      padding-bottom: 40px;
-    }
-
-    .side-nav > li > a {
-      width: 225px;
-    }
-
-    .side-nav li a:hover,
-    .side-nav li a:focus {
-      outline: none;
-      background-color: #000 !important;
-    }
-  }
-
-  .side-nav > li > ul {
-    padding: 0;
-  }
-
-  .side-nav > li > ul > li > a {
-    display: block;
-    padding: 10px 15px 10px 38px;
-    text-decoration: none;
-    color: #999;
-  }
-
-  .side-nav > li > ul > li > a:hover {
-    color: #fff;
   }
 
   logout > a {
@@ -199,8 +176,5 @@ navigation {
   .capitalizar-textos {
     text-transform: capitalize;
   }
-
-
-
 }
 
