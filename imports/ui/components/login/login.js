@@ -24,6 +24,7 @@ class Login {
             password: ''
         };
         this.error = '';
+
     }
 
     login() {
