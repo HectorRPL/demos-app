@@ -1,28 +1,24 @@
 import angular from 'angular';
-import angularMeteor from 'angular-meteor';
+import {Meteor} from 'meteor/meteor';
 import {name as Inicio} from '../imports/ui/components/inicio/inicio';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import 'bootstrap-social/bootstrap-social.css';
-import uiRouter from 'angular-ui-router';
 
-
-class Main {
+function onReady() {
+    angular.bootstrap(document, [
+        Inicio
+    ], {
+        strictDi: true
+    });
 }
 
-const name = 'main';
-// create a module
-
-export default angular.module('demostradorasApp', [
-    angularMeteor,
-    uiRouter,
-    Inicio
-])
-    .config(config);
-
-function config($locationProvider, $urlRouterProvider, $stateProvider) {
-    'ngInject';
-    $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/inicio/login');
-
+if (Meteor.isCordova) {
+    angular.element(document).on('deviceready', onReady);
+} else {
+    angular.element(document).ready(onReady);
 }
+
+/*const name = 'main';
+ // create a module
+
+ export default angular.module('demostradorasApp', [
+ Inicio
+ ]);*/

@@ -4,7 +4,7 @@ import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
 import {_} from "meteor/underscore";
 import {Candidatos} from "./collection.js";
 
-const CAMPOS_CANDIDATOS = ['nombre', 'apellidos', 'telefono', 'email','nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'sexo'];
+const CAMPOS_CANDIDATOS = ['nombre', 'apellidos', 'telefono', 'email', 'nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'sexo'];
 const CAMPO_ID = ['_id'];
 
 
@@ -40,19 +40,20 @@ export const actualizar = new ValidatedMethod({
     }
 });
 
-export const actualizarRegFacebook = new ValidatedMethod({
-    name: 'candidato.actualizarRegFacebook',
+export const actualizarFechaNacimiento = new ValidatedMethod({
+    name: 'candidato.actualizarFechaNacimiento',
     mixins: [LoggedInMixin],
     checkLoggedInError: {
         error: 'noLogeado',
         message: 'Para modificar estos campos necesita registrarse.',
         reason: 'Usuario no logeado'
     },
-    validate: Candidatos.simpleSchema().pick(['nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'celular']).validator({
+    validate: Candidatos.simpleSchema().pick(['nacimientoDia', 'nacimientoMes', 'nacimientoAnio'])
+        .validator({
         clean: true,
         filter: false
     }),
-    run({nacimientoDia, nacimientoMes, nacimientoAnio, celular}) {
+    run({nacimientoDia, nacimientoMes, nacimientoAnio}) {
 
         return Candidatos.update({
             propietario: this.userId
@@ -60,8 +61,7 @@ export const actualizarRegFacebook = new ValidatedMethod({
             $set: {
                 nacimientoDia: nacimientoDia,
                 nacimientoMes: nacimientoMes,
-                nacimientoAnio: nacimientoAnio,
-                celular: celular
+                nacimientoAnio: nacimientoAnio
             }
         });
     }

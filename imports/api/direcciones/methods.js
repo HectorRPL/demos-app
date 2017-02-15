@@ -38,7 +38,8 @@ export const crear = new ValidatedMethod({
                 colonia,
                 codigoPostal,
                 numExt,
-                numInt
+                numInt,
+                codigoPais: 'MX'
             };
             return Direcciones.insert(direccion);
         }

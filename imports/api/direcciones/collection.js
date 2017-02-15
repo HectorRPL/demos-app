@@ -67,6 +67,12 @@ Schema.candidato = new SimpleSchema({
         min: 5,
         regEx: /^[0-9]{5}$/
     },
+    codigoPais: {
+        type: String,
+        max: 2,
+        min: 2,
+        regEx: /^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/
+    },
     numExt: {
         type: String,
         max: 10,

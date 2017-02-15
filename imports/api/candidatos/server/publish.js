@@ -4,7 +4,7 @@ import {Postulaciones} from "../../postulaciones/collection";
 
 
 if (Meteor.isServer) {
-    Meteor.publish('candidato.logeado', function () {
+    Meteor.publish('candidatos.logeado', function () {
         const selector = {propietario: this.userId};
         return Candidatos.find(selector, {
             fields: {
@@ -12,17 +12,6 @@ if (Meteor.isServer) {
                 propietario: 0
             }
         });
-    });
-
-    Meteor.publish('candidatos.postulaciones.vistas', function (candidatoId) {
-        let selector = {
-            $and: [
-                candidatoId,
-                {estado: 1},
-                {postVistoAgencia: true}
-            ]
-        };
-        Counts.publish(this, `count.postulaciones.vistas.${candidatoId.candidatoId}`, Postulaciones.find(selector));
     });
 
     Meteor.publish('candidatos.selecciones.nuevas', function (candidatoId) {
@@ -33,8 +22,25 @@ if (Meteor.isServer) {
                 {selecVistoCandidato: false}
             ]
         };
-        Counts.publish(this, `count.selecciones.nuevas.${candidatoId.candidatoId}`, Postulaciones.find(selector));
+        console.log('candidatos.selecciones.nuevas ', selector);
+        Counts.publish(this, `count.selecciones.nuevas.${candidatoId.candidatoId}`,
+            Postulaciones.find(selector));
     });
+
+    Meteor.publish('candidatos.postulaciones.vistas', function (candidatoId) {
+        let selector = {
+            $and: [
+                candidatoId,
+                {estado: 1},
+                {postVistoAgencia: true},
+                {postVistoCandidato: false}
+            ]
+        };
+        Counts.publish(this, `count.postulaciones.vistas.${candidatoId.candidatoId}`,
+            Postulaciones.find(selector));
+    });
+
+
 
     
 }

@@ -9,5 +9,14 @@
     "appId": "582431125259763",
     "secret": "c901a04e704b348025ce0a65a1fedbf3",
     "loginStyle": "popup"
+  },
+  "smsConfig": {
+    "fromSMS": "19543728561",
+    "testFromSMS": "15005550006",
+    "accountSid": "ACbfbabd22a5d486bff3b92e219e93fd47",
+    "authToke": "2f93111372dc246eaead700ced362616",
+    "phoneVerificationMasterCode": "1q2W",
+    "forbidClientAccountCreation": false,
+    "verificationMaxRetries": 3
   }
 }

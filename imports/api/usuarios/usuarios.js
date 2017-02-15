@@ -1,49 +1,55 @@
 import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
-import {Candidatos} from '../candidatos/collection'
-import {BitacoraLogin} from '../bitacoraLogin/collection'
+import {Candidatos} from '../candidatos/collection';
+import {BitacoraLogin} from '../bitacoraLogin/collection';
+import {CodigosVerificaion} from '../codigosVerificacion/collection';
+import {enviarSMS} from '../twilio/methods'
 const LOGIN_METHOD = 'login';
 const CREATE_USER_METHOD = 'createUser';
 
 if (Meteor.isServer) {
-    Meteor.publish('usersData', function () {
-
-        return Meteor.users.find({_id: this.userId}, {
-            fields: {
-                emails: 1,
-                estado: 1
-            }
-        });
-    });
 
     Accounts.onCreateUser((options, user) => {
-
         let candidato = {};
-
+        let servicePhone = {
+            bcrypt: ''
+        };
+        user.phone = {number: '', verified: false};
         if (user.services.facebook) {
-            var datos = user.services.facebook || {};
+            let datos = user.services.facebook || {};
             candidato.nombre = datos.first_name || '';
             candidato.apellidos = datos.last_name || '';
             candidato.sexo = datos.gender == 'male' ?
                 'Hombre' : 'Mujer' || '';
-            candidato.email = datos.email || '';
-        } else {
+            if (datos.email) {
+                candidato.email = datos.email;
+                user.emails = [{
+                    address: datos.email,
+                    verified: true
+                }];
+                user.username = candidato.email;
+                candidato.emailVerificado = true;
+            }
+        } else if (user.services.password) {
             candidato = options.profile;
-            candidato.email = user.emails[0].address || '';
+            servicePhone.bcrypt = user.services.password.bcrypt;
+            user.phone.number = options.profile.celular;
+            user.phone.paisLada = options.profile.paisLada;
         }
+        user.services.phone = servicePhone;
         candidato.propietario = user._id;
-        user.username = candidato.email;
         Candidatos.insert(candidato);
 
         return user;
     });
+
 
     Accounts.onLogin((result)=> {
         let bitacoraLogin = {
             propietario: result.user._id,
             fechaLogin: new Date(),
             conexion: result.connection,
-            estadoRegistro: 'inicio.registro.direccion',
+            estadoRegistro: 'inicio.registro.confirmacion',
             tipoLogin: result.type
 
         };
@@ -58,6 +64,7 @@ if (Meteor.isServer) {
         } else {
             if (CREATE_USER_METHOD === result.methodName) {
                 BitacoraLogin.insert(bitacoraLogin);
+                TwilioSMS.crearCodigoVerificacion(result.user._id);
             }
             if (LOGIN_METHOD === result.methodName) {
                 BitacoraLogin.update({propietario: result.user._id}, {$set: {fechaLogin: new Date()}});
@@ -67,6 +74,7 @@ if (Meteor.isServer) {
 
 
     });
+    
 
 
 }

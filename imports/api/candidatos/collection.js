@@ -44,15 +44,28 @@ Schema.candidato = new SimpleSchema({
     },
     celular: {
         type: String,
-        max: 10,
+        max: 13,
         min: 10,
-        regEx: /^[0-9]{10}$/,
+        optional: true
+    },
+    celularVerificado: {
+        type: Boolean,
+        defaultValue: false
+    },
+    paisLada: {
+        type: String,
+        max: 3,
+        min: 1,
         optional: true
     },
     email: {
         type: String,
         regEx: SimpleSchema.RegEx.Email,
         optional: true
+    },
+    emailVerificado: {
+        type: Boolean,
+        defaultValue: false
     },
     nacimientoDia: {
         type: Number,
