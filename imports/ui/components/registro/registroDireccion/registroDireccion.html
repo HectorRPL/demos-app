@@ -1,1 +1,24 @@
-<agregar-direccion></agregar-direccion>
+<!-- agregar-direccion></agregar-direccion -->
+<form role="form" class="property-submit-form" id="registrarDireccionFrmId"
+      name="registrarDireccionFrm" novalidate>
+    <!-- TÍTULO DIRECCION -->
+    <div class="form-group">
+        <label class="control-label" style="color:white;">
+            Dirección:
+        </label>
+    </div>
+    <forma-direccion direccion="registroDireccion.direccion"></forma-direccion>
+    <!-- BOTON ENVIAR -->
+    <button class="btn btn-default btn-lg btn-block"
+            ng-disabled="registrarDireccionFrm.$invalid"
+            type="button" ng-click="registroDireccion.guardar()">
+        Enviar
+    </button>
+    <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
+    <div class="row">
+        <br>
+        <div class="col-xs-12">
+            <alertas tipo="registroDireccion.tipoAlerta" mensaje="registroDireccion.msjAlerta"></alertas>
+        </div>
+    </div>
+</form>

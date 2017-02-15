@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<span class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></span>
+<button type="button" class="btn btn-link" ng-click="cambiarCelular.activarEdicion()">
+    Cambiar celular.
+</button>
+<ng-form name="actualizarCelularFrm">
+    <div uib-collapse="cambiarCelular.mostrarEdicion">
+        <div class="row">
+            <div class="col-xs-3 col-md-2">
+                <div class="form-group">
+                    <div class="input-group">
+                        <codigo-pais-celular iso2="cambiarCelular.paisiso2"
+                                             paislada="cambiarCelular.datosCel.paisLada">
+                        </codigo-pais-celular>
+                    </div>
+                </div>
+            </div>
+            <!-- TELÉFONO -->
+            <div class="col-xs-9 col-md-4">
+                <div class="form-group"
+                     ng-class="{ 'has-error' : actualizarCelularFrm.celular.$invalid && !actualizarCelularFrm.celular.$pristine}">
+                    <div class="input-group">
+                    <span class="input-group-addon  span-demos">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </span>
+                        <num-celular paislada="cambiarCelular.datosCel.paisLada"
+                                     celular="cambiarCelular.datosCel.celular">
+                        </num-celular>
+                    </div>
+                    <div ng-messages="actualizarCelularFrm.celular.$dirty && actualizarCelularFrm.celular.$error"
+                         role="alert">
+                        <div style="color:yellow;" ng-message="required"> Campo requerido</div>
+                        <div style="color:yellow;" ng-message="maxlength, minlength">Son requeridos 10 números</div>
+                        <div style="color:yellow;" ng-message="pattern">Celular, solo numeros</div>
+                        <div style="color:yellow;" ng-message="celInvalido">Celular ya esta registrado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-6 col-xs-6">
+                <button type="button" class="btn btn-default btn-block pull-right"
+                        ng-click="cambiarCelular.cambiar()"
+                        ng-disabled="actualizarCelularFrm.$invalid">
+                    Guardar
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12">
+                <alertas tipo="cambiarCelular.tipoAlerta" mensaje="cambiarCelular.msjAlerta"></alertas>
+            </div>
+        </div>
+    </div>
+</ng-form>

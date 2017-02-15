@@ -4,9 +4,9 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {volverEnviarSMS} from "../../../../../api/twilio/methods";
-import "./enviarSms.html";
+import "./volverEnviarSms.html";
 
-class EnviarSms {
+class VolverEnviarSms {
     constructor($scope, $reactive) {
         'ngInject';
         this.tipoMensaje = '';
@@ -20,7 +20,7 @@ class EnviarSms {
         volverEnviarSMS.call({}, this.$bindToContext((err)=>{
             if(err){
                 this.tipoMensaje = 'danger';
-                this.mensaje = err.mensaje;
+                this.mensaje = err.reason;
             }else{
                 this.tipoMensaje = 'success';
                 this.mensaje = 'El codigo de verificación fue enviado.';
@@ -30,7 +30,7 @@ class EnviarSms {
 
 }
 
-const name = 'enviarSms';
+const name = 'volverEnviarSms';
 
 // create a module
 export default angular
@@ -40,7 +40,7 @@ export default angular
     .component(name, {
         templateUrl: `imports/ui/components/registro/registroConfirmacion/${name}/${name}.html`,
         controllerAs: name,
-        controller: EnviarSms,
+        controller: VolverEnviarSms,
         bindings: {
             telefono: '<'
         }

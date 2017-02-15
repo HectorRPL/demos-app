@@ -2,35 +2,60 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
-import './confirmacionRegistro.html';
+import {verificarCelular} from '../../../../api/twilio/methods'
+import {name as EnviarSms} from './volverEnviarSms/volverEnviarSms';
+import {name as CambiarCelular} from './cambiarCelular/cambiarCelular';
+import './registroConfirmacion.html';
 
-class ConfirmacionRegistro {
+class RegistroConfirmacion {
     constructor($scope, $reactive, $state) {
         'ngInject';
-        this.actulizarEstado();
         $reactive(this).attach($scope);
         this.$state = $state;
+        this.usuario = '';
+        this.actulizarEstado($state.current.name);
+        this.subscribe('datosUsuario');
+        this.helpers({
+            datosUsuario(){
+                this.usuario = Meteor.users.findOne();
+                return this.usuario
+            }
+        })
     }
 
-    verVacantes() {
-        this.$state.go('demos.vacantes.lista');
+    verficarNumero() {
+        this.error = '';
+        verificarCelular.call({codigo: this.codigo}, this.$bindToContext((err, result)=> {
+            if (err) {
+                this.error = err;
+            } else {
+                this.$state.go('inicio.registro.direccion');
+            }
+
+        }));
+
     }
-    actulizarEstado(){
-        actualizarEstadoReg.call({estado: 'inicio.registro.confirmacion'});
+
+    actulizarEstado(nombreEstado) {
+        actualizarEstadoReg.call({estado: nombreEstado}, this.$bindToContext((err) => {
+
+        }));
     }
 }
 
-const name = 'confirmacionRegistro';
+const name = 'registroConfirmacion';
 // create a module
 
 // create a module
 export default angular.module(name, [
     angularMeteor,
-    uiRouter
+    uiRouter,
+    EnviarSms,
+    CambiarCelular
 ]).component(name, {
     templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
     controllerAs: name,
-    controller: ConfirmacionRegistro
+    controller: RegistroConfirmacion
 }).config(config);
 
 function config($stateProvider) {
@@ -38,10 +63,10 @@ function config($stateProvider) {
     $stateProvider
         .state('inicio.registro.confirmacion', {
             url: '/confirmacion',
-            template: '<confirmacion-Registro></confirmacion-Registro>',
+            template: '<registro-confirmacion></registro-confirmacion>',
             resolve: {
                 currentUser($q) {
-                    if (Meteor.userId() === null) {
+                    if (Meteor.user() === null) {
                         return $q.reject('AUTH_REQUIRED');
                     } else {
                         return $q.resolve();

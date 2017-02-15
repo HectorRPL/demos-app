@@ -4,84 +4,57 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import angularMessages from "angular-messages";
-import {crear} from "../../../../api/direcciones/methods.js";
-import {obtenerColonias} from "../../../../api/codigosPostales/methods.js";
-import {actualizarRegFacebook} from "../../../../api/candidatos/methods.js";
-import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
+import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
+import {actualizarRegFacebook} from "../../../../api/usuarios/methods";
 import {Candidatos} from "../../../../api/candidatos/collection";
+import {Paises} from "../../../../api/catalogos/paises/collection";
 import {name as ElegirAnio} from "../../comun/selects/elegirFechaNacimiento/elegirAnio/elegirAnio";
 import {name as ElegirMes} from "../../comun/selects/elegirFechaNacimiento/elegirMes/elegirMes";
 import {name as ElegirDia} from "../../comun/selects/elegirFechaNacimiento/elegirDia/elegirDia";
-
+import {name as CodigosPostales} from "../../comun/inputs/codigosPostales/codigosPostales";
+import {name as NumCelular} from "../../comun/inputs/numCelular/numCelular";
+import {name as CodigoPaisCelular} from "../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
+import {name as Alerts} from "../../comun/alertas/alertas";
 import "./registroFacebook.html";
 
 class RegistroFacebook {
     constructor($scope, $reactive, $state) {
         'ngInject';
         $reactive(this).attach($scope);
-        this.actualizarEstado();
+        this.actualizarEstado($state.current.name);
         this.$state = $state;
-        this.respuesta = {
-            mostrar: false,
-            mensaje: '',
-            tipo: ''
-        };
-        this.colonias = {};
-        this.direccion = {};
-        this.fechaNacimiento = {};
+        this.paisId = 'MX';
+        this.datos = {};
         this.subscribe('candidatos.logeado');
+        this.subscribe('paises', ()=> [{_id: this.paisId}]);
         this.helpers({
-            candidato(){
+            candidatoReg(){
                 return Candidatos.findOne();
+            },
+            pais(){
+                return Paises.findOne();
             }
         });
 
-    }
-
-    obtenerColonias() {
-        obtenerColonias.call({
-            cp: this.direccion.codigoPostal
-        }, (err, result) => {
-            if (Array.isArray(result) && result.length > 0) {
-                this.colonias = result;
-                this.direccion.estado = this.colonias[0].estado;
-                this.direccion.estadoId = this.colonias[0].codigoEstado;
-                this.direccion.delMpio = this.colonias[0].delegacionMunicipio;
-            } else {
-                this.colonias = [];
-                this.direccion.estado = '';
-                this.direccion.estadoId = '';
-                this.direccion.delMpio = '';
-            }
-        });
     }
 
     guardar() {
-        crear.call(this.direccion, this.$bindToContext((err) => {
-            if (err) {
-                this.respuesta.mensaje = ' No se pudieron guardar la registroDireccion. ' + err;
-                this.respuesta.tipo = 'danger';
-            } else {
-                this.actulaizarDatosCandidato();
-
+        actualizarRegFacebook.call(this.datos, this.$bindToContext((err)=>{
+            if(err){
+                this.tipoAlerta = 'danger';
+                this.msjAlerta = err.message;
+            }else{
+                this.$state.go('inicio.registro.confirmacion');
             }
         }));
     }
 
-    actulaizarDatosCandidato(){
-        actualizarRegFacebook.call(this.datos, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
-            if (err) {
-                this.respuesta.mensaje = ' No se pudo guardar la fecha de nacimiento. ' + err;
-                this.respuesta.tipo = 'danger';
-            } else {
-                this.$state.go('inicio.registro.perfil');
-            }
+
+    actualizarEstado(nombreEstado) {
+        actualizarEstadoReg.call({estado: nombreEstado}, this.$bindToContext((err)=>{
+
         }));
     }
-    actualizarEstado(){
-        actualizarEstadoReg.call({estado: 'inicio.registro.facebook'});
-     }
 }
 
 const name = 'registroFacebook';
@@ -92,7 +65,11 @@ export default angular.module(name, [
     angularMessages,
     ElegirAnio,
     ElegirMes,
-    ElegirDia
+    ElegirDia,
+    CodigosPostales,
+    Alerts,
+    NumCelular,
+    CodigoPaisCelular
 ]).component(name, {
     templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
     controllerAs: name,

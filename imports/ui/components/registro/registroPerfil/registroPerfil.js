@@ -6,16 +6,19 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
 import './registroPerfil.html';
-import { name as AgregarPerfil } from '../../perfilLaboral/agregarPerfil/agregarPerfil';
-import { name as ConfirmacionRegisro } from '../confirmacionRegistro/confirmacionRegistro';
+import {name as AgregarPerfil} from '../../perfilLaboral/agregarPerfil/agregarPerfil';
 
 class RegistroPerfil {
-    constructor(){
-        this.actualizarEstado();
+    constructor($scope, $state, $reactive) {
+        'ngInject';
+        $reactive(this).attach($scope);
+        this.actualizarEstado($state.current.name);
     }
 
-    actualizarEstado(){
-        actualizarEstadoReg.call({estado: 'inicio.registro.perfil'});
+    actualizarEstado(nombreEstado) {
+        actualizarEstadoReg.call({estado: nombreEstado}, this.$bindToContext((err)=> {
+
+        }));
     }
 }
 
@@ -26,8 +29,7 @@ export default angular
     .module(name, [
         angularMeteor,
         uiRouter,
-        AgregarPerfil,
-        ConfirmacionRegisro
+        AgregarPerfil
     ])
     .component(name, {
         templateUrl: `imports/ui/components/registro/${name}/${name}.html`,

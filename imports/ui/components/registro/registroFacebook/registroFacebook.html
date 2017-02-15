@@ -1,27 +1,35 @@
 <h4 class="text-center" style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden; color:white;">
-    Bienvenido(a): {{registroFacebook.candidato.nombre}}&nbsp;{{registroFacebook.candidato.apellidos}}
+    Bienvenido(a): {{registroFacebook.candidatoReg.nombre}}&nbsp;{{registroFacebook.candidatoReg.apellidos}}
 </h4>
 <form role="form" class="property-submit-form" id="registroFacebookFrmId" name="registroFacebookFrm" novalidate>
     <div class="row">
-        <div class="col-xs-5">
+        <div  class="col-xs-3 col-md-2">
+            <div class="form-group">
+                <div class="input-group">
+                    <codigo-pais-celular iso2="agregarCandidato.paisiso2"
+                                         paislada="registroFacebook.datos.paisLada">
+                    </codigo-pais-celular>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9 col-md-4">
             <!-- CELULAR -->
             <div class="form-group"
                  ng-class="{ 'has-error' : registroFacebookFrm.celular.$invalid && !registroFacebookFrm.celular.$pristine}">
                 <div class="input-group">
-                            <span class="input-group-addon  span-demos">
+                    <span class="input-group-addon  span-demos">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </span>
-                    <input id="celularID" class="form-control" type="text" name="celular"
-                           placeholder="Celular"
-                           aria-describedby="sizing-addon1" maxlength="10" ng-maxlength="10"
-                           ng-pattern="/^[0-9]{10}$/"
-                           required ng-model="registroFacebook.datos.celular">
+                    <num-celular paislada="registroFacebook.datos.paisLada"
+                                 celular="registroFacebook.datos.celular">
+                    </num-celular>
                 </div>
                 <div ng-messages="registroFacebookFrm.celular.$dirty && registroFacebookFrm.celular.$error"
                      role="alert">
                     <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                    <div style="color:yellow;" ng-message="maxlength"> 10 dígitos necesarios</div>
-                    <div style="color:yellow;" ng-message="pattern"> Celular a 10 dígitos</div>
+                    <div style="color:yellow;" ng-message="maxlength, minlength">Son requeridos 10 números</div>
+                    <div style="color:yellow;" ng-message="pattern">Celular, solo numeros</div>
+                    <div style="color:yellow;" ng-message="celInvalido">Celular ya esta registrado</div>
                 </div>
             </div>
         </div>
@@ -79,131 +87,14 @@
             </div>
         </div>
     </div>
-    <!-- TÍTULO DIRECCION -->
-    <div class="form-group">
-        <label class="control-label" style="color:white;">
-            Dirección:
-        </label>
-    </div>
-    <!-- DIRECCION -->
-    <div class="row">
-        <!-- CÓDIGO POSTAL -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.codigoPostal.$invalid && !registroFacebookFrm.codigoPostal.$pristine}">
-                <input id="codigoPostalID" class="form-control" name="codigoPostal" type="text"
-                       placeholder="Código Postal" aria-describedby="sizing-addon1" maxlength="5" minlength="5"
-                       ng-maxlength="5" ng-minlength="5" ng-pattern="/^[0-9]{5}$/" required
-                       ng-change="registroFacebook.obtenerColonias()"
-                       ng-model="registroFacebook.direccion.codigoPostal">
-                <div ng-messages="registroFacebookFrm.codigoPostal.$dirty && registroFacebookFrm.codigoPostal.$error"
-                     role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 5 caracteres</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 5 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo 5 caracteres numéricos</div>
-                </div>
-            </div>
-        </div>
-        <!-- ESTADO -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.estado.$invalid && !registroFacebookFrm.estado.$pristine}">
-                <input id="estadoID" class="form-control" name="estado" type="text" placeholder="Estado"
-                       aria-describedby="sizing-addon1" required disabled=""
-                       ng-model="registroFacebook.direccion.estado">
-                <div ng-messages="registroFacebookFrm.estado.$dirty && registroFacebookFrm.estado.$error" role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                </div>
-            </div>
-        </div>
-        <!-- DELEGACIÓN o MUNICIPIO -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.delMpio.$invalid && !registroFacebookFrm.delMpio.$pristine}">
-                <input id="delMpioID" class="form-control" name="delMpio" type="text" placeholder="Delegación/Municipio"
-                       aria-describedby="sizing-addon1" required disabled=""
-                       ng-model="registroFacebook.direccion.delMpio">
-                <div ng-messages="registroFacebookFrm.delMpio.$dirty && registroFacebookFrm.delMpio.$error" role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- DIRECCION -->
-    <div class="row">
-        <!-- COLONIA -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.colonia.$invalid && !registroFacebookFrm.colonia.$pristine}">
-                <select id="coloniaID" class="form-control" name="colonia" type="text" aria-describedby="sizing-addon1"
-                        required
-                        ng-options="colonia.colonia as colonia.colonia for colonia in registroFacebook.colonias track by colonia.colonia"
-                        ng-model="registroFacebook.direccion.colonia">
-                    <option value="">
-                        Colonia
-                    </option>
-                </select>
-                <div ng-messages="registroFacebookFrm.colonia.$dirty && registroFacebookFrm.colonia.$error" role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                </div>
-            </div>
-        </div>
-        <!-- CALLE -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.calle.$invalid && !registroFacebookFrm.calle.$pristine}">
-                <input id="calleID" class="form-control" name="calle" type="text" placeholder="Nombre de la Calle"
-                       aria-describedby="sizing-addon1" maxlength="31" minlength="1" ng-maxlength="30" ng-minlength="1"
-                       ng-pattern="/^[a-zA-Z-/.&ñáéíóú-\s\d]+$/" ng-model="registroFacebook.direccion.calle">
-                <div ng-messages="registroFacebookFrm.calle.$dirty && registroFacebookFrm.calle.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 30 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
-                </div>
-            </div>
-        </div>
-        <!-- NÚMERO EXTERIOR -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.numExt.$invalid && !registroFacebookFrm.numExt.$pristine}">
-                <input id="numExtID" class="form-control" name="numExt" type="text" placeholder="Número Exterior"
-                       aria-describedby="sizing-addon1" maxlength="31" minlength="1" ng-maxlength="30" ng-minlength="1"
-                       ng-pattern="/^[a-zA-Z-/.&ñáéíóú-\s\d]+$/" ng-model="registroFacebook.direccion.numExt">
-                <div ng-messages="registroFacebookFrm.numExt.$dirty && registroFacebookFrm.numExt.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 30 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
-                </div>
-            </div>
-        </div>
-        <!-- NÚMERO INTERIOR -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="form-group input-group-sm"
-                 ng-class="{ 'has-error' : registroFacebookFrm.numInt.$invalid && !registroFacebookFrm.numInt.$pristine}">
-                <input id="numIntID" class="form-control" name="numInt" type="text" placeholder="Núm. Interior."
-                       aria-describedby="sizing-addon1" maxlength="31" minlength="1" ng-maxlength="30" ng-minlength="1"
-                       ng-pattern="/^[a-zA-Z-/.,&ñáéíóú-\s\d]+$/" ng-model="registroFacebook.direccion.numInt">
-                <div ng-messages="registroFacebookFrm.numInt.$dirty && registroFacebookFrm.numInt.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 30 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">
-        <br>
-        <div class="col-xs-12" ng-show="registroFacebook.respuesta.mostrar">
-            <uib-alert type="{{ registroFacebook.respuesta.tipo }}">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong> {{ registroFacebook.respuesta.mensaje }} </strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="registroFacebook.tipoAlerta" mensaje="registroFacebook.msjAlerta"></alertas>
         </div>
     </div>
     <!-- BOTON ENVIAR -->
-    <button class="btn btn-default btn-lg btn-block" type="submit" value="Submit"
+    <button class="btn btn-default btn-lg btn-block" type="button"
             ng-disabled="registroFacebookFrm.$invalid" ng-click="registroFacebook.guardar()">
         Enviar
     </button>

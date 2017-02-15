@@ -1,12 +1,12 @@
 <span class="fa fa-paper-plane-o fa-lg" aria-hidden="true"></span>
-<button type="button" class="btn btn-link" ng-click="enviarSms.enviarSMS()">
+<button type="button" class="btn btn-link" ng-click="volverEnviarSms.enviarSMS()">
     Enviar SMS otra vez.
 </button>
 <div class="row">
     <div class="col-xs-12">
-        <uib-alert type="{{enviarSms.tipoMensaje}}" ng-show="enviarSms.tipoMensaje">
+        <uib-alert type="{{volverEnviarSms.tipoMensaje}}" ng-show="volverEnviarSms.tipoMensaje">
             <span class="fa fa-exclamation-triangle"></span>
-            <strong>{{enviarSms.mensaje}}</strong>
+            <strong>{{volverEnviarSms.mensaje}}</strong>
         </uib-alert>
     </div>
 </div>

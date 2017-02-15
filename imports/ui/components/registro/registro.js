@@ -1,21 +1,21 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import {name as Politicas} from '../politicas/politicas';
-import {name as AvisoPrivacidad} from '../politicas/avisoPrivacidad';
-import {name as RegistroDatos} from './registroDatos/registroDatos';
-import {name as RegistroDireccion} from './registroDireccion/registroDireccion';
-import {name as RegistroPerfil} from './registroPerfil/registroPerfil';
-import {name as RegistroFacebook} from './registroFacebook/registroFacebook';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import {name as Politicas} from "../politicas/politicas";
+import {name as AvisoPrivacidad} from "../politicas/avisoPrivacidad";
+import {name as RegistroDatos} from "./registroDatos/registroDatos";
+import {name as RegistroDireccion} from "./registroDireccion/registroDireccion";
+import {name as RegistroPerfil} from "./registroPerfil/registroPerfil";
+import {name as RegistroFacebook} from "./registroFacebook/registroFacebook";
+import {name as RegistroConfirmacion} from "./registroConfirmacion/registroConfirmacion";
 import {name as TituloInicio} from "../inicio/tituloInicio/tituloInicio";
-
-import './registro.html';
+import "./registro.html";
 
 
 class Registro {
     constructor() {
         'ngInject';
-        this.titulo = '¡Unete a Demostradoras!';
+        this.titulo = '¡Unete a Demostradorasss!';
     }
 
 }
@@ -32,6 +32,7 @@ export default angular.module(name, [
     RegistroDireccion,
     RegistroPerfil,
     RegistroFacebook,
+    RegistroConfirmacion,
     TituloInicio
 ]).component(name, {
     templateUrl: `imports/ui/components/registro/${name}.html`,
