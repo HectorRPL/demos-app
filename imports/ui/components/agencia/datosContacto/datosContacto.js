@@ -14,20 +14,18 @@ class DatosContacto{
         $reactive(this).attach($scope);
 
         this.subscribe('agencias.contacto', ()=> [{_id: this.getReactively('agenciaid')}]);
-        this.helpers({
-            datosAgencia() {
-                return Agencias.findOne({
-                    _id: this.getReactively('agenciaid')
-                });
-            }
-        });
-
         this.subscribe('direcciones.agencia', ()=> [{propietario: this.getReactively('agenciaid')}]);
+
         this.helpers({
             direccionAgencia() {
                 // console.log(this.agenciaid);
                 return Direcciones.findOne({
                     propietario: this.getReactively('agenciaid')
+                });
+            },
+            datosAgencia() {
+                return Agencias.findOne({
+                    _id: this.getReactively('agenciaid')
                 });
             }
         });
