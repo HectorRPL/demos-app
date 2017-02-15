@@ -9,7 +9,8 @@ class NumNuevasSelecciones {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
-        this.subscribe('candidatos.selecciones.nuevas', ()=>[{candidatoId: this.getReactively('candidatoid')}]);
+        this.subscribe('candidatos.selecciones.nuevas',
+            ()=>[{candidatoId: this.getReactively('candidatoid')}]);
         this.helpers({
             totalSelecciones() {
                 return Counts.get(`count.selecciones.nuevas.${this.candidatoid}`);

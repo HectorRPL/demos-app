@@ -1,16 +1,16 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
 import {Candidatos} from "../../../api/candidatos/collection";
 import {name as NumNuevasSelecciones} from "../counts/numNuevasSelecciones/numNuevasSelecciones";
 import {name as NumPostulacionesVistas} from "../counts/numPostulacionesVistas/numPostulacionesVistas";
-import './navigation.html';
+import "./navigation.html";
 
 class Navigation {
     constructor($scope, $reactive, $state) {
         'ngInject';
         $reactive(this).attach($scope);
         this.$state = $state;
-        this.subscribe('candidato.logeado');
+        this.subscribe('candidatos.logeado');
         this.helpers({
             candidatoLoggeado() {
                 return Candidatos.findOne();

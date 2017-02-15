@@ -10,7 +10,6 @@
 <!--TARJETAS-->
 <div class="col-xs-12 col-md-4 tarjeta-post-en-proceso"
      dir-paginate="postulacion in postEnproceso.misPostulaciones | itemsPerPage: postEnproceso.perPage">
-    <!--<pre>{{postulacion | json}}</pre>-->
     <a style="text-decoration:none; color: inherit;" href="" ng-click="postEnproceso.verMas(postulacion.vacanteId, postulacion._id)">
         <div class="panel panel-default">
             <!-- BODY DE TARJETA -->
@@ -34,8 +33,10 @@
                         </div>
                         <div style="color: lightgrey">
                             <small style="color: gray">{{postulacion.vacante().sueldo | currency}}&nbsp;x&nbsp;día</small>
-                            <span class="pull-right" ng-class="{'text-primary': postulacion.postVistoCandidato === false}">
-                                <small>Solicitud Revisada</small>
+                            <span class="pull-right" ng-show="postulacion.postVistoAgencia === true">
+                                <small ng-class="{'text-primary': postulacion.postVistoCandidato === false}">
+                                    Solicitud Revisada
+                                </small>
                             </span>
                         </div>
                     </div>
