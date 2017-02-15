@@ -1,4 +1,5 @@
-<form role="form" class="property-submit-form" id="registroUsuarioFrmId" name="registroUsuarioFrm" novalidate>
+<form role="form" class="property-submit-form" id="registroUsuarioFrmId"
+      name="registroUsuarioFrm" novalidate>
     <!--CORREO Y CONTRASEÑA-->
     <div class="row">
         <!-- CORREO  -->
@@ -11,8 +12,7 @@
                             </span>
                     <input id="agenciaEmailID" class="form-control" name="email" type="email"
                            placeholder="Correo Electrónico" aria-describedby="sizing-addon1" maxlength="50"
-                           required
-                           ng-model="agregarCandidato.credentials.email">
+                           required  ng-model="agregarCandidato.credentials.email">
                 </div>
                 <div ng-messages="registroUsuarioFrm.email.$dirty && registroUsuarioFrm.email.$error"
                      role="alert">
@@ -96,25 +96,33 @@
     </div>
     <!-- TELÉFONO Y SEXO-->
     <div class="row">
+        <div  class="col-xs-3 col-md-2">
+            <div class="form-group">
+                <div class="input-group">
+                    <codigo-pais-celular iso2="agregarCandidato.paisiso2"
+                                         paislada="agregarCandidato.credentials.profile.paisLada">
+                    </codigo-pais-celular>
+                </div>
+            </div>
+        </div>
         <!-- TELÉFONO -->
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-9 col-md-4">
             <div class="form-group"
                  ng-class="{ 'has-error' : registroUsuarioFrm.celular.$invalid && !registroUsuarioFrm.celular.$pristine}">
                 <div class="input-group">
-                            <span class="input-group-addon  span-demos">
+                    <span class="input-group-addon  span-demos">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </span>
-                    <input id="celularID" class="form-control" type="text" name="celular"
-                           placeholder="Celular"
-                           aria-describedby="sizing-addon1" maxlength="10" ng-maxlength="10"
-                           ng-pattern="/^[0-9]{10}$/"
-                           required ng-model="agregarCandidato.credentials.profile.celular">
+                    <num-celular paislada="agregarCandidato.credentials.profile.paisLada"
+                                 celular="agregarCandidato.credentials.profile.celular">
+                    </num-celular>
                 </div>
                 <div ng-messages="registroUsuarioFrm.celular.$dirty && registroUsuarioFrm.celular.$error"
                      role="alert">
                     <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                    <div style="color:yellow;" ng-message="maxlength"> 10 dígitos necesarios</div>
-                    <div style="color:yellow;" ng-message="pattern"> Teléfono a 10 dígitos</div>
+                    <div style="color:yellow;" ng-message="maxlength, minlength">Son requeridos 10 números</div>
+                    <div style="color:yellow;" ng-message="pattern">Celular, solo numeros</div>
+                    <div style="color:yellow;" ng-message="celInvalido">Celular ya esta registrado</div>
                 </div>
             </div>
         </div>
