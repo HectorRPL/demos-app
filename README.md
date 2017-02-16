@@ -20,11 +20,8 @@
         Levantar cualquiera de las dos con normalidad pero al levantar la 
         segunda añadir --port 3001 de tal manera que quedaría así:
         
-        Si es demos:
-        meteor --settings settings.json --port 3001
-        
-        Si es agencia:
-        meteor --port 3001
+        COMANDO PARA LEVANTAR LOS PROYECTOS (AGENCIA Y DEMOS)
+        meteor npm satart
     
     /// PROYECTO DESDE DESDE CERO ///
     
