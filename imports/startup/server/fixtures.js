@@ -3,13 +3,14 @@
  Meteor.startup(() => {
 
      if(Meteor.isServer){
+         const facebookConfig = Meteor.settings.private.facebook;
          ServiceConfiguration.configurations.upsert({
-             service: Meteor.settings.facebook.service
+             service: facebookConfig.service
          }, {
              $set: {
-                 appId: Meteor.settings.facebook.appId,
-                 loginStyle: Meteor.settings.facebook.loginStyle,
-                 secret: Meteor.settings.facebook.secret
+                 appId: facebookConfig.appId,
+                 loginStyle: facebookConfig.loginStyle,
+                 secret: facebookConfig.secret
              }
          });
      }
