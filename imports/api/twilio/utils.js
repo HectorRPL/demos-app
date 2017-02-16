@@ -3,10 +3,15 @@
  */
 import {Meteor} from 'meteor/meteor';
 import {CodigosVerificaion} from '../codigosVerificacion/collection';
-import {Candidatos} from '../candidatos/collection';
 import {Twilio} from 'meteor/mrt:twilio-meteor';
 const TEL_MAS = '+';
+let twilioConfig = {};
 
+if(Meteor.isServer){
+    Meteor.startup(() => {
+        twilioConfig = Meteor.settings.private.twilioConfig;
+    });
+}
 
 TwilioSMS = {
 
@@ -14,11 +19,11 @@ TwilioSMS = {
         const user = Meteor.users.findOne({_id: userId});
         const msj = {
             to: TEL_MAS + user.phone.number,
-            from: TEL_MAS + Meteor.settings.smsConfig.testFromSMS,
+            from: TEL_MAS + twilioConfig.testFromSMS,
             body: `Bienvenido a Demotradoras con Experiencia, tu código de verificación es: ${codigo}`
         };
         console.log('Mensaje a enviar ', msj);
-        let cliTwilio = Twilio(Meteor.settings.smsConfig.accountSid, Meteor.settings.smsConfig.authToke);
+        let cliTwilio = Twilio(twilioConfig.accountSid, twilioConfig.authToke);
 
         let enviarSMS = Meteor.wrapAsync(cliTwilio.sendSms, cliTwilio);
         try {
