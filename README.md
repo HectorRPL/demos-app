@@ -21,7 +21,7 @@
         segunda añadir --port 3001 de tal manera que quedaría así:
         
         COMANDO PARA LEVANTAR LOS PROYECTOS (AGENCIA Y DEMOS)
-        meteor npm satart
+        meteor npm start
     
     /// PROYECTO DESDE DESDE CERO ///
     

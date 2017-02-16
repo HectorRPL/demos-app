@@ -31,7 +31,7 @@ export default angular
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.datos', {
+        .state('demos.registro.datos', {
             url: '/datos',
             template: '<registro-datos></registro-datos>'
         });

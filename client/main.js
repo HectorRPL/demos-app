@@ -1,10 +1,10 @@
 import angular from 'angular';
 import {Meteor} from 'meteor/meteor';
-import {name as Inicio} from '../imports/ui/components/inicio/inicio';
+import {name as Demos} from '../imports/ui/components/demos/demos';
 
 function onReady() {
     angular.bootstrap(document, [
-        Inicio
+        Demos
     ], {
         strictDi: true
     });
@@ -20,5 +20,5 @@ if (Meteor.isCordova) {
  // create a module
 
  export default angular.module('demostradorasApp', [
- Inicio
+ Demos
  ]);*/

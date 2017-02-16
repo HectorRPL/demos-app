@@ -108,7 +108,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.vacantes.detalle', {
+        .state('app.vacantes.detalle', {
             url: '/detalle/:vacanteId',
             template: '<detalle-vacante></detalle-vacante>',
             resolve: {

@@ -31,7 +31,7 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.exito', {
+        .state('demos.registro.exito', {
             url: '/exito',
             template: '<registro-exito></registro-exito>',
             resolve: {

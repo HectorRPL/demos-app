@@ -21,7 +21,7 @@ class ModalRegistroVacante {
 
     registrarme() {
         this.close({result: true});
-        this.$state.go('inicio.registro');
+        this.$state.go('demos.registro');
     }
 
     cancelar() {

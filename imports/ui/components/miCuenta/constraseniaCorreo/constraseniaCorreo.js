@@ -30,7 +30,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.constraseniaCorreo', {
+        .state('app.constraseniaCorreo', {
             url: '/constraseniaCorreo',
             template: '<constrasenia-correo></constrasenia-correo>'
         });

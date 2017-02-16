@@ -35,7 +35,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.vacantes', {
+        .state('app.vacantes', {
             url: '/vacantes',
             template: '<vacantes></vacantes>',
             abstract: true

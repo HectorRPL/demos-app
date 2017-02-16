@@ -60,7 +60,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.postulaciones.enproceso', {
+        .state('app.postulaciones.enproceso', {
             url: '/enproceso',
             template: '<post-enproceso></post-enproceso>',
         });

@@ -65,7 +65,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.postulaciones.seleccionada', {
+        .state('app.postulaciones.seleccionada', {
             url: '/seleccionada',
             template: '<post-seleccionada></post-seleccionada>',
         });

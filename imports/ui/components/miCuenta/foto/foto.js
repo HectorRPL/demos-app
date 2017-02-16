@@ -29,7 +29,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.foto', {
+        .state('app.foto', {
             url: '/foto',
             template: '<foto></foto>'
         });

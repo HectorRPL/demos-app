@@ -21,7 +21,7 @@ class AgregarDireccion {
                 this.respuesta.mensaje = ' No se pudieron guardar los datos. ' + err;
                 this.respuesta.tipo = 'danger';
             } else {
-                this.$state.go('inicio.registro.perfil');
+                this.$state.go('demos.registro.perfil');
             }
         }));
     }

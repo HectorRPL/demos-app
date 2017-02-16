@@ -8,7 +8,7 @@ import {name as RegistroDireccion} from "./registroDireccion/registroDireccion";
 import {name as RegistroPerfil} from "./registroPerfil/registroPerfil";
 import {name as RegistroFacebook} from "./registroFacebook/registroFacebook";
 import {name as RegistroConfirmacion} from "./registroConfirmacion/registroConfirmacion";
-import {name as TituloInicio} from "../inicio/tituloInicio/tituloInicio";
+import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
 import "./registro.html";
 
 
@@ -45,7 +45,7 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro', {
+        .state('demos.registro', {
             url: '/registro',
             template: '<registro></registro>',
             abstract: true

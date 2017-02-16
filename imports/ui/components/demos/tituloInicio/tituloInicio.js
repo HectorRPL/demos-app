@@ -18,7 +18,7 @@ const name = 'tituloInicio';
 export default angular.module(name, [
     angularMeteor
 ]).component(name, {
-    templateUrl: `imports/ui/components/inicio/${name}/${name}.html`,
+    templateUrl: `imports/ui/components/demos/${name}/${name}.html`,
     controllerAs: name,
     controller: TituloInicio,
     bindings: {

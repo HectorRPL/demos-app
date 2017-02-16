@@ -47,7 +47,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('inicio.recuperar', {
+        .state('demos.recuperar', {
             url: '/recuperar',
             template: '<recuperar></recuperar>'
         });

@@ -19,7 +19,7 @@ class Logout {
                 if (err) {
                     this.error = err;
                 } else {
-                    this.$state.go('inicio.login');
+                    this.$state.go('demos.login');
                 }
             })
         );

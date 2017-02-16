@@ -44,7 +44,7 @@ class RegistroFacebook {
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = err.message;
             }else{
-                this.$state.go('inicio.registro.confirmacion');
+                this.$state.go('demos.registro.confirmacion');
             }
         }));
     }
@@ -79,7 +79,7 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.facebook', {
+        .state('demos.registro.facebook', {
             url: '/facebook',
             template: '<registro-facebook></registro-facebook>',
             resolve: {

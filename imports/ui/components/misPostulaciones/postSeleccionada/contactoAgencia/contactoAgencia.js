@@ -58,7 +58,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.postulaciones.contactoAgencia', {
+        .state('app.postulaciones.contactoAgencia', {
             url: '/contactoAgencia/:vacanteId/:tiendaId',
             template: '<contacto-agencia></contacto-agencia>',
             resolve: {

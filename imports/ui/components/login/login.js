@@ -6,9 +6,9 @@ import {obtenerEstadoReg} from '../../../api/bitacoraLogin/methods';
 import "./login.html";
 import {name as Registro} from "../registro/registro";
 import {name as Facebook} from "./facebook";
-import {name as Demos} from "../demos/demos";
+import {name as App} from "../app/app";
 import {name as Recuperar} from "../recuperar/recuperar";
-import {name as TituloInicio} from "../inicio/tituloInicio/tituloInicio";
+import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
 
 
 class Login {
@@ -55,7 +55,7 @@ export default angular.module(name, [
     uiRouter,
     Registro,
     Facebook,
-    Demos,
+    App,
     Recuperar,
     TituloInicio
 ]).component(name, {
@@ -69,7 +69,7 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.login', {
+        .state('demos.login', {
             url: '/login',
             template: '<login></login>'
         });

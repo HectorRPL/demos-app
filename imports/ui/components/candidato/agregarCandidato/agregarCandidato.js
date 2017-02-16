@@ -46,7 +46,7 @@ class AgregarCandidato {
                         this.error.mensaje = err.reason;
                     }
                 } else {
-                    this.$state.go('inicio.registro.confirmacion');
+                    this.$state.go('demos.registro.confirmacion');
                 }
             })
         );

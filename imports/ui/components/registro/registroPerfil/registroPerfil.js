@@ -41,7 +41,7 @@ export default angular
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.perfil', {
+        .state('demos.registro.perfil', {
             url: '/perfil',
             template: '<registro-perfil></registro-perfil>',
             resolve: {

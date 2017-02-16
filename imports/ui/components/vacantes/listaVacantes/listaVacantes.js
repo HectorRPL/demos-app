@@ -48,29 +48,6 @@ class ListaVacantes {
         this.sort = sort;
     }
 
-    verDetalle(vacanteId) {
-        const id = vacanteId;
-        if (Meteor.user() === null) {
-            this.$state.go('^.detalle', {vacanteId: vacanteId});
-        } else {
-            let modalInstance = this.$uibModal.open({
-                animation: true,
-                controllerAs: '$ctrl',
-                controller: ['$uibModalInstance', function ($uibModalInstance) {
-                    //this.id = id;
-                    this.close = $uibModalInstance.close;
-                    this.dismiss = $uibModalInstance.dismiss;
-                }],
-                template: '<modal-registro-vacante dismiss="$ctrl.dismiss(razon)" close="$ctrl.close(result)"></modal-registro-vacante>',
-                size: '',
-                resolve: {
-                    id: function () {
-                        return id;
-                    }
-                }
-            });
-        }
-    }
 }
 
 const name = 'listaVacantes';
@@ -97,7 +74,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.vacantes.lista', {
+        .state('app.vacantes.lista', {
             url: '/lista',
             template: '<lista-vacantes></lista-vacantes>'
         });

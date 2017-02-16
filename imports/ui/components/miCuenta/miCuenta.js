@@ -64,7 +64,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.miCuenta', {
+        .state('app.miCuenta', {
             url: '/micuenta',
             template: '<mi-cuenta></mi-cuenta>',
             resolve: {

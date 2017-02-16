@@ -49,12 +49,12 @@ if (Meteor.isServer) {
             propietario: result.user._id,
             fechaLogin: new Date(),
             conexion: result.connection,
-            estadoRegistro: 'inicio.registro.confirmacion',
+            estadoRegistro: 'demos.registro.confirmacion',
             tipoLogin: result.type
 
         };
         if ('facebook' == result.type) {
-            bitacoraLogin.estadoRegistro = 'inicio.registro.facebook';
+            bitacoraLogin.estadoRegistro = 'demos.registro.facebook';
             const bitacora = BitacoraLogin.findOne({propietario: result.user._id});
             if (bitacora) {
                 BitacoraLogin.update({_id: bitacora._id}, {$set: {fechaLogin: new Date()}});

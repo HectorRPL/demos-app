@@ -76,7 +76,7 @@ function config($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('demos.actualizarPerfil', {
+        .state('app.actualizarPerfil', {
             url: '/actualizarPerfil',
             template: '<actualizar-registroPerfil></actualizar-registroPerfil>'
         });

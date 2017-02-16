@@ -29,7 +29,7 @@ class RegistroConfirmacion {
             if (err) {
                 this.error = err;
             } else {
-                this.$state.go('inicio.registro.direccion');
+                this.$state.go('demos.registro.direccion');
             }
 
         }));
@@ -61,7 +61,7 @@ export default angular.module(name, [
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.confirmacion', {
+        .state('demos.registro.confirmacion', {
             url: '/confirmacion',
             template: '<registro-confirmacion></registro-confirmacion>',
             resolve: {

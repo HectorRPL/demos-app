@@ -25,7 +25,7 @@ class RegistroDireccion {
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = 'No se puedo agregar la dirección.';
             } else {
-                this.$state.go('inicio.registro.perfil');
+                this.$state.go('demos.registro.perfil');
             }
         }));
     }
@@ -58,7 +58,7 @@ export default angular
 function config($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('inicio.registro.direccion', {
+        .state('demos.registro.direccion', {
             url: '/direccion',
             template: '<registro-direccion></registro-direccion>',
             resolve: {
