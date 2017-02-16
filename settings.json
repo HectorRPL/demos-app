@@ -1,22 +1,24 @@
 {
-  "galaxy.meteor.com": {
-    "env": {
-      "MONGO_URL": "mongodb://<usuario>:<password>@<ip>:<puerto>/demosdb"
+  "private":{
+    "galaxy.meteor.com": {
+      "env": {
+        "MONGO_URL": "mongodb://<usuario>:<password>@<ip>:<puerto>/demosdb"
+      }
+    },
+    "facebook": {
+      "service": "facebook",
+      "appId": "582431125259763",
+      "secret": "c901a04e704b348025ce0a65a1fedbf3",
+      "loginStyle": "popup"
+    },
+    "twilioConfig": {
+      "from": "19543728561",
+      "testFrom": "15005550006",
+      "accountSid": "ACbfbabd22a5d486bff3b92e219e93fd47",
+      "authToke": "2f93111372dc246eaead700ced362616",
+      "phoneVerificationMasterCode": "1q2W",
+      "forbidClientAccountCreation": false,
+      "verificationMaxRetries": 3
     }
-  },
-  "facebook": {
-    "service": "facebook",
-    "appId": "582431125259763",
-    "secret": "c901a04e704b348025ce0a65a1fedbf3",
-    "loginStyle": "popup"
-  },
-  "smsConfig": {
-    "fromSMS": "19543728561",
-    "testFromSMS": "15005550006",
-    "accountSid": "ACbfbabd22a5d486bff3b92e219e93fd47",
-    "authToke": "2f93111372dc246eaead700ced362616",
-    "phoneVerificationMasterCode": "1q2W",
-    "forbidClientAccountCreation": false,
-    "verificationMaxRetries": 3
   }
 }
