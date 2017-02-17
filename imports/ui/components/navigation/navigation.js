@@ -26,11 +26,13 @@ class Navigation {
 const name = 'navigation';
 // create a module
 
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     NumNuevasSelecciones,
     NumPostulacionesVistas
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/${name}/${name}.html`,
     controllerAs: name,
     controller: Navigation,

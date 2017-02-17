@@ -15,9 +15,11 @@ class TituloInicio {
 const name = 'tituloInicio';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/demos/${name}/${name}.html`,
     controllerAs: name,
     controller: TituloInicio,

@@ -30,10 +30,12 @@ class AgregarDireccion {
 const name = 'agregarDireccion';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     angularMessages
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
     controllerAs: name,
     controller: AgregarDireccion

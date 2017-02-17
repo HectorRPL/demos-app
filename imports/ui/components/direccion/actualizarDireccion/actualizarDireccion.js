@@ -52,11 +52,13 @@ class ActualizarDireccion {
 const name = 'actualizarDireccion';
 
 // Módulo
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     ngMessages
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
     controllerAs: name,
     controller: ActualizarDireccion,
@@ -64,7 +66,8 @@ export default angular.module(name, [
         direccion: '<',
         id: '<'
     }
-}).directive('codigopostal', ['$q', function ($q) {
+})
+    .directive('codigopostal', ['$q', function ($q) {
     return {
         restrict: 'EA',
         require: '?ngModel',

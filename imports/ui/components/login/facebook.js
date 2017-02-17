@@ -36,10 +36,12 @@ class Facebook {
 const name = 'facebook';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/login/${name}.html`,
     controllerAs: name,
     controller: Facebook

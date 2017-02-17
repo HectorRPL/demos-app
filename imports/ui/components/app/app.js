@@ -13,14 +13,16 @@ class App {
 const name = 'app';
 // create a module
 
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     Navigation,
     Vacantes,
     MisPostualciones,
     MiCuenta,
     Logout
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/${name}/${name}.html`,
     controllerAs: name,
     controller: App

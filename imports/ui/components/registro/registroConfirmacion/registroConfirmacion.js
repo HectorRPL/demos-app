@@ -47,16 +47,19 @@ const name = 'registroConfirmacion';
 // create a module
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     EnviarSms,
     CambiarCelular
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
     controllerAs: name,
     controller: RegistroConfirmacion
-}).config(config);
+})
+    .config(config);
 
 function config($stateProvider) {
     'ngInject';

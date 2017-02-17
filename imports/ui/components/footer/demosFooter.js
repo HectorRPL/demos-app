@@ -6,9 +6,11 @@ class DemosFooter {
 }
 
 const name = 'demosFooter';
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/footer/${name}.html`,
     controllerAs: name,
     controller: DemosFooter

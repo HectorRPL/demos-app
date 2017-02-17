@@ -19,13 +19,15 @@ class Demos {
 const name = 'demos';
 // create a module
 
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     angularUiBootstrap,
     DemosFooter,
     Login
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/${name}/${name}.html`,
     controllerAs: name,
     controller: Demos

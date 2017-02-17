@@ -9,9 +9,11 @@ import {obtenerColonias} from "../../../api/codigosPostales/methods.js";
 const name = 'ngCp';
 
 // Módulo
-export default angular.module('demostradorasApp', [
+export default angular
+    .module('demostradorasApp', [
     angularMeteor,
-]).directive(name, ['$q', function ($q) {
+])
+    .directive(name, ['$q', function ($q) {
     return {
         restrict: 'EA',
         require: '?ngModel',

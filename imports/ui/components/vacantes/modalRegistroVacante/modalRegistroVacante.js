@@ -34,9 +34,11 @@ class ModalRegistroVacante {
 const name = 'modalRegistroVacante';
 // create a module
 
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
     controllerAs: name,
     controller: ModalRegistroVacante,

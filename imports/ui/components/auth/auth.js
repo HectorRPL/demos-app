@@ -30,10 +30,12 @@ class Auth {
 
 // create a module
 
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     DisplayNameFilter
-]).component(name, {
+])
+    .component(name, {
     template,
     controllerAs: name,
     controller: Auth

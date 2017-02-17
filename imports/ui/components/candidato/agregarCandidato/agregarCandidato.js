@@ -56,7 +56,8 @@ class AgregarCandidato {
 const name = 'agregarCandidato';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     angularMessages,
@@ -65,7 +66,8 @@ export default angular.module(name, [
     ElegirDia,
     CodigoPaisCelular,
     NumCelular
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,
     controllerAs: name,
     controller: AgregarCandidato

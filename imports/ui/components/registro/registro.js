@@ -23,7 +23,8 @@ class Registro {
 const name = 'registro';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     Politicas,
@@ -34,7 +35,8 @@ export default angular.module(name, [
     RegistroFacebook,
     RegistroConfirmacion,
     TituloInicio
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/registro/${name}.html`,
     controllerAs: name,
     controller: Registro

@@ -9,10 +9,12 @@ class AvisoPrivacidad {
 const name = 'avisoPrivacidad';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/politicas/${name}.html`,
     controllerAs: name,
     controller: AvisoPrivacidad

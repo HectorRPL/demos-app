@@ -60,7 +60,8 @@ class RegistroFacebook {
 const name = 'registroFacebook';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     angularMessages,
     ElegirAnio,
@@ -70,11 +71,13 @@ export default angular.module(name, [
     Alerts,
     NumCelular,
     CodigoPaisCelular
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
     controllerAs: name,
     controller: RegistroFacebook
-}).config(config);
+})
+    .config(config);
 
 function config($stateProvider) {
     'ngInject';

@@ -50,7 +50,8 @@ class Login {
 const name = 'login';
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter,
     Registro,
@@ -58,7 +59,8 @@ export default angular.module(name, [
     App,
     Recuperar,
     TituloInicio
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/login/${name}.html`,
     controllerAs: name,
     controller: Login

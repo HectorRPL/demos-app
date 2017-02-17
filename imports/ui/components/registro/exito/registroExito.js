@@ -19,14 +19,17 @@ const name = 'registroExito';
 // create a module
 
 // create a module
-export default angular.module(name, [
+export default angular
+    .module(name, [
     angularMeteor,
     uiRouter
-]).component(name, {
+])
+    .component(name, {
     templateUrl: `imports/ui/components/registro/exito/${name}.html`,
     controllerAs: name,
     controller: RegistroExito
-}).config(config);
+})
+    .config(config);
 
 function config($stateProvider) {
     'ngInject';
