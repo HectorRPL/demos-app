@@ -60,15 +60,6 @@ function config($stateProvider) {
     $stateProvider
         .state('app.postulaciones.contactoAgencia', {
             url: '/contactoAgencia/:vacanteId/:tiendaId',
-            template: '<contacto-agencia></contacto-agencia>',
-            resolve: {
-                currentUser($q) {
-                    if (Meteor.user() === null) {
-                        return $q.reject('AUTH_REQUIRED');
-                    } else {
-                        return $q.resolve();
-                    }
-                }
-            }
+            template: '<contacto-agencia></contacto-agencia>'
         });
 }

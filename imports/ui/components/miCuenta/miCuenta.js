@@ -66,15 +66,6 @@ function config($stateProvider) {
     $stateProvider
         .state('app.miCuenta', {
             url: '/micuenta',
-            template: '<mi-cuenta></mi-cuenta>',
-            resolve: {
-                currentUser($q) {
-                    if (Meteor.user() === null) {
-                        return $q.reject('AUTH_REQUIRED');
-                    } else {
-                        return $q.resolve();
-                    }
-                }
-            }
+            template: '<mi-cuenta></mi-cuenta>'
         });
 }

@@ -33,6 +33,15 @@ function config($stateProvider) {
         .state('app', {
             url: '/app',
             template: '<app></app>',
-            abstract: true
+            abstract: true,
+            resolve: {
+                currentUser($q) {
+                    if (Meteor.user() === null) {
+                        return $q.reject('AUTH_REQUIRED');
+                    } else {
+                        return $q.resolve();
+                    }
+                }
+            }
         });
 }

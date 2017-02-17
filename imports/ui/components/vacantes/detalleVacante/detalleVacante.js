@@ -110,15 +110,6 @@ function config($stateProvider) {
     $stateProvider
         .state('app.vacantes.detalle', {
             url: '/detalle/:vacanteId',
-            template: '<detalle-vacante></detalle-vacante>',
-            resolve: {
-                currentUser($q) {
-                    if (Meteor.user() === null) {
-                        return $q.reject('AUTH_REQUIRED');
-                    } else {
-                        return $q.resolve();
-                    }
-                }
-            }
+            template: '<detalle-vacante></detalle-vacante>'
         });
 }
