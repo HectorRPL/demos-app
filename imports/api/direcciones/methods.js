@@ -7,11 +7,13 @@ import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 import {LoggedInMixin} from 'meteor/tunifight:loggedin-mixin';
 import {_} from 'meteor/underscore';
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Direcciones} from './collection.js';
 import {Candidatos} from '../candidatos/collection.js';
-const ID = ['_id'];
-const CAMPOS_DIRECCION = ['calle', 'delMpio', 'estado', 'estadoId', 'colonia', 'codigoPostal', 'numExt', 'numInt'];
 
+const ID = ['_id'];
+
+const CAMPOS_DIRECCION = ['calle', 'delMpio', 'estado', 'estadoId', 'colonia', 'codigoPostal', 'numExt', 'numInt'];
 
 // CREAR CANDIDATO
 export const crear = new ValidatedMethod({
@@ -77,3 +79,15 @@ export const actualizar = new ValidatedMethod({
         });
     }
 });
+
+const DIRECCIONES_METHODS = _.pluck([ValidatedMethod, actualizar], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(DIRECCIONES_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}

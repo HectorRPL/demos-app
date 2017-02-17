@@ -8,6 +8,7 @@ import {CallPromiseMixin} from "meteor/didericis:callpromise-mixin";
 import {actualizarFechaNacimiento} from '../candidatos/methods'
 import {Meteor} from 'meteor/meteor';
 import {_} from "meteor/underscore";
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 
 export const actualizarPhone = new ValidatedMethod({
     name: 'usuarios.actualizarPhone',
@@ -92,5 +93,17 @@ export const existeCelular = new ValidatedMethod({
 
     }
 });
+
+const USUARIOS_METHODS = _.pluck([actualizarPhone, actualizarRegFacebook, existeCelular], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(USUARIOS_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}
 
 

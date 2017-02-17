@@ -5,8 +5,8 @@ import {Meteor} from "meteor/meteor";
 import {ValidatedMethod} from "meteor/mdg:validated-method";
 import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
 import {_} from "meteor/underscore";
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {BitacoraLogin} from "./collection";
-
 
 export const obtenerEstadoReg = new ValidatedMethod({
     name: 'bitacoraLogin.obtenerEstadoReg',
@@ -43,3 +43,15 @@ export const actualizarEstadoReg = new ValidatedMethod({
         }
     }
 });
+
+const BITACORA_LOGIN_METHODS = _.pluck([obtenerEstadoReg, actualizarEstadoReg], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(BITACORA_LOGIN_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}

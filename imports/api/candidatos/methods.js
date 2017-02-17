@@ -2,11 +2,12 @@ import {ValidatedMethod} from "meteor/mdg:validated-method";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
 import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
 import {_} from "meteor/underscore";
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Candidatos} from "./collection.js";
 
 const CAMPOS_CANDIDATOS = ['nombre', 'apellidos', 'telefono', 'email', 'nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'sexo'];
-const CAMPO_ID = ['_id'];
 
+const CAMPO_ID = ['_id'];
 
 // ACTUALIZAR DATOS PERSONALES
 export const actualizar = new ValidatedMethod({
@@ -66,3 +67,15 @@ export const actualizarFechaNacimiento = new ValidatedMethod({
         });
     }
 });
+
+const CANDIDATO_METHODS = _.pluck([actualizar, actualizarFechaNacimiento], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(CANDIDATO_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}

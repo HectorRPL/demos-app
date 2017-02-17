@@ -3,6 +3,7 @@ import {ValidatedMethod} from "meteor/mdg:validated-method";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
 import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
 import {_} from "meteor/underscore";
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Perfiles} from "./collection.js";
 import {Candidatos} from "../candidatos/collection.js";
 
@@ -79,3 +80,15 @@ export const actualizaPerfil = new ValidatedMethod({
         });
     }
 });
+
+const PERFILES_METHODS = _.pluck([crearPerfil, actualizaPerfil], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(PERFILES_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}

@@ -88,7 +88,7 @@ export const activarSelecVistoXCandidato = new ValidatedMethod({
     }
 });
 
-const POSTULACIONES_METODOS = _.pluck([registrar], 'name');
+const POSTULACIONES_METODOS = _.pluck([registrar, activarVistoXCandidato, activarSelecVistoXCandidato], 'name');
 if (Meteor.isServer) {
     DDPRateLimiter.addRule({
         name(name) {

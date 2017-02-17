@@ -7,6 +7,7 @@ import {LoggedInMixin} from 'meteor/tunifight:loggedin-mixin';
 import {RestrictMixin} from 'meteor/ziarno:restrict-mixin';
 import {ProvideMixin} from 'meteor/ziarno:provide-mixin';
 import {Meteor} from 'meteor/meteor';
+import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Twilio} from 'meteor/mrt:twilio-meteor';
 import {CodigosVerificaion} from '../codigosVerificacion/collection';
 
@@ -91,5 +92,17 @@ export const cambiarCelular = new ValidatedMethod({
 
     }
 });
+
+const TWILIO_METHODS = _.pluck([volverEnviarSMS, verificarCelular, cambiarCelular], 'name');
+if (Meteor.isServer) {
+    DDPRateLimiter.addRule({
+        name(name) {
+            return _.contains(TWILIO_METHODS, name);
+        },
+        connectionId() {
+            return true;
+        },
+    }, 5, 1000);
+}
 
 
