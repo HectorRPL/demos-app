@@ -3,9 +3,9 @@ import {Vacantes} from '../collection';
 import {Candidatos} from '../../candidatos/collection';
 import {Direcciones} from '../../direcciones/collection';
 import {Tiendas} from '../../tiendas/collection';
-import {Cadenas} from '../../cadenas/collection';
-import {Estados} from '../../estados/collection';
-import {Puestos} from '../../puestos/collection';
+import {Cadenas} from '../../catalogos/cadenas/collection';
+import {Estados} from '../../catalogos/estados/collection';
+import {Puestos} from '../../catalogos/puestos/collection';
 import {Postulaciones} from '../../postulaciones/collection';
 import {Counts} from 'meteor/tmeasday:publish-counts';
 

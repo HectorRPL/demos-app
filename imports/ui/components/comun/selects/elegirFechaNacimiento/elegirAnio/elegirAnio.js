@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import {Anios} from "../../../../../../api/fechaNacimiento/anios/collection";
+import {Anios} from "../../../../../../api/catalogos/fechaNacimiento/anios/collection";
 import "./elegirAnio.html";
 
 class ElegirAnio {

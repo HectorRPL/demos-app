@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {Session} from 'meteor/session';
-import {Habilidades} from "../../../../../api/habilidades/collection.js";
+import {Habilidades} from "../../../../../api/catalogos/habilidades/collection.js";
 import "./checkboxHabilidades.html";
 
 class CheckboxHabilidades {

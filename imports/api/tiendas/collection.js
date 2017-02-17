@@ -3,7 +3,7 @@
  */
 
 import {Mongo} from "meteor/mongo";
-import {Cadenas} from '../cadenas/collection';
+import {Cadenas} from '../catalogos/cadenas/collection';
 import tiendasCounts from './tiendasCounts';
 
 class TiendasCollection extends Mongo.Collection {

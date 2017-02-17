@@ -1,7 +1,7 @@
 import {Mongo} from 'meteor/mongo';
-import {Puestos} from '../puestos/collection';
-import {Estados} from '../estados/collection';
-import {Cadenas} from '../cadenas/collection';
+import {Puestos} from '../catalogos/puestos/collection';
+import {Estados} from '../catalogos/estados/collection';
+import {Cadenas} from '../catalogos/cadenas/collection';
 
 
 export const Vacantes = new Mongo.Collection('vacantes', {});

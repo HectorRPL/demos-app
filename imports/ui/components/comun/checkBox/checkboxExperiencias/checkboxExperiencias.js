@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import { Session } from 'meteor/session';
-import {Experiencias} from "../../../../../api/experiencias/collection.js";
+import {Experiencias} from "../../../../../api/catalogos/experiencias/collection.js";
 import "./checkboxExperiencias.html";
 
 class CheckboxExperiencias {

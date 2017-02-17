@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import {Dias} from "../../../../../../api/fechaNacimiento/dias/collection";
+import {Dias} from "../../../../../../api/catalogos/fechaNacimiento/dias/collection";
 import "./elegirDia.html";
 
 class ElegirDia {
