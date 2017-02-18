@@ -36,14 +36,14 @@ const name = 'modalRegistroVacante';
 
 export default angular
     .module(name, [
-    angularMeteor,
-])
+        angularMeteor,
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
-    controllerAs: name,
-    controller: ModalRegistroVacante,
-    bindings: {
-        close: '&',
-        dismiss: '&'
-    }
-});
+        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        controllerAs: name,
+        controller: ModalRegistroVacante,
+        bindings: {
+            close: '&',
+            dismiss: '&'
+        }
+    });

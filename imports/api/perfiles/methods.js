@@ -1,4 +1,4 @@
-import {Meteor} from 'meteor/meteor';
+import {Meteor} from "meteor/meteor";
 import {ValidatedMethod} from "meteor/mdg:validated-method";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
 import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
@@ -7,7 +7,7 @@ import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Perfiles} from "./collection.js";
 import {Candidatos} from "../candidatos/collection.js";
 
-const CAMPOS = [ 'fechaCreacion', 'escolaridadId', 'talla', 'estatura', 'puestoId', 'experiencias', 'habilidades',];
+const CAMPOS = ['fechaCreacion', 'escolaridadId', 'talla', 'estatura', 'puestoId', 'experiencias', 'habilidades',];
 
 const CAMPO_ID = ['_id'];
 
@@ -26,7 +26,7 @@ export const crearPerfil = new ValidatedMethod({
     }),
     run({fechaCreacion, escolaridadId, talla, estatura, puestoId, experiencias, habilidades}) {
         if (Meteor.isServer) {
-            const candidato = Candidatos.findOne({propietario:this.userId});
+            const candidato = Candidatos.findOne({propietario: this.userId});
             const perfil = {
                 candidatoId: candidato._id,
                 fechaCreacion,

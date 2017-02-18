@@ -11,7 +11,6 @@ import {name as RegistroConfirmacion} from "./registroConfirmacion/registroConfi
 import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
 import "./registro.html";
 
-
 class Registro {
     constructor() {
         'ngInject';
@@ -25,22 +24,22 @@ const name = 'registro';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter,
-    Politicas,
-    AvisoPrivacidad,
-    RegistroDatos,
-    RegistroDireccion,
-    RegistroPerfil,
-    RegistroFacebook,
-    RegistroConfirmacion,
-    TituloInicio
-])
+        angularMeteor,
+        uiRouter,
+        Politicas,
+        AvisoPrivacidad,
+        RegistroDatos,
+        RegistroDireccion,
+        RegistroPerfil,
+        RegistroFacebook,
+        RegistroConfirmacion,
+        TituloInicio
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/registro/${name}.html`,
-    controllerAs: name,
-    controller: Registro
-})
+        templateUrl: `imports/ui/components/registro/${name}.html`,
+        controllerAs: name,
+        controller: Registro
+    })
 
     .config(config);
 

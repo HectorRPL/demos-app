@@ -4,9 +4,9 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {cambiarCelular} from "../../../../../api/twilio/methods";
-import {name as CodigoPaisCelular} from '../../../comun/inputs/codigoPaisCelular/codigoPaisCelular';
-import {name as NumCelular} from '../../../comun/inputs/numCelular/numCelular';
-import {name as Alertas} from '../../../comun/alertas/alertas';
+import {name as CodigoPaisCelular} from "../../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
+import {name as NumCelular} from "../../../comun/inputs/numCelular/numCelular";
+import {name as Alertas} from "../../../comun/alertas/alertas";
 import "./cambiarCelular.html";
 
 class CambiarCelular {
@@ -25,17 +25,16 @@ class CambiarCelular {
 
     cambiar() {
         this.tipoMensaje = '';
-        cambiarCelular.call(this.datosCel, this.$bindToContext((err)=>{
-            if(err){
+        cambiarCelular.call(this.datosCel, this.$bindToContext((err)=> {
+            if (err) {
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = err.reason;
-            }else{
-                this.tipoAlerta= 'success';
-                this.msjAlerta =  'Te hemos enviado un codigo de verificacion, al nuevo celular';
+            } else {
+                this.tipoAlerta = 'success';
+                this.msjAlerta = 'Te hemos enviado un codigo de verificacion, al nuevo celular';
             }
         }));
     }
-
 
 
 }

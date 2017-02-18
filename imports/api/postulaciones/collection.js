@@ -1,11 +1,11 @@
 /**
  * Created by jvltmtz on 16/08/16.
  */
-import {Mongo} from 'meteor/mongo';
-import postulacionesCounts from './postulacionesCounts';
+import {Mongo} from "meteor/mongo";
+import postulacionesCounts from "./postulacionesCounts";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
-import {Vacantes} from '../vacantes/collection';
-import {Tiendas} from '../tiendas/collection';
+import {Vacantes} from "../vacantes/collection";
+import {Tiendas} from "../tiendas/collection";
 
 class PostulacionesCollection extends Mongo.Collection {
     insert(doc, callback) {

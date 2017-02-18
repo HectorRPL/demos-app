@@ -1,12 +1,12 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import uiBootstrap from 'angular-ui-bootstrap';
-import ngAnimate from 'angular-animate';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import uiBootstrap from "angular-ui-bootstrap";
+import ngAnimate from "angular-animate";
+import "./foto.html";
 
-import './foto.html';
-
-class Foto {}
+class Foto {
+}
 
 const name = 'foto';
 

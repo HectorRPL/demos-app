@@ -1,15 +1,15 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import ngAnimate from 'angular-animate';
-import {Candidatos} from '../../../api/candidatos/collection.js';
-import {Direcciones} from '../../../api/direcciones/collection.js';
-import {Perfiles} from '../../../api/perfiles/collection.js';
-import {name as ActualizarPerfil} from '../perfilLaboral/actualizarPerfil/actualizarPerfil';
-import {name as ActualizarCandidato} from '../candidato/actualizarCandidato/actualizarCandidato';
-import {name as ActualizarDireccion} from '../direccion/actualizarDireccion/actualizarDireccion';
-import {name as ConstraseniaCorreo} from './constraseniaCorreo/constraseniaCorreo';
-import './miCuenta.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import ngAnimate from "angular-animate";
+import {Candidatos} from "../../../api/candidatos/collection.js";
+import {Direcciones} from "../../../api/direcciones/collection.js";
+import {Perfiles} from "../../../api/perfiles/collection.js";
+import {name as ActualizarPerfil} from "../perfilLaboral/actualizarPerfil/actualizarPerfil";
+import {name as ActualizarCandidato} from "../candidato/actualizarCandidato/actualizarCandidato";
+import {name as ActualizarDireccion} from "../direccion/actualizarDireccion/actualizarDireccion";
+import {name as ConstraseniaCorreo} from "./constraseniaCorreo/constraseniaCorreo";
+import "./miCuenta.html";
 
 class MiCuenta {
     constructor($scope, $reactive) {

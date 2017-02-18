@@ -21,17 +21,17 @@ const name = 'demos';
 
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter,
-    angularUiBootstrap,
-    DemosFooter,
-    Login
-])
+        angularMeteor,
+        uiRouter,
+        angularUiBootstrap,
+        DemosFooter,
+        Login
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/${name}/${name}.html`,
-    controllerAs: name,
-    controller: Demos
-})
+        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        controllerAs: name,
+        controller: Demos
+    })
     .config(config)
     .run(run);
 

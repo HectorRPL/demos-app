@@ -2,17 +2,19 @@
  * Created by jvltmtz on 22/01/17.
  */
 import {Mongo} from "meteor/mongo";
-import codigosVerificacionUtils from './codigosVerificacionUtils';
+import codigosVerificacionUtils from "./codigosVerificacionUtils";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
+
 const TIEMPO_EXPIRACION = (60000 * 10);
 
-class CodigosVerificaionCollection extends Mongo.Collection{
-    update(selector, modifier){
+class CodigosVerificaionCollection extends Mongo.Collection {
+    update(selector, modifier) {
         const result = super.update(selector, modifier);
         codigosVerificacionUtils.afterUpdateCodigoVerificacion(selector, modifier);
         return result;
     }
-    remove(selector, callback){
+
+    remove(selector, callback) {
         const result = super.remove(selector, callback);
         codigosVerificacionUtils.afterRemoveCodigoVerificion(selector);
         return result;
@@ -42,7 +44,7 @@ Schema.codigosVerificacion = new SimpleSchema({
     expiracion: {
         type: Date,
         autoValue: function () {
-           let date =  new Date(new Date().getTime() + TIEMPO_EXPIRACION);
+            let date = new Date(new Date().getTime() + TIEMPO_EXPIRACION);
             console.log(date);
             return date;
         }

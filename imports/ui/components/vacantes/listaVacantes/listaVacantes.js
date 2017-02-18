@@ -1,14 +1,14 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
-import utilsPagination from 'angular-utils-pagination';
-import {Counts} from 'meteor/tmeasday:publish-counts';
+import utilsPagination from "angular-utils-pagination";
+import {Counts} from "meteor/tmeasday:publish-counts";
 import {Meteor} from 'meteor/meteor';
 import {Vacantes} from "../../../../api/vacantes/collection.js";
 import {name as DetalleVacante} from "../detalleVacante/detalleVacante";
-import {name as VacantesBusqueda} from '../vacantesOrdenar/vacantesOrdenar';
-import {name as EstoyPostulado} from '../estoyPostulado/estoyPostulado';
-import {name as VacanteNueva} from './vacanteNueva/vacanteNueva';
+import {name as VacantesBusqueda} from "../vacantesOrdenar/vacantesOrdenar";
+import {name as EstoyPostulado} from "../estoyPostulado/estoyPostulado";
+import {name as VacanteNueva} from "./vacanteNueva/vacanteNueva";
 import "./listaVacantes.html";
 
 class ListaVacantes {

@@ -1,7 +1,7 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import './registroExito.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import "./registroExito.html";
 
 class RegistroExito {
     constructor($scope, $reactive, $state) {
@@ -21,14 +21,14 @@ const name = 'registroExito';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter
-])
+        angularMeteor,
+        uiRouter
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/registro/exito/${name}.html`,
-    controllerAs: name,
-    controller: RegistroExito
-})
+        templateUrl: `imports/ui/components/registro/exito/${name}.html`,
+        controllerAs: name,
+        controller: RegistroExito
+    })
     .config(config);
 
 function config($stateProvider) {

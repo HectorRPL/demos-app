@@ -1,15 +1,15 @@
 /**
  * Created by jvltmtz on 23/08/16.
  */
-import {Meteor} from 'meteor/meteor';
-import {Postulaciones} from '../collection';
-import {Vacantes} from '../../vacantes/collection';
-import {Candidatos} from '../../candidatos/collection';
-import {Puestos} from '../../catalogos/puestos/collection';
-import {Estados} from '../../catalogos/estados/collection';
-import {Cadenas} from '../../catalogos/cadenas/collection';
-import {Tiendas} from '../../tiendas/collection';
-import {Counts} from 'meteor/tmeasday:publish-counts';
+import {Meteor} from "meteor/meteor";
+import {Postulaciones} from "../collection";
+import {Vacantes} from "../../vacantes/collection";
+import {Candidatos} from "../../candidatos/collection";
+import {Puestos} from "../../catalogos/puestos/collection";
+import {Estados} from "../../catalogos/estados/collection";
+import {Cadenas} from "../../catalogos/cadenas/collection";
+import {Tiendas} from "../../tiendas/collection";
+import {Counts} from "meteor/tmeasday:publish-counts";
 
 
 if (Meteor.isServer) {

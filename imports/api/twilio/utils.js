@@ -1,13 +1,13 @@
 /**
  * Created by jvltmtz on 19/01/17.
  */
-import {Meteor} from 'meteor/meteor';
-import {CodigosVerificaion} from '../codigosVerificacion/collection';
-import {Twilio} from 'meteor/mrt:twilio-meteor';
+import {Meteor} from "meteor/meteor";
+import {CodigosVerificaion} from "../codigosVerificacion/collection";
+import {Twilio} from "meteor/mrt:twilio-meteor";
 const TEL_MAS = '+';
 let twilioConfig = {};
 
-if(Meteor.isServer){
+if (Meteor.isServer) {
     Meteor.startup(() => {
         twilioConfig = Meteor.settings.private.twilioConfig;
     });

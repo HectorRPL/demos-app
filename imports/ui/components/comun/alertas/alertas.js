@@ -1,8 +1,8 @@
 /**
  * Created by jvltmtz on 8/12/16.
  */
-import angular from 'angular';
-import './alertas.html';
+import angular from "angular";
+import "./alertas.html";
 
 class Alertas {
     constructor() {

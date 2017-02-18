@@ -28,7 +28,8 @@ export default angular
             paislada: '<',
             celular: '='
         }
-    }).directive('celInvalido', ['$q', function ($q) {
+    })
+    .directive('celInvalido', ['$q', function ($q) {
         return {
             restrict: 'EA',
             require: '?ngModel',

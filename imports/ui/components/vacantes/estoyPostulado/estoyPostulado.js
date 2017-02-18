@@ -5,21 +5,21 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import "./estoyPostulado.html";
 
-class EstoyPostulado{
-  constructor($scope, $reactive){
-      'ngInject';
-      $reactive(this).attach($scope);
-      this.subscribe('vacantes.candidato.postulado', ()=> [{vacanteId: this.getReactively('vacanteid')}]);
-      this.helpers({
-          postulado() {
-              const result =  Counts.get(`count.vacante.candidato.postulado.${this.vacanteid}`);
-              if(result > 0){
-                  return true;
-              }else{
-                  return false;
-              }
-          }
-      });
+class EstoyPostulado {
+    constructor($scope, $reactive) {
+        'ngInject';
+        $reactive(this).attach($scope);
+        this.subscribe('vacantes.candidato.postulado', ()=> [{vacanteId: this.getReactively('vacanteid')}]);
+        this.helpers({
+            postulado() {
+                const result = Counts.get(`count.vacante.candidato.postulado.${this.vacanteid}`);
+                if (result > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
     }
 }
 

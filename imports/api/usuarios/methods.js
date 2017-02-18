@@ -5,8 +5,8 @@ import {ValidatedMethod} from "meteor/mdg:validated-method";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
 import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
 import {CallPromiseMixin} from "meteor/didericis:callpromise-mixin";
-import {actualizarFechaNacimiento} from '../candidatos/methods'
-import {Meteor} from 'meteor/meteor';
+import {actualizarFechaNacimiento} from "../candidatos/methods";
+import {Meteor} from "meteor/meteor";
 import {_} from "meteor/underscore";
 import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 
@@ -67,7 +67,7 @@ export const actualizarRegFacebook = new ValidatedMethod({
                         nacimientoMes: nacimientoMes,
                         nacimientoAnio: nacimientoAnio
                     };
-                    actualizarFechaNacimiento.call(fechaNacimiento, (err)=>{
+                    actualizarFechaNacimiento.call(fechaNacimiento, (err)=> {
 
                     });
                     TwilioSMS.crearCodigoVerificacion(this.userId);

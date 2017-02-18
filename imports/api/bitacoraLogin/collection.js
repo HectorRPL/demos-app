@@ -1,7 +1,7 @@
 /**
  * Created by jvltmtz on 5/01/17.
  */
-import { Mongo } from 'meteor/mongo';
+import {Mongo} from "meteor/mongo";
 export const BitacoraLogin = new Mongo.Collection('bitacoraLogin');
 
 BitacoraLogin.deny({
@@ -35,19 +35,19 @@ Schema.bitacoraLogin = new SimpleSchema({
     fechaLogin: {
         type: Date
     },
-    fechaLogout:{
+    fechaLogout: {
         type: Date,
         optional: true
     },
-    conexion:{
+    conexion: {
         type: Object,
         blackbox: true
     },
-    estadoRegistro:{
+    estadoRegistro: {
         type: String
     },
-    tipoLogin:{
-        type:String
+    tipoLogin: {
+        type: String
     }
 });
 

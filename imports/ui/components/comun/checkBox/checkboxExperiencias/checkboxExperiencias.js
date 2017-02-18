@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import { Session } from 'meteor/session';
+import {Session} from "meteor/session";
 import {Experiencias} from "../../../../../api/catalogos/experiencias/collection.js";
 import "./checkboxExperiencias.html";
 
@@ -40,7 +40,7 @@ class CheckboxExperiencias {
     }
 
     habilitarCheck(experiencia) {
-        let resultado  = -1;
+        let resultado = -1;
         resultado = this.expPerfil.indexOf(experiencia._id);
         if (resultado > -1) {
             this.expSeleccionadas.push(experiencia._id);

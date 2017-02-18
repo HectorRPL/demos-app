@@ -1,12 +1,12 @@
 /**
  * Created by jvltmtz on 19/09/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
-import './registroPerfil.html';
-import {name as AgregarPerfil} from '../../perfilLaboral/agregarPerfil/agregarPerfil';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
+import "./registroPerfil.html";
+import {name as AgregarPerfil} from "../../perfilLaboral/agregarPerfil/agregarPerfil";
 
 class RegistroPerfil {
     constructor($scope, $state, $reactive) {

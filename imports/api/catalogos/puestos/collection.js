@@ -1,4 +1,4 @@
-import {Mongo} from 'meteor/mongo';
+import {Mongo} from "meteor/mongo";
 export const Puestos = new Mongo.Collection('puestos');
 
 Puestos.deny({
@@ -14,7 +14,7 @@ Puestos.deny({
 });
 
 Puestos.helpers({
-   descripcion(){
-       return `${this.ṕuesto}`;
-   }
+    descripcion(){
+        return `${this.ṕuesto}`;
+    }
 });

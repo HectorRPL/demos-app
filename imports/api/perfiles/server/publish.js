@@ -9,7 +9,7 @@ if (Meteor.isServer) {
         return Perfiles.find(selector, {
             fields: {
                 fechaCreacion: 0,
-                candidatoId:0
+                candidatoId: 0
             }
         });
     });

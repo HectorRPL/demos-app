@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import { Session } from 'meteor/session';
+import {Session} from "meteor/session";
 import uiRouter from "angular-ui-router";
 import {name as ElegirEstatura} from "../../comun/inputs/elegirEstatura/elegirEstatura";
 import {name as ElegirPuesto} from "../../comun/selects/elegirPuesto/elegirPuesto";

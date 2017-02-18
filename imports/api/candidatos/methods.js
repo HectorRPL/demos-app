@@ -51,9 +51,9 @@ export const actualizarFechaNacimiento = new ValidatedMethod({
     },
     validate: Candidatos.simpleSchema().pick(['nacimientoDia', 'nacimientoMes', 'nacimientoAnio'])
         .validator({
-        clean: true,
-        filter: false
-    }),
+            clean: true,
+            filter: false
+        }),
     run({nacimientoDia, nacimientoMes, nacimientoAnio}) {
 
         return Candidatos.update({

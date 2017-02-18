@@ -20,7 +20,7 @@ class AgregarPerfil {
         this.cargando = true;
 
         this.$state = $state;
-        
+
         this.perfil = {};
         this.respuesta = {
             mostrar: false,

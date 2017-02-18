@@ -1,15 +1,15 @@
 /**
  * Created by jvltmtz on 19/01/17.
  */
-import {ValidatedMethod} from 'meteor/mdg:validated-method';
-import {SimpleSchema} from 'meteor/aldeed:simple-schema';
-import {LoggedInMixin} from 'meteor/tunifight:loggedin-mixin';
-import {RestrictMixin} from 'meteor/ziarno:restrict-mixin';
-import {ProvideMixin} from 'meteor/ziarno:provide-mixin';
-import {Meteor} from 'meteor/meteor';
+import {ValidatedMethod} from "meteor/mdg:validated-method";
+import {SimpleSchema} from "meteor/aldeed:simple-schema";
+import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
+import {RestrictMixin} from "meteor/ziarno:restrict-mixin";
+import {ProvideMixin} from "meteor/ziarno:provide-mixin";
+import {Meteor} from "meteor/meteor";
 import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
-import {Twilio} from 'meteor/mrt:twilio-meteor';
-import {CodigosVerificaion} from '../codigosVerificacion/collection';
+import {Twilio} from "meteor/mrt:twilio-meteor";
+import {CodigosVerificaion} from "../codigosVerificacion/collection";
 
 export const volverEnviarSMS = new ValidatedMethod({
     name: 'twilio.volverEnviarSMS',

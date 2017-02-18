@@ -17,11 +17,11 @@ class VolverEnviarSms {
 
     enviarSMS() {
         this.tipoMensaje = '';
-        volverEnviarSMS.call({}, this.$bindToContext((err)=>{
-            if(err){
+        volverEnviarSMS.call({}, this.$bindToContext((err)=> {
+            if (err) {
                 this.tipoMensaje = 'danger';
                 this.mensaje = err.reason;
-            }else{
+            } else {
                 this.tipoMensaje = 'success';
                 this.mensaje = 'El codigo de verificación fue enviado.';
             }

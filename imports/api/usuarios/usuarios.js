@@ -1,9 +1,10 @@
-import {Meteor} from 'meteor/meteor';
-import {Accounts} from 'meteor/accounts-base';
-import {Candidatos} from '../candidatos/collection';
-import {BitacoraLogin} from '../bitacoraLogin/collection';
+import {Meteor} from "meteor/meteor";
+import {Accounts} from "meteor/accounts-base";
+import {Candidatos} from "../candidatos/collection";
+import {BitacoraLogin} from "../bitacoraLogin/collection";
 import {CodigosVerificaion} from '../codigosVerificacion/collection';
-import {enviarSMS} from '../twilio/methods'
+import {enviarSMS} from "../twilio/methods";
+
 const LOGIN_METHOD = 'login';
 const CREATE_USER_METHOD = 'createUser';
 
@@ -72,9 +73,7 @@ if (Meteor.isServer) {
         }
 
 
-
     });
-    
 
 
 }

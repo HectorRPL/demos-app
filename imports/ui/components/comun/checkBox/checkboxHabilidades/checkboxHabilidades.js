@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import {Session} from 'meteor/session';
+import {Session} from "meteor/session";
 import {Habilidades} from "../../../../../api/catalogos/habilidades/collection.js";
 import "./checkboxHabilidades.html";
 

@@ -18,7 +18,7 @@ class CodigoPaisCelular {
         })
     }
 
-    $doCheck(){
+    $doCheck() {
         this.paislada = '1';
     }
 

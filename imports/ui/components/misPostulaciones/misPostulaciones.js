@@ -1,17 +1,16 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import ngAnimate from 'angular-animate';
-import {name as PostEnProceso} from './postEnproceso/postEnproceso';
-import {name as PostSeleccionada} from './postSeleccionada/postSeleccionada';
-
-import './misPostulaciones.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import ngAnimate from "angular-animate";
+import {name as PostEnProceso} from "./postEnproceso/postEnproceso";
+import {name as PostSeleccionada} from "./postSeleccionada/postSeleccionada";
+import "./misPostulaciones.html";
 
 class MisPostulaciones {
 
     constructor() {
         'ngInject';
-        this.titulo= 'Estado Principal de postulaciones';
+        this.titulo = 'Estado Principal de postulaciones';
     }
 }
 

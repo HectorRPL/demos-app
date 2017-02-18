@@ -1,6 +1,6 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import './demosFooter.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import "./demosFooter.html";
 
 class DemosFooter {
 }
@@ -8,10 +8,10 @@ class DemosFooter {
 const name = 'demosFooter';
 export default angular
     .module(name, [
-    angularMeteor,
-])
+        angularMeteor,
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/footer/${name}.html`,
-    controllerAs: name,
-    controller: DemosFooter
-});
+        templateUrl: `imports/ui/components/footer/${name}.html`,
+        controllerAs: name,
+        controller: DemosFooter
+    });

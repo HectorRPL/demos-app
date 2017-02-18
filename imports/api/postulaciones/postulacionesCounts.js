@@ -4,7 +4,7 @@
 import {_} from "meteor/underscore";
 import {Postulaciones} from "./collection.js";
 import {Tiendas} from "../tiendas/collection.js";
-import {check} from 'meteor/check';
+import {check} from "meteor/check";
 
 const postulacionesCounts = {
     _updatePostuladosTienda(tiendaId) {

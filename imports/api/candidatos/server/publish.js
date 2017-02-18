@@ -41,6 +41,4 @@ if (Meteor.isServer) {
     });
 
 
-
-    
 }

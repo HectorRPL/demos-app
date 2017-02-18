@@ -39,11 +39,11 @@ class RegistroFacebook {
     }
 
     guardar() {
-        actualizarRegFacebook.call(this.datos, this.$bindToContext((err)=>{
-            if(err){
+        actualizarRegFacebook.call(this.datos, this.$bindToContext((err)=> {
+            if (err) {
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = err.message;
-            }else{
+            } else {
                 this.$state.go('demos.registro.confirmacion');
             }
         }));
@@ -51,7 +51,7 @@ class RegistroFacebook {
 
 
     actualizarEstado(nombreEstado) {
-        actualizarEstadoReg.call({estado: nombreEstado}, this.$bindToContext((err)=>{
+        actualizarEstadoReg.call({estado: nombreEstado}, this.$bindToContext((err)=> {
 
         }));
     }
@@ -62,21 +62,21 @@ const name = 'registroFacebook';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    angularMessages,
-    ElegirAnio,
-    ElegirMes,
-    ElegirDia,
-    CodigosPostales,
-    Alerts,
-    NumCelular,
-    CodigoPaisCelular
-])
+        angularMeteor,
+        angularMessages,
+        ElegirAnio,
+        ElegirMes,
+        ElegirDia,
+        CodigosPostales,
+        Alerts,
+        NumCelular,
+        CodigoPaisCelular
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
-    controllerAs: name,
-    controller: RegistroFacebook
-})
+        templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
+        controllerAs: name,
+        controller: RegistroFacebook
+    })
     .config(config);
 
 function config($stateProvider) {

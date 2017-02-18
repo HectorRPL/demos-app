@@ -1,7 +1,7 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import './politicas.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import "./politicas.html";
 
 class Politicas {
 }
@@ -12,14 +12,14 @@ const name = 'politicas';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter
-])
+        angularMeteor,
+        uiRouter
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/${name}/${name}.html`,
-    controllerAs: name,
-    controller: Politicas
-})
+        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        controllerAs: name,
+        controller: Politicas
+    })
     .config(config);
 
 function config($stateProvider) {

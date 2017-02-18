@@ -42,7 +42,7 @@ class AgregarCandidato {
                     this.error = err;
                     if (this.error.error === 403) {
                         this.error.mensaje = `El correo ${this.credentials.email} ya se encuentra registrado`;
-                    }else{
+                    } else {
                         this.error.mensaje = err.reason;
                     }
                 } else {
@@ -58,17 +58,17 @@ const name = 'agregarCandidato';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter,
-    angularMessages,
-    ElegirAnio,
-    ElegirMes,
-    ElegirDia,
-    CodigoPaisCelular,
-    NumCelular
-])
+        angularMeteor,
+        uiRouter,
+        angularMessages,
+        ElegirAnio,
+        ElegirMes,
+        ElegirDia,
+        CodigoPaisCelular,
+        NumCelular
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,
-    controllerAs: name,
-    controller: AgregarCandidato
-});
+        templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,
+        controllerAs: name,
+        controller: AgregarCandidato
+    });

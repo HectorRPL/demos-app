@@ -1,12 +1,12 @@
 /**
  * Created by jvltmtz on 26/09/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import './registroDatos.html';
-import {name as Facebook} from '../../login/facebook';
-import {name as AgregarCandidato} from '../../candidato/agregarCandidato/agregarCandidato'
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import "./registroDatos.html";
+import {name as Facebook} from "../../login/facebook";
+import {name as AgregarCandidato} from "../../candidato/agregarCandidato/agregarCandidato";
 
 class RegistroDatos {
 }

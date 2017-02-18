@@ -6,7 +6,7 @@ import {name as CodigosPostales} from "../../comun/inputs/codigosPostales/codigo
 import "./formaDireccion.html";
 
 class FormaDireccion {
-    constructor($scope){
+    constructor($scope) {
         'ngInject';
         this.direccion = {};
     }

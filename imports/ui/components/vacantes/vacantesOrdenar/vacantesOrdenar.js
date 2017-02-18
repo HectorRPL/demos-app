@@ -1,7 +1,6 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-
-import  './vacantesOrdenar.html';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import "./vacantesOrdenar.html";
 
 class VacantesOrdenar {
     constructor() {
@@ -22,15 +21,15 @@ const name = 'vacantesOrdenar';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor
-])
+        angularMeteor
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
-    bindings: {
-        onChange: '&',
-        property: '@',
-        order: '@'
-    },
-    controllerAs: name,
-    controller: VacantesOrdenar
-});
+        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        bindings: {
+            onChange: '&',
+            property: '@',
+            order: '@'
+        },
+        controllerAs: name,
+        controller: VacantesOrdenar
+    });

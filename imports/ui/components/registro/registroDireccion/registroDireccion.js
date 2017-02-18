@@ -1,14 +1,14 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import {actualizarEstadoReg} from '../../../../api/bitacoraLogin/methods'
-import './registroDireccion.html';
-import {name as FormaDireccion} from '../../direccion/formaDireccion/formaDireccion';
-import {name as Alertas} from '../../comun/alertas/alertas';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
+import "./registroDireccion.html";
+import {name as FormaDireccion} from "../../direccion/formaDireccion/formaDireccion";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import {crear} from "../../../../api/direcciones/methods";
 
 class RegistroDireccion {
-    constructor($scope, $state, $reactive){
+    constructor($scope, $state, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
         this.$state = $state;

@@ -1,11 +1,9 @@
-import {Mongo} from 'meteor/mongo';
-import {Puestos} from '../catalogos/puestos/collection';
-import {Estados} from '../catalogos/estados/collection';
+import {Mongo} from "meteor/mongo";
+import {Puestos} from "../catalogos/puestos/collection";
+import {Estados} from "../catalogos/estados/collection";
 import {Cadenas} from '../catalogos/cadenas/collection';
 
-
 export const Vacantes = new Mongo.Collection('vacantes', {});
-
 
 Vacantes.deny({
     insert() {

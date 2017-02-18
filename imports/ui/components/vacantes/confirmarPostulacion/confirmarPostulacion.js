@@ -1,7 +1,7 @@
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import './confirmarPostulacion.html';
-import {registrar} from '../../../../api/postulaciones/methods.js';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import "./confirmarPostulacion.html";
+import {registrar} from "../../../../api/postulaciones/methods.js";
 
 class ConfirmarPostulacion {
     constructor($scope, $reactive, $state) {
@@ -28,15 +28,15 @@ class ConfirmarPostulacion {
     postularme() {
         this.cargando = false;
         const postulacion = {tiendaId: this.datosvacante.tienda._id, vacanteId: this.datosvacante.vacanteId};
-         registrar.call(postulacion, this.$bindToContext((error, result)=> {
+        registrar.call(postulacion, this.$bindToContext((error, result)=> {
             if (error) {
                 this.respuesta = this.danger;
                 this.cargando = true;
             } else {
                 this.respuesta = this.success;
                 this.cargando = true;
-             }
-         }));
+            }
+        }));
     }
 
     cancelarCerrar() {
@@ -50,15 +50,15 @@ const name = 'confirmarPostulacion';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-])
+        angularMeteor,
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
-    controllerAs: name,
-    controller: ConfirmarPostulacion,
-    bindings: {
-        datosvacante: '<',
-        close: '&',
-        dismiss: '&'
-    }
-});
+        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        controllerAs: name,
+        controller: ConfirmarPostulacion,
+        bindings: {
+            datosvacante: '<',
+            close: '&',
+            dismiss: '&'
+        }
+    });

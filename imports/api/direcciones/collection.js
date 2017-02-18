@@ -3,6 +3,7 @@
  */
 import {Mongo} from "meteor/mongo";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
+
 export const Direcciones = new Mongo.Collection('direcciones');
 
 Direcciones.deny({

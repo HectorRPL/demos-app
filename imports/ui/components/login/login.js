@@ -2,7 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {Meteor} from "meteor/meteor";
-import {obtenerEstadoReg} from '../../../api/bitacoraLogin/methods';
+import {obtenerEstadoReg} from "../../../api/bitacoraLogin/methods";
 import "./login.html";
 import {name as Registro} from "../registro/registro";
 import {name as Facebook} from "./facebook";
@@ -36,7 +36,7 @@ class Login {
                     this.cargando = true;
                     this.error = err;
                 } else {
-                    obtenerEstadoReg.call({}, this.$bindToContext((err, result)=>{
+                    obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
                         console.log(result);
                         this.$state.go(result);
                         this.cargando = true;
@@ -52,19 +52,19 @@ const name = 'login';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    uiRouter,
-    Registro,
-    Facebook,
-    App,
-    Recuperar,
-    TituloInicio
-])
+        angularMeteor,
+        uiRouter,
+        Registro,
+        Facebook,
+        App,
+        Recuperar,
+        TituloInicio
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/login/${name}.html`,
-    controllerAs: name,
-    controller: Login
-})
+        templateUrl: `imports/ui/components/login/${name}.html`,
+        controllerAs: name,
+        controller: Login
+    })
 
     .config(config);
 

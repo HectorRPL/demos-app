@@ -1,13 +1,13 @@
 /**
  * Created by jvltmtz on 25/08/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
 import {Postulaciones} from "../../../../api/postulaciones/collection";
-import {activarVistoXCandidato} from '../../../../api/postulaciones/methods.js';
-import utilsPagination from 'angular-utils-pagination';
-import './postEnproceso.html';
+import {activarVistoXCandidato} from "../../../../api/postulaciones/methods.js";
+import utilsPagination from "angular-utils-pagination";
+import "./postEnproceso.html";
 
 class PostEnproceso {
 

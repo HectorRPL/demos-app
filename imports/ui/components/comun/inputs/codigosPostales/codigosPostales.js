@@ -28,7 +28,8 @@ export default angular
             direccion: '='
         },
         controller: CodigosPostales
-    }).directive('cpInvalido', ['$q', function ($q) {
+    })
+    .directive('cpInvalido', ['$q', function ($q) {
         return {
             restrict: 'EA',
             require: '?ngModel',
@@ -38,7 +39,7 @@ export default angular
                     return obtenerColonias.callPromise({
                         cp: codigoPostal
                     }).then(function (result) {
-                        scope.codigosPostales.direccion.colonias =  result;
+                        scope.codigosPostales.direccion.colonias = result;
                         if (result.length === 0) {
                             scope.codigosPostales.direccion.estado = '';
                             scope.codigosPostales.direccion.delMpio = '';

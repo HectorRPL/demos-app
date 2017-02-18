@@ -3,9 +3,9 @@ import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import "./detalleVacante.html";
 import {Vacantes} from "../../../../api/vacantes/collection.js";
-import {Tiendas} from '../../../../api/tiendas/collection';
-import {Counts} from 'meteor/tmeasday:publish-counts';
-import {name as ConfirmarPostulacion} from '../confirmarPostulacion/confirmarPostulacion';
+import {Tiendas} from "../../../../api/tiendas/collection";
+import {Counts} from "meteor/tmeasday:publish-counts";
+import {name as ConfirmarPostulacion} from "../confirmarPostulacion/confirmarPostulacion";
 
 class DetalleVacante {
     constructor($stateParams, $scope, $reactive, $uibModal) {

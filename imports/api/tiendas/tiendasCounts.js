@@ -1,10 +1,10 @@
 /**
  * Created by jvltmtz on 11/10/16.
  */
-import {_} from 'meteor/underscore';
-import {Tiendas} from '../tiendas/collection.js';
-import {Vacantes} from '../vacantes/collection.js';
-import {check} from 'meteor/check';
+import {_} from "meteor/underscore";
+import {Tiendas} from "../tiendas/collection.js";
+import {Vacantes} from "../vacantes/collection.js";
+import {check} from "meteor/check";
 
 const tiendasCounts = {
     _updateVacante(vacanteId) {
@@ -22,7 +22,7 @@ const tiendasCounts = {
             }
         ];
         const totalTiendas = Tiendas.aggregate(selectorTiendas);
-        if(totalTiendas[0].totalVacantes === totalTiendas[0].totalPostulados){
+        if (totalTiendas[0].totalVacantes === totalTiendas[0].totalPostulados) {
             vacanteCubierta = true;
         }
 

@@ -32,11 +32,11 @@ const name = 'agregarDireccion';
 // create a module
 export default angular
     .module(name, [
-    angularMeteor,
-    angularMessages
-])
+        angularMeteor,
+        angularMessages
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
-    controllerAs: name,
-    controller: AgregarDireccion
-});
+        templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
+        controllerAs: name,
+        controller: AgregarDireccion
+    });

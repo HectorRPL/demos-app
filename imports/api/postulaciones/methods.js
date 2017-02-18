@@ -29,7 +29,7 @@ export const registrar = new ValidatedMethod({
             const candidato = Candidatos.findOne({propietario: this.userId});
             const postulacion = {
                 vacanteId: vacanteId,
-                tiendaId : tiendaId,
+                tiendaId: tiendaId,
                 candidatoId: candidato._id,
                 estado: 1
             };

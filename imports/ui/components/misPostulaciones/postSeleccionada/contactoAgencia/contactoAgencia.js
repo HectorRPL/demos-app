@@ -5,8 +5,8 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {Vacantes} from "../../../../../api/vacantes/collection.js";
-import {Tiendas} from '../../../../../api/tiendas/collection';
-import {name as DatosContacto} from '../../../agencia/datosContacto/datosContacto';
+import {Tiendas} from "../../../../../api/tiendas/collection";
+import {name as DatosContacto} from "../../../agencia/datosContacto/datosContacto";
 import "./contactoAgencia.html";
 
 class ContactoAgencia {

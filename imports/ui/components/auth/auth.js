@@ -32,11 +32,11 @@ class Auth {
 
 export default angular
     .module(name, [
-    angularMeteor,
-    DisplayNameFilter
-])
+        angularMeteor,
+        DisplayNameFilter
+    ])
     .component(name, {
-    template,
-    controllerAs: name,
-    controller: Auth
-});
+        template,
+        controllerAs: name,
+        controller: Auth
+    });

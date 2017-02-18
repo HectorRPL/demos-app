@@ -4,16 +4,17 @@
 import angular from "angular";
 import "./vacanteNueva.html";
 
-class VacanteNueva{
-    constructor($scope, $reactive){
+class VacanteNueva {
+    constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
         this.fechaHoy = new Date();
         this.hoy = false;
     }
-    $onChanges(){
-        if(angular.isDate(this.fechacreacion)){
-            if(this.fechaHoy.getFullYear() === this.fechacreacion.getFullYear() &&
+
+    $onChanges() {
+        if (angular.isDate(this.fechacreacion)) {
+            if (this.fechaHoy.getFullYear() === this.fechacreacion.getFullYear() &&
                 this.fechaHoy.getMonth() === this.fechacreacion.getMonth() &&
                 this.fechaHoy.getDay() === this.fechacreacion.getDay()) {
                 this.hoy = true;

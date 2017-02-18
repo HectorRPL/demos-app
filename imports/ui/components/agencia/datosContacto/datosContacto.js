@@ -1,15 +1,14 @@
 /**
  * Created by hector on 23/12/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import {Agencias} from '../../../../api/agencias/collection';
-import {Direcciones} from '../../../../api/direcciones/collection';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import {Agencias} from "../../../../api/agencias/collection";
+import {Direcciones} from "../../../../api/direcciones/collection";
+import "./datosContacto.html";
 
-import './datosContacto.html';
-
-class DatosContacto{
-    constructor($scope, $reactive){
+class DatosContacto {
+    constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
 

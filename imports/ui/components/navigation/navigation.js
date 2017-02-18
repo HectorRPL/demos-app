@@ -28,12 +28,12 @@ const name = 'navigation';
 
 export default angular
     .module(name, [
-    angularMeteor,
-    NumNuevasSelecciones,
-    NumPostulacionesVistas
-])
+        angularMeteor,
+        NumNuevasSelecciones,
+        NumPostulacionesVistas
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/${name}/${name}.html`,
-    controllerAs: name,
-    controller: Navigation,
-});
+        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        controllerAs: name,
+        controller: Navigation,
+    });

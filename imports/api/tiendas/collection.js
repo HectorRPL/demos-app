@@ -3,8 +3,8 @@
  */
 
 import {Mongo} from "meteor/mongo";
-import {Cadenas} from '../catalogos/cadenas/collection';
-import tiendasCounts from './tiendasCounts';
+import {Cadenas} from "../catalogos/cadenas/collection";
+import tiendasCounts from "./tiendasCounts";
 
 class TiendasCollection extends Mongo.Collection {
     update(selector, modifier) {
@@ -19,6 +19,6 @@ export const Tiendas = new TiendasCollection('tiendas');
 
 Tiendas.helpers({
     cadena(){
-        return Cadenas.findOne({_id:this.cadenaId});
+        return Cadenas.findOne({_id: this.cadenaId});
     }
 });

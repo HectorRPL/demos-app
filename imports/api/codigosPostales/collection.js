@@ -1,4 +1,4 @@
-import {Mongo} from 'meteor/mongo';
+import {Mongo} from "meteor/mongo";
 export const CodigosPostales = new Mongo.Collection('codigosPostales');
 
 CodigosPostales.deny({

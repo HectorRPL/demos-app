@@ -15,18 +15,18 @@ const name = 'app';
 
 export default angular
     .module(name, [
-    angularMeteor,
-    Navigation,
-    Vacantes,
-    MisPostualciones,
-    MiCuenta,
-    Logout
-])
+        angularMeteor,
+        Navigation,
+        Vacantes,
+        MisPostualciones,
+        MiCuenta,
+        Logout
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/${name}/${name}.html`,
-    controllerAs: name,
-    controller: App
-})
+        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        controllerAs: name,
+        controller: App
+    })
     .config(config);
 
 function config($stateProvider) {

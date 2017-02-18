@@ -1,15 +1,15 @@
 /**
  * Created by jvltmtz on 25/08/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
-import uiRouter from 'angular-ui-router';
-import ngAnimate from 'angular-animate';
+import angular from "angular";
+import angularMeteor from "angular-meteor";
+import uiRouter from "angular-ui-router";
+import ngAnimate from "angular-animate";
 import {Postulaciones} from "../../../../api/postulaciones/collection.js";
-import {activarSelecVistoXCandidato} from '../../../../api/postulaciones/methods.js';
-import {name as ContactoAgencia} from './contactoAgencia/contactoAgencia';
-import utilsPagination from 'angular-utils-pagination';
-import './postSeleccionada.html';
+import {activarSelecVistoXCandidato} from "../../../../api/postulaciones/methods.js";
+import {name as ContactoAgencia} from "./contactoAgencia/contactoAgencia";
+import utilsPagination from "angular-utils-pagination";
+import "./postSeleccionada.html";
 
 class PostSeleccionada {
 

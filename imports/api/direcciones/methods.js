@@ -1,15 +1,15 @@
 /**
  * Created by jvltmtz on 15/09/16.
  */
-import {Meteor} from 'meteor/meteor';
-import { Random } from 'meteor/random'
-import {ValidatedMethod} from 'meteor/mdg:validated-method';
-import {SimpleSchema} from 'meteor/aldeed:simple-schema';
-import {LoggedInMixin} from 'meteor/tunifight:loggedin-mixin';
-import {_} from 'meteor/underscore';
+import {Meteor} from "meteor/meteor";
+import {Random} from "meteor/random";
+import {ValidatedMethod} from "meteor/mdg:validated-method";
+import {SimpleSchema} from "meteor/aldeed:simple-schema";
+import {LoggedInMixin} from "meteor/tunifight:loggedin-mixin";
+import {_} from "meteor/underscore";
 import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
-import {Direcciones} from './collection.js';
-import {Candidatos} from '../candidatos/collection.js';
+import {Direcciones} from "./collection.js";
+import {Candidatos} from "../candidatos/collection.js";
 
 const ID = ['_id'];
 

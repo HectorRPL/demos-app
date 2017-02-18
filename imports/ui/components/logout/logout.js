@@ -31,10 +31,10 @@ const name = 'logout';
 
 export default angular
     .module(name, [
-    angularMeteor
-])
+        angularMeteor
+    ])
     .component(name, {
-    templateUrl: `imports/ui/components/${name}/${name}.html`,
-    controllerAs: name,
-    controller: Logout
-});
+        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        controllerAs: name,
+        controller: Logout
+    });
