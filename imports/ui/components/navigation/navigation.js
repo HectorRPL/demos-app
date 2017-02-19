@@ -18,7 +18,7 @@ class Navigation {
         });
 
         this.menusSidebar = [
-            {titulo: 'Mi Cuenta', stateUiSref: 'demos.miCuenta', fontAwesome: 'fa fa-user'},
+            {titulo: 'Mi Cuenta', stateUiSref: 'app.miCuenta', fontAwesome: 'fa fa-user'},
         ];
     }
 }

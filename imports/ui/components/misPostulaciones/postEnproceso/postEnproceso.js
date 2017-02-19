@@ -36,7 +36,7 @@ class PostEnproceso {
                 this.respuesta = this.success;
             }
         }));
-        this.$state.go('demos.vacantes.detalle', {vacanteId: vacanteId});
+        this.$state.go('app.vacantes.detalle', {vacanteId: vacanteId});
     }
 }
 

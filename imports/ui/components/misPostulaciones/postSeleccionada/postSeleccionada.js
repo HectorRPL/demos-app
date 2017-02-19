@@ -35,7 +35,7 @@ class PostSeleccionada {
                 this.respuesta = this.success;
             }
         }));
-        this.$state.go('demos.postulaciones.contactoAgencia', {
+        this.$state.go('app.postulaciones.contactoAgencia', {
             vacanteId: postulacion.vacanteId,
             tiendaId: postulacion.tiendaId
         });

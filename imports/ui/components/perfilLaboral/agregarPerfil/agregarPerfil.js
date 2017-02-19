@@ -38,7 +38,7 @@ class AgregarPerfil {
                 this.respuesta.tipo = 'danger';
                 this.cargando = true;
             } else {
-                this.$state.go('demos.vacantes.lista');
+                this.$state.go('app.vacantes.lista');
                 this.cargando = true;
             }
         }));

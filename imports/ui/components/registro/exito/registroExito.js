@@ -11,7 +11,7 @@ class RegistroExito {
     }
 
     verVacantes() {
-        this.$state.go('demos.vacantes.lista');
+        this.$state.go('app.vacantes.lista');
     }
 }
 
