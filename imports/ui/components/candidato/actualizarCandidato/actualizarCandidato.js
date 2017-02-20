@@ -60,7 +60,6 @@ class ActualizarCandidato {
 
     actualizar() {
         this.cargando = false;
-        console.log(this.datos);
         actualizar.call(this.datos, this.$bindToContext((err) => {
             this.respuesta.mostrar = true;
             if (err) {

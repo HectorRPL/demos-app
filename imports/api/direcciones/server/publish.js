@@ -18,7 +18,6 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('direcciones.agencia', (agenciaId) => {
-        console.log(agenciaId);
         return Direcciones.find(agenciaId);
     });
 

@@ -22,7 +22,6 @@ if (Meteor.isServer) {
                 {selecVistoCandidato: false}
             ]
         };
-        console.log('candidatos.selecciones.nuevas ', selector);
         Counts.publish(this, `count.selecciones.nuevas.${candidatoId.candidatoId}`,
             Postulaciones.find(selector));
     });

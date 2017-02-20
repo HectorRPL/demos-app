@@ -17,7 +17,6 @@ class DatosContacto {
 
         this.helpers({
             direccionAgencia() {
-                // console.log(this.agenciaid);
                 return Direcciones.findOne({
                     propietario: this.getReactively('agenciaid')
                 });

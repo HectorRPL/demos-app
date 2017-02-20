@@ -45,7 +45,6 @@ Schema.codigosVerificacion = new SimpleSchema({
         type: Date,
         autoValue: function () {
             let date = new Date(new Date().getTime() + TIEMPO_EXPIRACION);
-            console.log(date);
             return date;
         }
     },

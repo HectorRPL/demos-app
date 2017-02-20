@@ -50,7 +50,6 @@ export default angular
                             scope.codigosPostales.direccion.delMpio = result[0].delegacionMunicipio;
                         }
                     }).catch(function (err) {
-                        console.log(err);
                         return $q.reject('No encontrado');
                     });
                 };

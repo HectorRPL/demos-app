@@ -37,7 +37,6 @@ class Login {
                     this.error = err;
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
-                        console.log(result);
                         this.$state.go(result);
                         this.cargando = true;
                     }));
