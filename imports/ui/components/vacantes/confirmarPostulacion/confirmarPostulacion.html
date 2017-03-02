@@ -16,11 +16,8 @@
                 en <strong>{{confirmarPostulacion.datosvacante.tienda.delMpio}}</strong>?.
             </div>
             <br>
-            <div ng-show="confirmarPostulacion.respuesta" uib-alert type="{{confirmarPostulacion.respuesta.tipo}}" class="text-center">
-                <span class="{{confirmarPostulacion.respuesta.icono}}"></span>&nbsp;&nbsp;
-                <strong>{{confirmarPostulacion.respuesta.mensaje}} </strong>
-                <br>
-            </div>
+            <alertas tipo="confirmarPostulacion.tipoMsj" mensaje="confirmarPostulacion.msj"></alertas>
+            <br>
         </div>
     </div>
     <div class="row">

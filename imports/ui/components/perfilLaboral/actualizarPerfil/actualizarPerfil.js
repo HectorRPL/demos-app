@@ -6,6 +6,7 @@ import {name as ElegirEstatura} from "../../comun/inputs/elegirEstatura/elegirEs
 import {name as ElegirPuesto} from "../../comun/selects/elegirPuesto/elegirPuesto";
 import {name as ElegirTalla} from "../../comun/selects/elegirTalla/elegirTalla";
 import {name as ElegirEscuela} from "../../comun/selects/elegirEscuela/elegirEscuela";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import {actualizaPerfil} from "../../../../api/perfiles/methods.js";
 import "./actualizarPerfil.html";
 
@@ -36,12 +37,12 @@ class ActualizarPerfil {
         actualizaPerfil.call(this.perfil, this.$bindToContext((err) => {
             this.respuesta.mostrar = true;
             if (err) {
-                this.respuesta.mensaje = ' No se pudieron realizar los cambios. ' + err;
-                this.respuesta.tipo = 'danger';
+                this.msj = ' No se pudieron realizar los cambios. ' + err;
+                this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {
-                this.respuesta.mensaje = ' Los cambios se guardaron correctamente.';
-                this.respuesta.tipo = 'success';
+                this.msj = ' Los cambios se guardaron correctamente.';
+                this.tipoMsj = 'success';
                 this.cargando = true;
             }
         }));
@@ -59,7 +60,8 @@ export default angular
         ElegirEstatura,
         ElegirPuesto,
         ElegirTalla,
-        ElegirEscuela
+        ElegirEscuela,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/perfilLaboral/${name}/${name}.html`,

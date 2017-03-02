@@ -4,9 +4,6 @@
 </button>
 <div class="row">
     <div class="col-xs-12">
-        <uib-alert type="{{volverEnviarSms.tipoMensaje}}" ng-show="volverEnviarSms.tipoMensaje">
-            <span class="fa fa-exclamation-triangle"></span>
-            <strong>{{volverEnviarSms.mensaje}}</strong>
-        </uib-alert>
+        <alertas tipo="volverEnviarSms.tipoMsj" mensaje="volverEnviarSms.msj"></alertas>
     </div>
 </div>

@@ -158,11 +158,10 @@
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">
         <br>
-        <div class="col-xs-12" ng-show="actualizarCandidato.respuesta.mostrar">
-            <uib-alert type="{{ actualizarCandidato.respuesta.tipo }}">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong> {{ actualizarCandidato.respuesta.mensaje }} </strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="actualizarCandidato.tipoMsj"
+                     mensaje="actualizarCandidato.msj">
+            </alertas>
         </div>
     </div>
 </form>

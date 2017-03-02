@@ -3,6 +3,7 @@
  */
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import {name as Alertas} from '../../comun/alertas/alertas';
 import './modalRegistroVacante.html';
 
 class ModalRegistroVacante {
@@ -11,11 +12,8 @@ class ModalRegistroVacante {
 
         $reactive(this).attach($scope);
         this.$state = $state;
-        this.respuesta = {
-            mensaje: 'Para poder ver los detalles y postularte, necesitas registrarte.',
-            tipo: 'warning',
-            icono: 'fa fa-exclamation-triangle',
-        };
+        this.tipoMsj = 'warning';
+        this.msj = 'Para poder ver los detalles y postularte, necesitas registrarte.'
 
     }
 
@@ -37,6 +35,7 @@ const name = 'modalRegistroVacante';
 export default angular
     .module(name, [
         angularMeteor,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,

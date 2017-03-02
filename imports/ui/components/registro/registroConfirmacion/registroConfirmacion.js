@@ -5,6 +5,7 @@ import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
 import {verificarCelular} from "../../../../api/twilio/methods";
 import {name as EnviarSms} from "./volverEnviarSms/volverEnviarSms";
 import {name as CambiarCelular} from "./cambiarCelular/cambiarCelular";
+import {name as Alertas} from '../../comun/alertas/alertas';
 import "./registroConfirmacion.html";
 
 class RegistroConfirmacion {
@@ -24,10 +25,10 @@ class RegistroConfirmacion {
     }
 
     verficarNumero() {
-        this.error = '';
         verificarCelular.call({codigo: this.codigo}, this.$bindToContext((err, result)=> {
             if (err) {
-                this.error = err;
+                this.msj = err;
+                this.tipoMsj = 'danger';
             } else {
                 this.$state.go('demos.registro.direccion');
             }
@@ -52,7 +53,8 @@ export default angular
         angularMeteor,
         uiRouter,
         EnviarSms,
-        CambiarCelular
+        CambiarCelular,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/registro/${name}/${name}.html`,

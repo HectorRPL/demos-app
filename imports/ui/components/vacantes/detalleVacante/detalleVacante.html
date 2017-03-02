@@ -25,9 +25,9 @@
                     <strong>Escolaridad:</strong>
                     {{detalleVacante.vacante.perfil.escolaridad}} <br>
                     <strong>Habilidades:</strong>
-                    Facilidad de Palabra, Buena Presentación, Disp. de Trasladarse, Gusto por las Ventas <br>
-                    <strong>Exp. Descripcion:</strong>
-                    Alimentos y {{detalleVacante.vacante.perfil.experiencia.otra}}
+                    {{detalleVacante.vacante.hibilidadesVcnt()}} <br>
+                    <strong>Experincia en:</strong>
+                    {{detalleVacante.vacante.experienciasVcnt()}}
                 </uib-tab>
                 <!-- TAB HORARIOS-->
                 <uib-tab index="2" heading="Horario">
@@ -72,16 +72,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div ng-show="detalleVacante.postulado" uib-alert type="{{detalleVacante.success.tipo}}" class="text-center">
-                        <span class="{{detalleVacante.success.icono}}"></span>&nbsp;&nbsp;
-                        <strong>{{detalleVacante.success.mensaje}} </strong>
-                        <br>
-                    </div>
-                    <div ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
-                         uib-alert type="{{detalleVacante.warning.tipo}}" class="text-center">
-                        <span class="{{detalleVacante.warning.icono}}"></span>&nbsp;&nbsp;
-                        <strong>{{detalleVacante.warning.mensaje}} </strong>
-                    </div>
+                    <alertas ng-show="detalleVacante.postulado" tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
+                    </alertas>
+                    <br>
+                    <alertas ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
+                             tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
+                    </alertas>
                 </div>
             </div>
             <!--BOTÓN REGRESAR -->

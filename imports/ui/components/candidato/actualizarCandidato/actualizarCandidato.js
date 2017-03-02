@@ -3,6 +3,7 @@ import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import ngMessages from "angular-messages";
 import {actualizar} from "../../../../api/candidatos/methods.js";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import "./actualizarCandidato.html";
 
 class ActualizarCandidato {
@@ -61,14 +62,13 @@ class ActualizarCandidato {
     actualizar() {
         this.cargando = false;
         actualizar.call(this.datos, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
             if (err) {
-                this.respuesta.mensaje = ' No se pudieron realizar los cambios.' + err;
-                this.respuesta.tipo = 'danger';
+                this.msj = ' No se pudieron realizar los cambios.' + err;
+                this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {
-                this.respuesta.mensaje = ' Los cambios se guardaron correctamente.';
-                this.respuesta.tipo = 'success';
+                this.msj = ' Los cambios se guardaron correctamente.';
+                this.tipoMsj = 'success';
                 this.cargando = true;
             }
         }));
@@ -82,7 +82,8 @@ export default angular
     .module(name, [
         angularMeteor,
         uiRouter,
-        ngMessages
+        ngMessages,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,

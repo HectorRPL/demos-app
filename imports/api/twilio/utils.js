@@ -9,7 +9,15 @@ let twilioConfig = {};
 
 if (Meteor.isServer) {
     Meteor.startup(() => {
-        twilioConfig = Meteor.settings.private.twilioConfig;
+        twilioConfig = {
+            from: '19543728561',
+            testFrom: '15005550006',
+            accountSid: 'ACbfbabd22a5d486bff3b92e219e93fd47',
+            authToke: '2f93111372dc246eaead700ced362616',
+            phoneVerificationMasterCode: '1q2W',
+            forbidClientAccountCreation: false,
+            verificationMaxRetries: 3
+        }
     });
 }
 

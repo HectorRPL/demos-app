@@ -1,6 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
+import {name as Alertas} from '../../comun/alertas/alertas'
 import "./constraseniaCorreo.html";
 
 class ConstraseniaCorreo {
@@ -16,7 +17,8 @@ const name = 'constraseniaCorreo';
 export default angular
     .module(name, [
         angularMeteor,
-        uiRouter
+        uiRouter,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/miCuenta/${name}/${name}.html`,

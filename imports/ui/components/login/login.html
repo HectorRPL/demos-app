@@ -54,11 +54,8 @@
                     <a style="color:white;" class="textoBlanco text-right pull-right" ui-sref="demos.registro.datos">Registro</a>
                 </div>
                 <!--ALERTA-->
-                <div class="col-xs-12" ng-show="login.error">
-                    <uib-alert type="danger">
-                        <span class="fa fa-exclamation-triangle"></span>
-                        <strong>Combinación de usuario y contraseña incorrectos.</strong>
-                    </uib-alert>
+                <div class="col-xs-12">
+                    <alertas tipo="login.tioMsj" mensaje="login.msj"></alertas>
                 </div>
             </div>
         </form>

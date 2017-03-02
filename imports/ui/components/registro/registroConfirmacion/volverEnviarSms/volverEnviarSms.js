@@ -3,6 +3,7 @@
  */
 import angular from "angular";
 import angularMeteor from "angular-meteor";
+import {name as Alertas} from '../../../comun/alertas/alertas';
 import {volverEnviarSMS} from "../../../../../api/twilio/methods";
 import "./volverEnviarSms.html";
 
@@ -19,11 +20,11 @@ class VolverEnviarSms {
         this.tipoMensaje = '';
         volverEnviarSMS.call({}, this.$bindToContext((err)=> {
             if (err) {
-                this.tipoMensaje = 'danger';
-                this.mensaje = err.reason;
+                this.tipoMsj = 'danger';
+                this.maj = err.reason;
             } else {
-                this.tipoMensaje = 'success';
-                this.mensaje = 'El codigo de verificación fue enviado.';
+                this.tipoMsj = 'success';
+                this.maj = 'El codigo de verificación fue enviado.';
             }
         }));
     }
@@ -35,7 +36,8 @@ const name = 'volverEnviarSms';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor
+        angularMeteor,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/registro/registroConfirmacion/${name}/${name}.html`,

@@ -11,6 +11,7 @@ import {name as ElegirMes} from "../../comun/selects/elegirFechaNacimiento/elegi
 import {name as ElegirDia} from "../../comun/selects/elegirFechaNacimiento/elegirDia/elegirDia";
 import {name as CodigoPaisCelular} from "../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
 import {name as NumCelular} from "../../comun/inputs/numCelular/numCelular";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import "./agregarCandidato.html";
 
 
@@ -28,22 +29,19 @@ class AgregarCandidato {
             username: '',
             profile: {}
         };
-
-        this.error = '';
     }
 
     crearUsuario() {
-        this.error = '';
         this.credentials.email = this.credentials.email.toLowerCase();
         this.credentials.username = this.credentials.email;
         Accounts.createUser(this.credentials,
             this.$bindToContext((err) => {
                 if (err) {
-                    this.error = err;
+                    this.tipoMsj='danger';
                     if (this.error.error === 403) {
-                        this.error.mensaje = `El correo ${this.credentials.email} ya se encuentra registrado`;
+                        this.msj = `El correo ${this.credentials.email} ya se encuentra registrado`;
                     } else {
-                        this.error.mensaje = err.reason;
+                        this.msj  = err.reason;
                     }
                 } else {
                     this.$state.go('demos.registro.confirmacion');
@@ -65,7 +63,8 @@ export default angular
         ElegirMes,
         ElegirDia,
         CodigoPaisCelular,
-        NumCelular
+        NumCelular,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,

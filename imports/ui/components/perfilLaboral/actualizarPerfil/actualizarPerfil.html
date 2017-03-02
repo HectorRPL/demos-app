@@ -148,11 +148,8 @@
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">
         <br>
-        <div class="col-xs-12" ng-show="actualizarPerfil.respuesta.mostrar">
-            <uib-alert type="{{ actualizarPerfil.respuesta.tipo }}">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong> {{ actualizarPerfil.respuesta.mensaje }} </strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="actualizarPerfil.tipoMsj" mensaje="actualizarPerfil.msj"></alertas>
         </div>
     </div>
 </form>

@@ -40,3 +40,4 @@ accounts-base@1.2.14
 mys:accounts-phone@=0.0.21
 mrt:twilio-meteor
 ziarno:restrict-mixin
+crosswalk

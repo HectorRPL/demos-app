@@ -3,7 +3,7 @@ import {Meteor} from "meteor/meteor";
 Meteor.startup(() => {
 
     if (Meteor.isServer) {
-        const facebookConfig = Meteor.settings.private.facebook;
+        /*const facebookConfig = Meteor.settings.private.facebook;
         ServiceConfiguration.configurations.upsert({
             service: facebookConfig.service
         }, {
@@ -12,6 +12,6 @@ Meteor.startup(() => {
                 loginStyle: facebookConfig.loginStyle,
                 secret: facebookConfig.secret
             }
-        });
+        });*/
     }
 });

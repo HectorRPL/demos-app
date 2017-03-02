@@ -47,11 +47,8 @@
                 </button>
             </div>
             <!-- ALERTA: CAMBIOS EXITOSO -->
-            <div class="col-xs-12" ng-show="contraseniaCorreo.error">
-                <uib-alert type="{{ tarjeta.respuesta.tipo }}">
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <strong> {{ tarjeta.respuesta.mensaje }} </strong>
-                </uib-alert>
+            <div class="col-xs-12">
+                <alertas tipo="" msj=""></alertas>
             </div>
         </div>
     </div>

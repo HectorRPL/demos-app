@@ -2,26 +2,14 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import "./confirmarPostulacion.html";
 import {registrar} from "../../../../api/postulaciones/methods.js";
+import {name as Alertas} from "../../comun/alertas/alertas";
 
 class ConfirmarPostulacion {
     constructor($scope, $reactive, $state) {
         'ngInject';
-
         $reactive(this).attach($scope);
-
         this.cargando = true;
-
         this.$state = $state;
-        this.success = {
-            tipo: 'success',
-            simbolo: 'fa fa-check',
-            mensaje: '¡Felicitaciones, ya te postulaste para esta vacante!.'
-        };
-        this.danger = {
-            tipo: 'danger',
-            simbolo: 'fa fa-times',
-            mensaje: 'Error al intentar postularte, intentar mas tarde.'
-        };
 
     }
 
@@ -30,11 +18,13 @@ class ConfirmarPostulacion {
         const postulacion = {tiendaId: this.datosvacante.tienda._id, vacanteId: this.datosvacante.vacanteId};
         registrar.call(postulacion, this.$bindToContext((error, result)=> {
             if (error) {
-                this.respuesta = this.danger;
-                this.cargando = true;
+                this.tipoMsj = 'danger';
+                this.msj='Error al intentar postularte, intentar mas tarde.';
+
             } else {
-                this.respuesta = this.success;
-                this.cargando = true;
+                this.tipoMsj ='success';
+                this.msj= '¡Felicitaciones, ya te postulaste para esta vacante!.';
+
             }
         }));
     }
@@ -51,6 +41,7 @@ const name = 'confirmarPostulacion';
 export default angular
     .module(name, [
         angularMeteor,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,

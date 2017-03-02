@@ -135,11 +135,9 @@
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">
         <br>
-        <div class="col-xs-12" ng-show="actualizarDireccion.respuesta.mostrar">
-            <uib-alert type="{{ actualizarDireccion.respuesta.tipo }}">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong> {{ actualizarDireccion.respuesta.mensaje }} </strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="actualizarDireccion.tipoMsj"
+                     mensaje="actualizarDireccion.msj"></alertas>
         </div>
     </div>
 </form>

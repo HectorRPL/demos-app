@@ -220,11 +220,8 @@
     <!--ALERTAS-->
     <div class="row">
         <br>
-        <div class="col-xs-12" ng-show="agregarCandidato.error">
-            <uib-alert type="danger">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong>{{agregarCandidato.error.mensaje}}</strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="agregarCandidato.tipoMsj" mensaje="agregarCandidato.msj"></alertas>
         </div>
     </div>
 </form>

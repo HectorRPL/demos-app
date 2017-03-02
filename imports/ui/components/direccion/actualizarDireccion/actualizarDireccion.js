@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import ngMessages from "angular-messages";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import {obtenerColonias} from "../../../../api/codigosPostales/methods.js";
 import {actualizar} from "../../../../api/direcciones/methods";
 import "./actualizarDireccion.html";
@@ -36,12 +37,12 @@ class ActualizarDireccion {
         actualizar.call(this.direccion, this.$bindToContext((err) => {
             this.respuesta.mostrar = true;
             if (err) {
-                this.respuesta.mensaje = ' No se pudieron realizar los cambios.' + err;
-                this.respuesta.tipo = 'danger';
+                this.msj = ' No se pudieron realizar los cambios.' + err;
+                this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {
-                this.respuesta.mensaje = ' Los cambios se guardaron correctamente.';
-                this.respuesta.tipo = 'success';
+                this.msj = ' Los cambios se guardaron correctamente.';
+                this.tipoMsj = 'success';
                 this.cargando = true;
             }
         }));

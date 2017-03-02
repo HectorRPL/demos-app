@@ -6,6 +6,7 @@ import {Vacantes} from "../../../../api/vacantes/collection.js";
 import {Tiendas} from "../../../../api/tiendas/collection";
 import {Counts} from "meteor/tmeasday:publish-counts";
 import {name as ConfirmarPostulacion} from "../confirmarPostulacion/confirmarPostulacion";
+import {name as Alertas} from "../../comun/alertas/alertas";
 
 class DetalleVacante {
     constructor($stateParams, $scope, $reactive, $uibModal) {
@@ -18,35 +19,22 @@ class DetalleVacante {
         this.subscribe('vacantes.tiendas', ()=> [{vacanteId: this.vacanteId}]);
         this.subscribe('vacantes.candidato.postulado', ()=> [{vacanteId: this.vacanteId}]);
         this.$uibModal = $uibModal;
-        this.warning = {
-            tipo: 'warning',
-            icono: 'fa fa-exclamation-triangle',
-            mensaje: '¡Lo sentimos pero esta vacante ya ha sido ocupada.!'
-        };
-        this.success = {
-            tipo: 'success',
-            icono: 'fa fa-check',
-            mensaje: '¡Felicitaciones ya te postulaste para esta vacante!.'
-        };
-        this.danger = {
-            tipo: 'danger',
-            icono: 'fa fa-times',
-            mensaje: 'Error al intentar postularte, intentar mas tarde.'
-        };
+        this.tipoMsj = 'warning';
+        this.msj = '¡Lo sentimos pero esta vacante ya ha sido ocupada.!';
 
 
         this.helpers({
             vacante() {
-                return Vacantes.findOne({
-                    _id: this.vacanteId
-                });
+                return Vacantes.findOne({_id: this.vacanteId});
             },
             tiendas(){
-                return Tiendas.find({});
+                return Tiendas.find({vacanteId: this.vacanteId});
             },
             postulado(){
                 const result = Counts.get(`count.vacante.candidato.postulado.${this.vacanteId}`);
                 if (result > 0) {
+                    this.tipoMsj = 'success';
+                    this.msj = '¡Felicitaciones ya te postulaste para esta vacante!.';
                     return true;
                 } else {
                     return false;
@@ -95,7 +83,8 @@ export default angular
     .module(name, [
         angularMeteor,
         uiRouter,
-        ConfirmarPostulacion
+        ConfirmarPostulacion,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,

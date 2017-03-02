@@ -10,6 +10,7 @@ import {name as ElegirPuesto} from "../../comun/selects/elegirPuesto/elegirPuest
 import {name as ElegirEscuela} from "../../comun/selects/elegirEscuela/elegirEscuela";
 import {name as ElegirTalla} from "../../comun/selects/elegirTalla/elegirTalla";
 import {name as ElegirEstatura} from "../../comun/inputs/elegirEstatura/elegirEstatura";
+import {name as Alertas} from "../../comun/alertas/alertas";
 import "./agregarPerfil.html";
 
 class AgregarPerfil {
@@ -34,8 +35,8 @@ class AgregarPerfil {
         crearPerfil.call(this.perfil, this.$bindToContext((err) => {
             this.respuesta.mostrar = true;
             if (err) {
-                this.respuesta.mensaje = ' No se pudieron guardar los datos. ' + err;
-                this.respuesta.tipo = 'danger';
+                this.msj = ' No se pudieron guardar los datos. ' + err;
+                this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {
                 this.$state.go('app.vacantes.lista');
@@ -59,7 +60,8 @@ export default angular
         ElegirPuesto,
         ElegirEscuela,
         ElegirTalla,
-        ElegirEstatura
+        ElegirEstatura,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/perfilLaboral/${name}/${name}.html`,

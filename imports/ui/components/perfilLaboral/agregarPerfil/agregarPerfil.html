@@ -123,11 +123,8 @@
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">
         <br>
-        <div class="col-xs-12" ng-show="agregarPerfil.respuesta.mostrar">
-            <uib-alert type="{{ agregarPerfil.respuesta.tipo }}">
-                <span class="fa fa-exclamation-triangle"></span>
-                <strong> {{ agregarPerfil.respuesta.mensaje }} </strong>
-            </uib-alert>
+        <div class="col-xs-12">
+            <alertas tipo="agregarPerfil.tipoMsj" mensaje="agregarPerfil.msj"></alertas>
         </div>
     </div>
 </form>

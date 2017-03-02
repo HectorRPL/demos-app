@@ -9,6 +9,7 @@ import {name as Facebook} from "./facebook";
 import {name as App} from "../app/app";
 import {name as Recuperar} from "../recuperar/recuperar";
 import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
+import {name as Alertas} from '../comun/alertas/alertas';
 
 
 class Login {
@@ -23,18 +24,17 @@ class Login {
             email: '',
             password: ''
         };
-        this.error = '';
 
     }
 
     login() {
         this.cargando = false;
-        this.error = '';
         Meteor.loginWithPassword(this.credentials.email.toLowerCase(), this.credentials.password,
             this.$bindToContext((err) => {
                 if (err) {
                     this.cargando = true;
-                    this.error = err;
+                    this.msj = err;
+                    this.tipoMsj ='danger'
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
                         this.$state.go(result);
@@ -57,7 +57,8 @@ export default angular
         Facebook,
         App,
         Recuperar,
-        TituloInicio
+        TituloInicio,
+        Alertas
     ])
     .component(name, {
         templateUrl: `imports/ui/components/login/${name}.html`,
