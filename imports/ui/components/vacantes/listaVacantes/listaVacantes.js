@@ -16,7 +16,6 @@ class ListaVacantes {
         'ngInject';
         $reactive(this).attach($scope);
         this.$state = $state;
-        this.$uibModal = $uibModal;
         this.nuevotitulo = 'Vacantes Disponibles';
         this.perPage = 6;
         this.page = 1;
