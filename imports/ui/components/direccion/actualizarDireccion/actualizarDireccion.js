@@ -13,12 +13,6 @@ class ActualizarDireccion {
         $reactive(this).attach($scope);
 
         this.cargando = true;
-
-        this.respuesta = {
-            mostrar: false,
-            mensaje: '',
-            tipo: ''
-        };
         this.colonias = [];
         this.direccion = {
             codigoPostal: '',
@@ -34,14 +28,14 @@ class ActualizarDireccion {
 
     actualizar() {
         this.cargando = false;
+        this.tipoMsj = '';
         actualizar.call(this.direccion, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
             if (err) {
-                this.msj = ' No se pudieron realizar los cambios.' + err;
+                this.msj = 'Error al actualizar la direccion.';
                 this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {
-                this.msj = ' Los cambios se guardaron correctamente.';
+                this.msj = 'Se actualiza la direccion correctamente.';
                 this.tipoMsj = 'success';
                 this.cargando = true;
             }

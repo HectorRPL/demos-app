@@ -1,0 +1,92 @@
+<form id="actualizarMailId" class="property-submit-form" name="actualizarMailFrm" role="form" nonvalidate>
+    <!-- CORREO-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarMailFrm.email.$invalid && !actualizarMailFrm.email.$pristine }">
+                <div class="input-group">
+                    <span class="input-group-addon span-demos">
+                              @
+                            </span>
+                    <input id="candidatoEmailID" class="form-control" name="email" type="email"
+                           placeholder="Correo Electrónico" aria-describedby="basic-addon1" required
+                           ng-model="actualizarContacto.datosContacto.emails[0].address">
+                </div>
+
+                <div ng-messages="actualizarMailFrm.email.$dirty && actualizarMailFrm.email.$error" role="alert">
+                    <div style="color:red" ng-message="required">Campo requerido</div>
+                    <div style="color:red" ng-message="email">Formato de email incorrecto.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ALERTA: CAMBIOS EXITOSO MAIL -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <alertas tipo="actualizarContacto.tipoMsjMail" mensaje="actualizarContacto.msjMail"></alertas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-default btn-md btn-block" type="submit"
+                    ng-disabled="actualizarMailFrm.$invalid" ng-click="actualizarContacto.actualizarMail()">
+                Actualizar E-mail
+            </button>
+        </div>
+    </div>
+</form>
+<hr>
+<form id="actualizarCelId" class="property-submit-form" name="actualizarCelFrm" role="form" nonvalidate>
+    <!-- TELÉFONO -->
+    <div class="row">
+        <div class="col-xs-3 col-md-2">
+            <div class="form-group">
+                <div class="input-group">
+                    <codigo-pais-celular iso2="actualizarContacto.paisiso2"
+                                         paislada="actualizarContacto.paisLada">
+                    </codigo-pais-celular>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9 col-md-4">
+            <div class="form-group"
+                 ng-class="{ 'has-error' : actualizarCelFrm.celular.$invalid && !actualizarCelFrm.celular.$pristine}">
+                <div class="input-group">
+                    <span class="input-group-addon  span-demos">
+                         <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                    <num-celular paislada="actualizarContacto.paisLada"
+                                 celular="actualizarContacto.datosContacto.phone.number">
+                    </num-celular>
+                </div>
+                <div ng-messages="actualizarCelFrm.celular.$dirty && actualizarCelFrm.celular.$error"
+                     role="alert">
+                    <div style="color:red;" ng-message="required"> Campo requerido</div>
+                    <div style="color:red;" ng-message="maxlength, minlength">Son requeridos 10 números</div>
+                    <div style="color:red;" ng-message="pattern">Celular, solo numeros</div>
+                    <div style="color:red;" ng-message="celInvalido">Celular ya esta registrado</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ALERTA: CAMBIOS EXITOSO CELULAR -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <alertas tipo="actualizarContacto.tipoMsj" mensaje="actualizarContacto.msj"></alertas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-default btn-md btn-block" type="submit"
+                    ng-disabled="actualizarCelFrm.$invalid" ng-click="actualizarContacto.actualizarCel()">
+                Actualizar Celular
+            </button>
+        </div>
+    </div>
+</form>
+<confirmar-celular ng-show="actualizarContacto.tipoMsj === 'success'"></confirmar-celular>
+

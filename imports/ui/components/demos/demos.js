@@ -55,6 +55,8 @@ function run($rootScope, $state) {
         (event, toState, toParams, fromState, fromParams, error) => {
             if (error === 'AUTH_REQUIRED') {
                 $state.go('demos.login');
+            }else if(error === 'NO_VERIFIED'){
+                $state.go('demos.registro.confirmacion');
             }
         }
     );

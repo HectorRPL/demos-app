@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import angularMessages from "angular-messages";
+import {Session} from "meteor/session";
 import angularUiBootstrap from "angular-ui-bootstrap";
 import {crearPerfil} from "../../../../api/perfiles/methods.js";
 import {name as CheckboxHabilidades} from "../../comun/checkBox/checkboxHabilidades/checkboxHabilidades";
@@ -19,22 +20,18 @@ class AgregarPerfil {
         $reactive(this).attach($scope);
 
         this.cargando = true;
-
         this.$state = $state;
-
         this.perfil = {};
-        this.respuesta = {
-            mostrar: false,
-            mensaje: '',
-            tipo: ''
-        };
+
+        Session.setPersistent("listadoExperiencias", []);
+        Session.setPersistent("listadoHabilidades", []);
     }
 
     guardar() {
         this.cargando = false;
         crearPerfil.call(this.perfil, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
             if (err) {
+                console.log(err);
                 this.msj = ' No se pudieron guardar los datos. ' + err;
                 this.tipoMsj = 'danger';
                 this.cargando = true;

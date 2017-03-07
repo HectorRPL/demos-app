@@ -22,6 +22,7 @@ class RegistroDireccion {
         delete direccionFinal.colonias;
         crear.call(direccionFinal, this.$bindToContext((err) => {
             if (err) {
+                console.log(err);
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = 'No se puedo agregar la dirección.';
             } else {

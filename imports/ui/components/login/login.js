@@ -28,13 +28,14 @@ class Login {
     }
 
     login() {
+        this.tipoMsj ='';
         this.cargando = false;
         Meteor.loginWithPassword(this.credentials.email.toLowerCase(), this.credentials.password,
             this.$bindToContext((err) => {
                 if (err) {
                     this.cargando = true;
-                    this.msj = err;
-                    this.tipoMsj ='danger'
+                    this.msj = err.message;
+                    this.tipoMsj ='danger';
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
                         this.$state.go(result);

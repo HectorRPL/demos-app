@@ -14,28 +14,27 @@ class ActualizarPerfil {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
-
+        this.subscribe('experiencias');
         this.cargando = true;
+        this.helpers({
+            expPerfil(){
+                if(this.getReactively('listadoexp')){
+                    Session.setPersistent("listadoExperiencias", this.getReactively('listadoexp'));
+                }
+            },
+            habPerfil(){
+                if(this.getReactively('listadohab')){
+                    Session.setPersistent("listadoHabilidades", this.getReactively('listadohab'));
+                }
+            }
+        })
 
-        this.respuesta = {
-            mostrar: false,
-            mensaje: '',
-            tipo: ''
-        };
-
-    }
-
-    $onChanges() {
-        if (this.perfil) {
-            Session.setPersistent("listadoHabilidades", this.perfil.habilidades.listado);
-            Session.setPersistent("listadoExperiencias", this.perfil.experiencias.listado);
-        }
     }
 
     actualizar() {
         this.cargando = false;
+        this.tipoMsj = '';
         actualizaPerfil.call(this.perfil, this.$bindToContext((err) => {
-            this.respuesta.mostrar = true;
             if (err) {
                 this.msj = ' No se pudieron realizar los cambios. ' + err;
                 this.tipoMsj = 'danger';
@@ -69,7 +68,9 @@ export default angular
         controller: ActualizarPerfil,
         bindings: {
             perfil: '<',
-            id: '<'
+            id: '<',
+            listadoexp: '<',
+            listadohab: '<'
         }
     })
     .config(config);

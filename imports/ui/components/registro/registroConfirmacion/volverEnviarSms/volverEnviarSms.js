@@ -17,14 +17,14 @@ class VolverEnviarSms {
     }
 
     enviarSMS() {
-        this.tipoMensaje = '';
+        this.tipoMsj = '';
         volverEnviarSMS.call({}, this.$bindToContext((err)=> {
             if (err) {
                 this.tipoMsj = 'danger';
-                this.maj = err.reason;
+                this.msj = err.reason;
             } else {
                 this.tipoMsj = 'success';
-                this.maj = 'El codigo de verificación fue enviado.';
+                this.msj = 'El codigo de verificación fue enviado.';
             }
         }));
     }

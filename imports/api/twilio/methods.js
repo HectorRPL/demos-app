@@ -22,7 +22,12 @@ export const volverEnviarSMS = new ValidatedMethod({
     validate: null,
     run({}) {
         if (Meteor.isServer) {
-            TwilioSMS.verificarTiempoEnvio(this.userId);
+            const codigoVer = CodigosVerificaion.findOne({_id: this.userId});
+            let fechaHoy = new Date();
+            if (fechaHoy < codigoVer.expiracion) {
+                const min = Math.ceil(Math.abs((fechaHoy.getTime() - codigoVer.expiracion.getTime()) / 60000));
+                throw new Meteor.Error(403, `Espere ${min} min. solcicitar otro codigo de confirmacion`, 'tiempo de envio espera');
+            }
             try {
                 CodigosVerificaion.update({_id: this.userId}, {$set: {numIntentos: 0}});
             } catch (e) {
@@ -45,55 +50,23 @@ export const verificarCelular = new ValidatedMethod({
     }).validator(),
     run({codigo}) {
         if (Meteor.isServer) {
-            try {
-                VerificarSMS.verificarCodigo(codigo, this.userId);
-            } catch (e) {
-                throw  e;
-            }
-            return CodigosVerificaion.remove({_id: this.userId});
-        }
-
-    }
-});
-
-export const cambiarCelular = new ValidatedMethod({
-    name: 'twilio.cambiarCelular',
-    mixins: [LoggedInMixin],
-    checkLoggedInError: {
-        error: '403',
-        message: 'Para cambiar el celular necesitas iniciar sesión',
-        reason: 'El usuario no loggeado',
-    },
-    validate: new SimpleSchema({
-        celular: {type: String},
-        paisLada: {type: String}
-    }).validator(),
-    run({celular, paisLada}) {
-        if (Meteor.isServer) {
-            Meteor.users.update({_id: this.userId}, {
-                $set: {
-                    'phone.number': celular,
-                    'phone.paisLada': paisLada
-                }
-            }, (err)=> {
-                if (err) {
-                    throw  new Meteor.Error(403, 'No se pudo actualizar el celular', 'error actualizar celular');
+            const selector = {$and: [{_id: this.userId}, {codigo: codigo}]};
+            const codigoVerif = CodigosVerificaion.findOne(selector);
+            if (codigoVerif) {
+                if (new Date() > codigoVerif.expiracion) {
+                    throw new Meteor.Error(403, 'Codigo de verificacion expirado, solicita un nuevo codigo', 'codigo expirado');
                 } else {
-                    try {
-                        CodigosVerificaion.update({_id: this.userId}, {$set: {numIntentos: 0}});
-                    } catch (e) {
-                        throw  e;
-                    }
+                    return CodigosVerificaion.remove({_id: this.userId});
                 }
-            });
-
-
+            } else {
+                throw new Meteor.Error(403, 'Código no valido', 'codigo no valido');
+            }
         }
-
     }
 });
 
-const TWILIO_METHODS = _.pluck([volverEnviarSMS, verificarCelular, cambiarCelular], 'name');
+
+const TWILIO_METHODS = _.pluck([volverEnviarSMS, verificarCelular], 'name');
 if (Meteor.isServer) {
     DDPRateLimiter.addRule({
         name(name) {

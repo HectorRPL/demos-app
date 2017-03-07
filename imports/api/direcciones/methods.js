@@ -13,7 +13,7 @@ import {Candidatos} from "../candidatos/collection.js";
 
 const ID = ['_id'];
 
-const CAMPOS_DIRECCION = ['calle', 'delMpio', 'estado', 'estadoId', 'colonia', 'codigoPostal', 'numExt', 'numInt'];
+const CAMPOS_DIRECCION = ['calle', 'delMpio', 'estado', 'estadoId', 'colonia', 'codigoPostal', 'numExt', 'numInt', 'codigoPais'];
 
 // CREAR CANDIDATO
 export const crear = new ValidatedMethod({
@@ -28,7 +28,7 @@ export const crear = new ValidatedMethod({
         clean: true,
         filter: false
     }),
-    run({calle, delMpio, estado, estadoId, colonia, codigoPostal, numExt, numInt}) {
+    run({calle, delMpio, estado, estadoId, colonia, codigoPostal, numExt, numInt, codigoPais}) {
         if (Meteor.isServer) {
             const candidato = Candidatos.findOne({propietario: this.userId});
             const direccion = {
@@ -41,7 +41,7 @@ export const crear = new ValidatedMethod({
                 codigoPostal,
                 numExt,
                 numInt,
-                codigoPais: 'MX'
+                codigoPais
             };
             return Direcciones.insert(direccion);
         }
@@ -61,7 +61,7 @@ export const actualizar = new ValidatedMethod({
         clean: true,
         filter: false
     }),
-    run({_id, calle, delMpio, estado, estadoId, colonia, codigoPostal, numExt, numInt}) {
+    run({_id, calle, delMpio, estado, estadoId, colonia, codigoPostal, numExt, numInt, codigoPais}) {
 
         return Direcciones.update({
             _id: _id
@@ -71,6 +71,7 @@ export const actualizar = new ValidatedMethod({
                 delMpio: delMpio,
                 estado: estado,
                 estadoId: estadoId,
+                codigoPais: codigoPais,
                 colonia: colonia,
                 codigoPostal: codigoPostal,
                 numExt: numExt,

@@ -3,7 +3,7 @@
  */
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import {cambiarCelular} from "../../../../../api/twilio/methods";
+import {actualizarCelular} from "../../../../../api/usuarios/methods";
 import {name as CodigoPaisCelular} from "../../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
 import {name as NumCelular} from "../../../comun/inputs/numCelular/numCelular";
 import {name as Alertas} from "../../../comun/alertas/alertas";
@@ -25,7 +25,7 @@ class CambiarCelular {
 
     cambiar() {
         this.tipoMensaje = '';
-        cambiarCelular.call(this.datosCel, this.$bindToContext((err)=> {
+        actualizarCelular.call(this.datosCel, this.$bindToContext((err)=> {
             if (err) {
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = err.reason;

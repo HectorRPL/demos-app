@@ -3,6 +3,7 @@
  */
 import {Mongo} from "meteor/mongo";
 import {SimpleSchema} from "meteor/aldeed:simple-schema";
+import {Candidatos} from '../candidatos/collection'
 
 export const Direcciones = new Mongo.Collection('direcciones');
 
@@ -72,7 +73,8 @@ Schema.candidato = new SimpleSchema({
         type: String,
         max: 2,
         min: 2,
-        regEx: /^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/
+        regEx: /^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/,
+        defaultValue: 'MX',
     },
     numExt: {
         type: String,

@@ -11,19 +11,13 @@ const codigosVerificacionUtils = {
         try {
             TwilioSMS.enviarSMS(id, codigo);
         } catch (e) {
+            console.log(e);
             throw e
         }
 
     },
-    _updateCandidatos(selector){
-        const user = Meteor.users.findOne(selector);
-        Candidatos.update({propietario: selector._id}, {
-            $set: {
-                celular: user.phone.number,
-                celularVerificado: true,
-                paisLada: user.phone.paisCodigo
-            }
-        });
+    _updateUsers(selector){
+        Meteor.users.update(selector, {$set: {'phone.verified': true}});
     },
     afterUpdateCodigoVerificacion(selector, modifier) {
 
@@ -34,7 +28,7 @@ const codigosVerificacionUtils = {
         }
     },
     afterRemoveCodigoVerificion(selector){
-        this._updateCandidatos(selector);
+        this._updateUsers(selector);
     }
 };
 

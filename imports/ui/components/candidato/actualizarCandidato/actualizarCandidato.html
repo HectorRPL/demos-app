@@ -35,23 +35,6 @@
             <div style="color:red;" ng-message="pattern">Sólo caracteres alfabéticos</div>
         </div>
     </div>
-    <!-- NÚMERO DE CELULAR -->
-    <div class="form-group"
-         ng-class="{ 'has-error' : datosPersonalesFrm.telefono.$invalid && !datosPersonalesFrm.telefono.$pristine}">
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-            </span>
-            <input id="telefonoID" class="form-control" type="text" name="telefono" placeholder="Teléfono"
-                   aria-describedby="sizing-addon1" maxlength="10" ng-maxlength="10" ng-pattern="/^[0-9]{10}$/" required
-                   ng-model="actualizarCandidato.datos.telefono">
-        </div>
-        <div ng-messages="datosPersonalesFrm.telefono.$dirty && datosPersonalesFrm.telefono.$error" role="alert">
-            <div style="color:red;" ng-message="required"> Campo requerido</div>
-            <div style="color:red;" ng-message="maxlength"> 10 dígitos necesarios</div>
-            <div style="color:red;" ng-message="pattern"> Teléfono a 10 dígitos</div>
-        </div>
-    </div>
     <!-- SEXO -->
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
@@ -144,8 +127,7 @@
     <!-- BOTON GUARDAR CAMBIOS-->
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block"
-                    type="submit"
+            <button class="btn btn-default btn-md btn-block" type="submit"
                     ng-class="{'disabled': actualizarCandidato.cargando === false}"
                     ng-disabled="datosPersonalesFrm.$invalid || actualizarCandidato.cargando === false"
                     ng-click="actualizarCandidato.actualizar()">

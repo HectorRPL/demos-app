@@ -2,8 +2,7 @@ import {Meteor} from "meteor/meteor";
 import {Accounts} from "meteor/accounts-base";
 import {Candidatos} from "../candidatos/collection";
 import {BitacoraLogin} from "../bitacoraLogin/collection";
-import {CodigosVerificaion} from '../codigosVerificacion/collection';
-import {enviarSMS} from "../twilio/methods";
+import {CodigosVerificaion} from "../codigosVerificacion/collection";
 
 const LOGIN_METHOD = 'login';
 const CREATE_USER_METHOD = 'createUser';
@@ -29,7 +28,6 @@ if (Meteor.isServer) {
                     verified: true
                 }];
                 user.username = candidato.email;
-                candidato.emailVerificado = true;
             }
         } else if (user.services.password) {
             candidato = options.profile;
@@ -65,7 +63,16 @@ if (Meteor.isServer) {
         } else {
             if (CREATE_USER_METHOD === result.methodName) {
                 BitacoraLogin.insert(bitacoraLogin);
-                TwilioSMS.crearCodigoVerificacion(result.user._id);
+                CodigosVerificaion.insert({_id: result.user._id}, (err, resultId)=> {
+                    if (resultId) {
+                        const resCod = CodigosVerificaion.findOne({_id: resultId});
+                        try {
+                            TwilioSMS.enviarSMS(result.user._id, resCod.codigo);
+                        } catch (e) {
+                            console.log('Error al enviar el SMS ', e);
+                        }
+                    }
+                });
             }
             if (LOGIN_METHOD === result.methodName) {
                 BitacoraLogin.update({propietario: result.user._id}, {$set: {fechaLogin: new Date()}});

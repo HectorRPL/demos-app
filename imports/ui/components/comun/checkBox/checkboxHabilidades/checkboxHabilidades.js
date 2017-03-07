@@ -10,8 +10,8 @@ class CheckboxHabilidades {
         $reactive(this).attach($scope);
         this.subscribe('habilidades');
 
-        this.expPerfil = [];
-        this.expSeleccionadas = [];
+        this.habPerfil = [];
+        this.habSeleccionadas = [];
         this.otrahabilidad = '';
 
         this.otra = {
@@ -24,22 +24,22 @@ class CheckboxHabilidades {
                 return Habilidades.find();
             }
         });
-        this.expPerfil = Session.get('listadoHabilidades') || [];
+        this.habPerfil = Session.get('listadoHabilidades') || [];
 
     }
 
     agregarOEliminar(habilidad) {
         if (habilidad.activo === true) {
-            this.expSeleccionadas.push(habilidad._id);
+            this.habSeleccionadas.push(habilidad._id);
         } else if (habilidad.activo === false) {
-            var index = this.expSeleccionadas.indexOf(habilidad._id);
-            this.expSeleccionadas.splice(index, 1);
+            var index = this.habSeleccionadas.indexOf(habilidad._id);
+            this.habSeleccionadas.splice(index, 1);
         }
-        this.listado = this.expSeleccionadas.slice(0, this.expSeleccionadas.length);
+        this.listado = this.habSeleccionadas.slice(0, this.habSeleccionadas.length);
     }
 
     habilitarCheck(habilidad) {
-        let resultado = this.expPerfil.indexOf(habilidad._id);
+        let resultado = this.habPerfil.indexOf(habilidad._id);
         if (resultado > -1) {
             habilidad.activo = true;
         } else {

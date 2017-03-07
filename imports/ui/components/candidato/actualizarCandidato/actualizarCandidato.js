@@ -10,14 +10,8 @@ class ActualizarCandidato {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
-
         this.cargando = true;
 
-        this.respuesta = {
-            mostrar: false,
-            mensaje: '',
-            tipo: ''
-        };
         this.dias = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
         this.meses = [{
             'id': 1,
@@ -61,9 +55,16 @@ class ActualizarCandidato {
 
     actualizar() {
         this.cargando = false;
+        this.tipoMsj = '';
+        delete this.datos.celular;
+        delete this.datos.paisLada;
+        delete this.datos.celularVerificado;
+        delete this.datos.emailVerificado;
+        console.log(this.datos);
         actualizar.call(this.datos, this.$bindToContext((err) => {
             if (err) {
-                this.msj = ' No se pudieron realizar los cambios.' + err;
+                console.log(err);
+                this.msj = ' No se pudieron realizar los cambios.';
                 this.tipoMsj = 'danger';
                 this.cargando = true;
             } else {

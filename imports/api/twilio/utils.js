@@ -27,7 +27,7 @@ TwilioSMS = {
         const user = Meteor.users.findOne({_id: userId});
         const msj = {
             to: TEL_MAS + user.phone.number,
-            from: TEL_MAS + twilioConfig.testFromSMS,
+            from: TEL_MAS + twilioConfig.testFrom,
             body: `Bienvenido a Demotradoras con Experiencia, tu código de verificación es: ${codigo}`
         };
         console.log('Mensaje a enviar ', msj);
@@ -62,46 +62,9 @@ TwilioSMS = {
             }
             throw  new Meteor.Error(403, mensaje, reason);
         }
-    },
-
-    verificarTiempoEnvio(userId){
-        const codigoVer = CodigosVerificaion.findOne({_id: userId});
-        let fechaHoy = new Date();
-        if (fechaHoy < codigoVer.expiracion) {
-            const min = Math.ceil(Math.abs((fechaHoy.getTime() - codigoVer.expiracion.getTime()) / 60000));
-            throw new Meteor.Error(403, `Espere ${min}min. solcicitar otro codigo de confirmacion`, 'tiempo de envio espera');
-        }
-    },
-    crearCodigoVerificacion(userId){
-        const codigoVer = {
-            _id: userId
-        };
-        CodigosVerificaion.insert(codigoVer, (err, resultId)=> {
-            if (resultId) {
-                const resCod = CodigosVerificaion.findOne({_id: resultId});
-                try {
-                    this.enviarSMS(result.user._id, resCod.codigo);
-                } catch (e) {
-                    console.log('Error al enviar el SMS ', e);
-                }
-            }
-        });
     }
 };
 
-VerificarSMS = {
-    verificarCodigo(codigo, userId){
-        const codigoVer = CodigosVerificaion.findOne({_id: userId});
-        if (codigo !== codigoVer.codigo) {
-            throw new Meteor.Error(403, 'Código no valido', 'codigo no valido');
-        } else {
-            if (new Date() > codigoVer.expiracion) {
-                throw new Meteor.Error(403, 'Codigo de verificacion expirado, solicita un nuevo codigo', 'codigo expirado');
-            }
-            Meteor.users.update({_id: userId}, {$set: {'phone.verified': true}});
-        }
-    }
-};
 
 
 

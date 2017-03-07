@@ -5,7 +5,7 @@ import {_} from "meteor/underscore";
 import {DDPRateLimiter} from "meteor/ddp-rate-limiter";
 import {Candidatos} from "./collection.js";
 
-const CAMPOS_CANDIDATOS = ['nombre', 'apellidos', 'telefono', 'email', 'nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'sexo'];
+const CAMPOS_CANDIDATOS = ['nombre', 'apellidos', 'email', 'nacimientoDia', 'nacimientoMes', 'nacimientoAnio', 'sexo'];
 
 const CAMPO_ID = ['_id'];
 
@@ -22,7 +22,7 @@ export const actualizar = new ValidatedMethod({
         clean: true,
         filter: false
     }),
-    run({_id, nombre, apellidos, telefono, email, nacimientoDia, nacimientoMes, nacimientoAnio, sexo}) {
+    run({_id, nombre, apellidos, email, nacimientoDia, nacimientoMes, nacimientoAnio, sexo}) {
 
         return Candidatos.update({
             _id: _id
@@ -30,7 +30,6 @@ export const actualizar = new ValidatedMethod({
             $set: {
                 nombre: nombre,
                 apellidos: apellidos,
-                telefono: telefono,
                 email: email,
                 nacimientoDia: nacimientoDia,
                 nacimientoMes: nacimientoMes,

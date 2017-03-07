@@ -8,7 +8,8 @@ import {Perfiles} from "../../../api/perfiles/collection.js";
 import {name as ActualizarPerfil} from "../perfilLaboral/actualizarPerfil/actualizarPerfil";
 import {name as ActualizarCandidato} from "../candidato/actualizarCandidato/actualizarCandidato";
 import {name as ActualizarDireccion} from "../direccion/actualizarDireccion/actualizarDireccion";
-import {name as ConstraseniaCorreo} from "./constraseniaCorreo/constraseniaCorreo";
+import {name as CambiarContrasenia} from "./cambiarContrasenia/cambiarContrasenia";
+import {name as ActualizarContacto} from "./../candidato/actualizarContacto/actualizarContacto";
 import "./miCuenta.html";
 
 class MiCuenta {
@@ -21,10 +22,11 @@ class MiCuenta {
 
         this.nuevotitulo = 'Mi Perfil';
         $scope.oneAtATime = true;
-        this.subtitulo1 = 'Mi Perfil Laboral';
-        this.subtitulo2 = 'Mis Datos Personales';
-        this.subtitulo3 = 'Mi Dirección';
-        this.subtitulo4 = 'Mi Correo y Contraseña';
+        this.tituloPerfil = 'Perfil Laboral';
+        this.tituloContacto = 'Datos de contacto';
+        this.tituloDatos = 'Datos Personales';
+        this.tituloDireccion = 'Dirección';
+        this.tituloPassword = 'Cambiar Contraseña';
 
         this.helpers({
             candidato() {
@@ -51,7 +53,8 @@ export default angular
         ActualizarPerfil,
         ActualizarCandidato,
         ActualizarDireccion,
-        ConstraseniaCorreo
+        CambiarContrasenia,
+        ActualizarContacto
     ])
     .component(name, {
         templateUrl: `imports/ui/components/${name}/${name}.html`,
