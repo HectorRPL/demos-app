@@ -1,0 +1,45 @@
+<titulo-inicio titulo="recuperar.titulo"></titulo-inicio>
+<br>
+<div class="panelRegistro">
+    <div class="panel-body">
+        <form role="form" class="form-inline" id="recuperarFormId" name="recuperarForm" nonvalidate>
+            <div class="row">
+                <!-- CORREO  -->
+                <div class="col-xs-8 col-sm-6">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : recuperarForm.email.$invalid && !recuperarForm.email.$pristine}">
+                        <div class="input-group">
+                            <span class="input-group-addon span-demos">
+                              @
+                            </span>
+                            <input id="emailID" class="form-control" name="email" type="email"
+                                   placeholder="Correo Electrónico" aria-describedby="sizing-addon1" maxlength="50"
+                                   required  ng-model="recuperar.email">
+                        </div>
+                        <div ng-messages="recuperarForm.email.$dirty && recuperarForm.email.$error"
+                             role="alert">
+                            <div style="color:yellow;" ng-message="required">Campo requerido</div>
+                            <div style="color:yellow;" ng-message="email">Formato de correo incorrecto</div>
+                            <div style="color:yellow;" ng-message="maxlength">Máximo 50 caracteres</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button"
+                            class="btn btn-default btn-block"
+                            ng-disabled="recuperarForm.$invalid"
+                            ng-click="recuperar.enviar()">
+                        Recuperar
+                    </button>
+                </div>
+            </div>
+            <!--ALERTAS-->
+            <div class="row">
+                <br>
+                <div class="col-xs-12">
+                    <alertas tipo="recuperar.tipoMsj" mensaje="recuperar.msj"></alertas>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -15,7 +15,10 @@ class ConfirmarPostulacion {
 
     postularme() {
         this.cargando = false;
-        const postulacion = {tiendaId: this.datosvacante.tienda._id, vacanteId: this.datosvacante.vacanteId};
+        console.log(this.resolve.datosVacante);
+        const vacante = this.resolve.datosVacante;
+        console.log(vacante);
+        const postulacion = {tiendaId: vacante.tienda._id, vacanteId: vacante.vacanteId};
         registrar.call(postulacion, this.$bindToContext((error, result)=> {
             if (error) {
                 this.tipoMsj = 'danger';
@@ -48,7 +51,7 @@ export default angular
         controllerAs: name,
         controller: ConfirmarPostulacion,
         bindings: {
-            datosvacante: '<',
+            resolve: '<',
             close: '&',
             dismiss: '&'
         }

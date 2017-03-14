@@ -2,48 +2,7 @@
 <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
     <div class="panel panel-default">
         <div class="panel-body">
-            <uib-tabset active="activeForm">
-                <!--TAB DATOS-->
-                <uib-tab index="0" heading="Datos"">
-                    <br>
-                    <strong>Marca:</strong>
-                    {{ detalleVacante.vacante.marca}}<br>
-                    <strong>Tipo Vacante:</strong>
-                    {{ detalleVacante.vacante.puesto().descripcion }}<br>
-                    <strong>Estado:</strong>
-                    {{ detalleVacante.vacante.estado().descripcion }}<br>
-                    <strong>Sueldo:</strong>
-                    {{ detalleVacante.vacante.sueldo | currency }} por día<br><br><br>
-                </uib-tab>
-                <!--TAB PERFIL-->
-                <uib-tab index="1" heading="Perfil">
-                    <br>
-                    <strong>Sexo:</strong>
-                    {{detalleVacante.vacante.perfil.sexo}} <br>
-                    <strong>Talla:</strong>
-                    {{detalleVacante.vacante.perfil.talla}} <br>
-                    <strong>Escolaridad:</strong>
-                    {{detalleVacante.vacante.perfil.escolaridad}} <br>
-                    <strong>Habilidades:</strong>
-                    {{detalleVacante.vacante.hibilidadesVcnt()}} <br>
-                    <strong>Experincia en:</strong>
-                    {{detalleVacante.vacante.experienciasVcnt()}}
-                </uib-tab>
-                <!-- TAB HORARIOS-->
-                <uib-tab index="2" heading="Horario">
-                    <br>
-                    <dl class="dl-horizontal">
-                        <strong>Dias a laborar:</strong>
-                        <span ng-repeat="dia in detalleVacante.vacante.horarios.dias"> {{ dia.id }} </span> <br>
-                        <strong>Horario:</strong>
-                        de {{detalleVacante.vacante.horarios.hrsInicio | date : "shortTime" }} a
-                        {{detalleVacante.vacante.horarios.hrsFin | date : "shortTime" }} <br>
-                        <strong>Duracion:</strong>
-                        {{detalleVacante.vacante.horarios.duracion}}
-                        <br><br><br>
-                    </dl>
-                </uib-tab>
-            </uib-tabset>
+            <tabs-detalle-vacante vacante="detalleVacante.vacante"></tabs-detalle-vacante>
             <br>
             <ol class="breadcrumb">
                 <li>Tiendas disponibles para ti, elige una:</li>

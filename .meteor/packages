@@ -41,3 +41,4 @@ mys:accounts-phone@=0.0.21
 mrt:twilio-meteor
 ziarno:restrict-mixin
 crosswalk
+meteorhacks:ssr

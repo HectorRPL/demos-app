@@ -3,6 +3,7 @@ import {Accounts} from "meteor/accounts-base";
 import {Candidatos} from "../candidatos/collection";
 import {BitacoraLogin} from "../bitacoraLogin/collection";
 import {CodigosVerificaion} from "../codigosVerificacion/collection";
+import {SSR} from 'meteor/meteorhacks:ssr';
 
 const LOGIN_METHOD = 'login';
 const CREATE_USER_METHOD = 'createUser';
@@ -78,9 +79,29 @@ if (Meteor.isServer) {
                 BitacoraLogin.update({propietario: result.user._id}, {$set: {fechaLogin: new Date()}});
             }
         }
-
-
     });
+
+    Accounts.emailTemplates.siteName = "Demostradoras con experiencia";
+    Accounts.emailTemplates.from = "Demostradoras con experiencia <demostradoras01@gmail.com>";
+
+    // Verificación de registro con link en el email
+    Accounts.emailTemplates.resetPassword.from  = function () {
+        return "Demostradoras con experiencia <demostradoras01@gmail.com>";
+    };
+    Accounts.emailTemplates.resetPassword.html = function (user, url) {
+        url = url.replace("#", "demos");
+
+        SSR.compileTemplate( 'recuperarEmail', Assets.getText( 'emailTemplates/recuperarPassword/recuperarEmail.html'));
+        var emailData = {
+            url: url
+        };
+        return SSR.render( 'recuperarEmail', emailData );
+    };
+
+    // Resetear contraseña
+    Accounts.emailTemplates.resetPassword.subject =  function (user) {
+        return "Recuperar su contraseña en Demostradoras con experiencia";
+    };
 
 
 }

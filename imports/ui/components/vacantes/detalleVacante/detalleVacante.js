@@ -6,6 +6,7 @@ import {Vacantes} from "../../../../api/vacantes/collection.js";
 import {Tiendas} from "../../../../api/tiendas/collection";
 import {Counts} from "meteor/tmeasday:publish-counts";
 import {name as ConfirmarPostulacion} from "../confirmarPostulacion/confirmarPostulacion";
+import {name as TabsDetalleVacante} from "../tabsDetalleVacante/tabsDetalleVacante"
 import {name as Alertas} from "../../comun/alertas/alertas";
 
 class DetalleVacante {
@@ -48,17 +49,11 @@ class DetalleVacante {
         if (Meteor.user() === null) {
             this.$state.go('^.detalle', {vacanteId: vacanteId});
         } else {
-            let modalInstance = this.$uibModal.open({
+            this.$uibModal.open({
                 animation: true,
-                controllerAs: '$ctrl',
-                controller: ['$uibModalInstance', 'datosVacante', function ($uibModalInstance, datosVacante) {
-                    this.datosVacante = datosVacante;
-                    this.close = $uibModalInstance.close;
-                    this.dismiss = $uibModalInstance.dismiss;
-                }],
-                template: '<confirmar-postulacion datosvacante="$ctrl.datosVacante" dismiss="$ctrl.dismiss()" close="$ctrl.close()"></confirmar-postulacion>',
-                size: '',
-                backdrop: false,
+                component: 'ConfirmarPostulacion',
+                size: 'md',
+                backdrop: 'static',
                 resolve: {
                     datosVacante: function () {
                         return {
@@ -84,7 +79,8 @@ export default angular
         angularMeteor,
         uiRouter,
         ConfirmarPostulacion,
-        Alertas
+        Alertas,
+        TabsDetalleVacante
     ])
     .component(name, {
         templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,

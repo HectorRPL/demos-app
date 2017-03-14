@@ -1,0 +1,13 @@
+<!-- TIENDA SELECCIONADA POR LA CHICA PARA SER SELECCIONADA -->
+<!--
+Se debe de usar un ng-repeat, porque lo que está llegando a este componente es un array
+con sólo elemento (en la posición [0]) y para procesar dicho array se necesita el ng-repeat
+ -->
+<div class="col-xs-12" ng-repeat="tienda in tiendaPostulacion.tienda">
+    <div class="well">
+        <strong>{{ tienda.cadena().descripcion }}</strong> <br>
+        {{ tienda.delMpio }},
+        {{ tienda.sucursal }}
+    </div>
+</div>
+

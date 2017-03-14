@@ -7,7 +7,7 @@ import "./login.html";
 import {name as Registro} from "../registro/registro";
 import {name as Facebook} from "./facebook";
 import {name as App} from "../app/app";
-import {name as Recuperar} from "../recuperar/recuperar";
+import {name as Recuperar} from "./recuperar/recuperar";
 import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
 import {name as Alertas} from '../comun/alertas/alertas';
 
@@ -38,7 +38,11 @@ class Login {
                     this.tipoMsj ='danger';
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
-                        this.$state.go(result);
+                        if(err){
+                            this.$state.go('app.vacantes.lista');
+                        }else{
+                            this.$state.go(result);
+                        }
                         this.cargando = true;
                     }));
                 }

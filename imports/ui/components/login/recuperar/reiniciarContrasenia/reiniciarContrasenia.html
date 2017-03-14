@@ -1,0 +1,51 @@
+<titulo-inicio titulo="reiniciarContrasenia.titulo"></titulo-inicio>
+<br>
+<div class="panelRegistro">
+    <div class="panel-body">
+        <form role="form" class="form-inline" id="reiniciarContraseniaFormId" name="reiniciarContraseniaForm"
+              nonvalidate>
+            <div class="row">
+                <!-- CONTRASEÑA  -->
+                <div class="col-xs-8 col-sm-8">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : reiniciarContraseniaForm.newPassword.$invalid && !reiniciarContraseniaForm.newPassword.$pristine }">
+                        <div class="input-group input-group-md">
+                          <span class="input-group-addon span-demos">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                          </span>
+                            <input id="candidatoPasswordID" class="form-control" name="newPassword" type="password"
+                                   placeholder="" aria-describedby="basic-addon1" required
+                                   ng-model="reiniciarContrasenia.newPassword">
+                        </div>
+                        <div ng-messages="reiniciarContraseniaForm.newPassword.$dirty && reiniciarContraseniaForm.newPassword.$error"
+                             role="alert">
+                            <div ng-message="required" style="color:red">Campo requerido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button"
+                            class="btn btn-default btn-block"
+                            ng-disabled="reiniciarContraseniaForm.$invalid"
+                            ng-click="reiniciarContrasenia.reiniciar()">
+                        Reestablecer
+                    </button>
+                </div>
+            </div>
+            <!--ALERTAS-->
+            <div class="row">
+                <br>
+                <div class="col-xs-12">
+                    <div uib-alert ng-class="'alert-' + reiniciarContrasenia.tipoMsj"
+                         ng-show="reiniciarContrasenia.tipoMsj === 'success' ">
+                        {{reiniciarContrasenia.msj}}&nbsp;<a ui-sref="demos.login"><b>Ingresar</b></a>
+                    </div>
+                    <div uib-alert ng-class="'alert-' + reiniciarContrasenia.tipoMsj"
+                         ng-show="reiniciarContrasenia.tipoMsj === 'danger' ">
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

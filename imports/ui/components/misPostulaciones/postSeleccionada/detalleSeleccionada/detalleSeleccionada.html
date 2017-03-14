@@ -1,0 +1,31 @@
+<titulo nuevotitulo="{{detalleSeleccionada.nuevotitulo}}"></titulo>
+<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <tabs-detalle-vacante vacante="detalleSeleccionada.vacante"></tabs-detalle-vacante>
+            <hr>
+            <ol class="breadcrumb">
+                <li>Tienda en la cual me postulé:</li>
+            </ol>
+            <!-- MUESTRA LA TIENDA EN LA CUAL LA CHAVA ELIGIÓ PARA SU POSTULACIÓN -->
+            <tienda-postulacion tienda="detalleSeleccionada.tiendas"></tienda-postulacion>
+            <div class="row">
+                <!--DATOS DE LA AGENCIA (COMPONENT)-->
+                <small>
+                    <datos-contacto agenciaid="detalleSeleccionada.vacante.propietario"></datos-contacto>
+                </small>
+
+                <br>
+
+                <!--BOTÓN REGRESAR -->
+                <div class="col-xs-12">
+                    <button class="btn btn-danger" ui-sref="app.postulaciones.seleccionada">
+                        <span class="fa fa-chevron-left " aria-hidden="true"></span>
+                        Regregsar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

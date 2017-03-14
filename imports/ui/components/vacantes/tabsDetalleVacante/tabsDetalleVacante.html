@@ -1,0 +1,42 @@
+<uib-tabset active="activeForm">
+    <!--TAB DATOS-->
+    <uib-tab index="0" heading="Datos">
+        <br>
+        <strong>Marca:</strong>
+        {{ tabsDetalleVacante.vacante.marca}}<br>
+        <strong>Tipo Vacante:</strong>
+        {{ tabsDetalleVacante.vacante.puesto().descripcion }}<br>
+        <strong>Estado:</strong>
+        {{ tabsDetalleVacante.vacante.estado().descripcion }}<br>
+        <strong>Sueldo:</strong>
+        {{ tabsDetalleVacante.vacante.sueldo | currency }} por día<br><br><br>
+    </uib-tab>
+    <!--TAB PERFIL-->
+    <uib-tab index="1" heading="Perfil">
+        <br>
+        <strong>Sexo:</strong>
+        {{tabsDetalleVacante.vacante.perfil.sexo}} <br>
+        <strong>Talla:</strong>
+        {{tabsDetalleVacante.vacante.perfil.talla}} <br>
+        <strong>Escolaridad:</strong>
+        {{tabsDetalleVacante.vacante.escolaridadVcnt().descripcion}} <br>
+        <strong>Habilidades:</strong>
+        {{tabsDetalleVacante.vacante.hibilidadesVcnt()}} <br>
+        <strong>Experiencia en:</strong>
+        {{tabsDetalleVacante.vacante.experienciasVcnt()}}
+    </uib-tab>
+    <!-- TAB HORARIOS-->
+    <uib-tab index="2" heading="Horario">
+        <br>
+        <dl class="dl-horizontal">
+            <strong>Dias a laborar:</strong>
+            <span> {{tabsDetalleVacante.vacante.horarios.dias.toString()}} </span> <br>
+            <strong>Horario:</strong>
+            de {{tabsDetalleVacante.vacante.horarios.hrsInicio | date : "shortTime" }} a
+            {{tabsDetalleVacante.vacante.horarios.hrsFin | date : "shortTime" }} <br>
+            <strong>Duracion:</strong>
+            {{tabsDetalleVacante.vacante.horarios.duracion}}
+            <br><br><br>
+        </dl>
+    </uib-tab>
+</uib-tabset>
