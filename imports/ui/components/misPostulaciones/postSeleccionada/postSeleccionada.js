@@ -7,7 +7,7 @@ import uiRouter from "angular-ui-router";
 import ngAnimate from "angular-animate";
 import {Postulaciones} from "../../../../api/postulaciones/collection.js";
 import {activarSelecVistoXCandidato} from "../../../../api/postulaciones/methods.js";
-import {name as ContactoAgencia} from "./contactoAgencia/contactoAgencia";
+import {name as DetalleSeleccionada} from "./detalleSeleccionada/detalleSeleccionada";
 import utilsPagination from "angular-utils-pagination";
 import "./postSeleccionada.html";
 
@@ -51,7 +51,7 @@ export default angular
         angularMeteor,
         uiRouter,
         ngAnimate,
-        ContactoAgencia,
+        DetalleSeleccionada,
         utilsPagination
     ])
     .component(name, {
