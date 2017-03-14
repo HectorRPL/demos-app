@@ -29,8 +29,8 @@ class DetallePostProceso {
                     _id: this.vacanteId
                 });
             },
-            tiendas(){
-                return Tiendas.find({
+            tienda(){
+                return Tiendas.findOne({
                     _id: this.tiendaId
                 });
             },
