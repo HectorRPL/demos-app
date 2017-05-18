@@ -59,7 +59,7 @@ export const verificarCelular = new ValidatedMethod({
                     return CodigosVerificaion.remove({_id: this.userId});
                 }
             } else {
-                throw new Meteor.Error(403, 'Código no valido', 'codigo no valido');
+                throw new Meteor.Error(403, 'Código no válido', 'codigo no valido');
             }
         }
     }

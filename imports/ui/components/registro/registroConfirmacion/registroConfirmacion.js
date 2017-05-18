@@ -24,11 +24,17 @@ class RegistroConfirmacion {
         })
     }
 
-    verficarNumero() {
+    verficarNumero(confirmarRegFrmId) {
         verificarCelular.call({codigo: this.codigo}, this.$bindToContext((err, result)=> {
             if (err) {
                 this.msj = err;
                 this.tipoMsj = 'danger';
+                this.codigo = '';
+                if (confirmarRegFrmId) {
+                    confirmarRegFrmId.$setDirty();
+                    confirmarRegFrmId.$setPristine();
+                    confirmarRegFrmId.$setUntouched();
+                }
             } else {
                 this.$state.go('demos.registro.direccion');
             }
