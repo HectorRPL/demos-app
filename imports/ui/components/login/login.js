@@ -34,8 +34,10 @@ class Login {
             this.$bindToContext((err) => {
                 if (err) {
                     this.cargando = true;
-                    this.msj = err.message;
-                    this.tipoMsj ='danger';
+                    if (err.message === 'User not found [403]') {
+                        this.msj = 'Usuario y/o Contraseña incorrectos';
+                        this.tipoMsj ='danger';
+                    }
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
                         if(err){
