@@ -26,7 +26,7 @@ export const volverEnviarSMS = new ValidatedMethod({
             let fechaHoy = new Date();
             if (fechaHoy < codigoVer.expiracion) {
                 const min = Math.ceil(Math.abs((fechaHoy.getTime() - codigoVer.expiracion.getTime()) / 60000));
-                throw new Meteor.Error(403, `Espere ${min} min. solcicitar otro codigo de confirmacion`, 'tiempo de envio espera');
+                throw new Meteor.Error(403, `Espere ${min} min. para solicitar nuevo código de confirmación`, 'tiempo de envio espera');
             }
             try {
                 CodigosVerificaion.update({_id: this.userId}, {$set: {numIntentos: 0}});
