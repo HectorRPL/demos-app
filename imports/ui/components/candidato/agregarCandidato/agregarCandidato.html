@@ -208,12 +208,12 @@
         <div class="col-xs-12">
             <button type="button"
                     class="btn btn-default btn-block"
-                    ng-class="{'disabled': agregarCandidato.cargando === false}"
-                    ng-disabled="registroUsuarioFrm.$invalid || agregarCandidato.cargando === false"
+                    ng-class="{'disabled': agregarCandidato.cargando === true}"
+                    ng-disabled="registroUsuarioFrm.$invalid || agregarCandidato.cargando === true"
                     ng-click="agregarCandidato.crearUsuario()">
-                <span ng-hide="agregarCandidato.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                <span ng-hide="agregarCandidato.cargando">cargando...</span>
-                <span ng-show="agregarCandidato.cargando">REGISTRAR</span>
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : confirmarPostulacion.cargando}"></span>
+                <span ng-show="confirmarPostulacion.cargando">procesando...</span>
+                <span ng-hide="confirmarPostulacion.cargando">REGISTRARME</span>
             </button>
         </div>
     </div>

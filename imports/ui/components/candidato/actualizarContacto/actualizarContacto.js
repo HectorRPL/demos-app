@@ -12,7 +12,8 @@ class ActualizarContacto {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
-        this.cargando = true;
+        this.cargando1 = false;
+        this.cargando2 = false;
 
         this.helpers({
             datosContacto(){
@@ -23,7 +24,7 @@ class ActualizarContacto {
     }
 
     actualizarCel() {
-        this.cargando = false;
+        this.cargando2 = true;
         this.tipoMsj = '';
         const datosCelular = {
             celular: this.datosContacto.phone.number,
@@ -33,28 +34,28 @@ class ActualizarContacto {
             if (err) {
                 this.msj = 'Error al actualizar el celular.';
                 this.tipoMsj = 'danger';
-                this.cargando = true;
             } else {
                 this.msj = 'Te hemos mando enviado un SMS para verificar el celular.';
                 this.tipoMsj = 'success';
-                this.cargando = true;
             }
+            this.cargando2 = false;
         }));
     }
 
     actualizarMail() {
+        this.cargando1 = true;
         this.tipoMsjMail = '';
         const email = this.datosContacto.emails[0].address;
-        console.log(email);
         actualizarEmail.call({email: email}, this.$bindToContext((err)=> {
             if (err) {
                 console.log(err);
-                this.msjMail = 'Error al actualizar el E-Mail.';
+                this.msjMail = 'No se pudo actualizar el E-Mail, intente mas tarde.';
                 this.tipoMsjMail = 'danger';
             } else {
                 this.msjMail = 'Te hemos mando enviado un E-Mail para verificar tu correo.';
                 this.tipoMsjMail = 'success';
             }
+            this.cargando1 = false;
         }));
     }
 }

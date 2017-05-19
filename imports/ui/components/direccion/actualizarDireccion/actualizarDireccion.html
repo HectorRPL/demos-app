@@ -121,14 +121,12 @@
     <div class="row">
         <div class="col-xs-12">
             <button class="btn btn-default btn-block"
-                    ng-class="{'disabled': actualizarDireccion.cargando === false}"
-                    ng-disabled="direccionFrm.$invalid || actualizarDireccion.cargando === false"
+                    ng-class="{'disabled': actualizarCandidato.cargando === true}"
+                    ng-disabled="direccionFrm.$invalid || actualizarCandidato.cargando === true"
                     ng-click="actualizarDireccion.actualizar()">
-                <span ng-hide="actualizarDireccion.cargando"
-                      class="glyphicon glyphicon-refresh animacion-cargando">
-                </span>
-                <span ng-hide="actualizarDireccion.cargando">procesando...</span>
-                <span ng-show="actualizarDireccion.cargando">Enviar</span>
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : actualizarCandidato.cargando}"></span>
+                <span ng-show="actualizarCandidato.cargando">Procesando...</span>
+                <span ng-hide="actualizarCandidato.cargando">Enviar</span>
             </button>
         </div>
     </div>

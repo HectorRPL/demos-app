@@ -20,7 +20,7 @@ class AgregarCandidato {
         'ngInject';
         this.$state = $state;
         $reactive(this).attach($scope);
-        this.cargando = true;
+        this.cargando = false;
         this.paisLada = '52';
         this.pais = '';
         this.credentials = {
@@ -32,16 +32,19 @@ class AgregarCandidato {
     }
 
     crearUsuario() {
+        this.cargando = true;
         this.credentials.email = this.credentials.email.toLowerCase();
         this.credentials.username = this.credentials.email;
         Accounts.createUser(this.credentials,
             this.$bindToContext((err) => {
                 if (err) {
                     this.tipoMsj='danger';
-                    if (this.error.error === 403) {
+                    if (err.error === 403) {
                         this.msj = `El correo ${this.credentials.email} ya se encuentra registrado`;
+                        this.cargando = false;
                     } else {
                         this.msj  = err.reason;
+                        this.cargando = false;
                     }
                 } else {
                     this.$state.go('demos.registro.confirmacion');

@@ -32,11 +32,12 @@
                 <div class="btn-group" role="group">
                     <button class="btn btn-primary"
                             type="button"
+                            ng-show="confirmarPostulacion.cargando != null"
                             ng-click="confirmarPostulacion.postularme()"
-                            ng-disabled="confirmarPostulacion.respuesta">
-                        <span ng-hide="confirmarPostulacion.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                        <span ng-hide="confirmarPostulacion.cargando">procesando...</span>
-                        <span ng-show="confirmarPostulacion.cargando">¡Si! Deseo postularme</span>
+                            ng-disabled="confirmarPostulacion.cargando">
+                        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : confirmarPostulacion.cargando}"></span>
+                        <span ng-show="confirmarPostulacion.cargando">cargando...</span>
+                        <span ng-hide="confirmarPostulacion.cargando">¡Si! Deseo postularme</span>
                     </button>
                 </div>
             </div>

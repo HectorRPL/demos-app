@@ -15,7 +15,7 @@ class ActualizarPerfil {
         'ngInject';
         $reactive(this).attach($scope);
         this.subscribe('experiencias');
-        this.cargando = true;
+        this.cargando = false;
         this.helpers({
             expPerfil(){
                 if(this.getReactively('listadoexp')){
@@ -32,18 +32,17 @@ class ActualizarPerfil {
     }
 
     actualizar() {
-        this.cargando = false;
+        this.cargando = true;
         this.tipoMsj = '';
         actualizaPerfil.call(this.perfil, this.$bindToContext((err) => {
             if (err) {
                 this.msj = ' No se pudieron realizar los cambios. ' + err;
                 this.tipoMsj = 'danger';
-                this.cargando = true;
             } else {
                 this.msj = ' Los cambios se guardaron correctamente.';
                 this.tipoMsj = 'success';
-                this.cargando = true;
             }
+            this.cargando = false;
         }));
     }
 

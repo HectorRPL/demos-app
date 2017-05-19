@@ -10,9 +10,12 @@
     <forma-direccion direccion="registroDireccion.direccion"></forma-direccion>
     <!-- BOTON ENVIAR -->
     <button class="btn btn-default btn-lg btn-block"
-            ng-disabled="registrarDireccionFrm.$invalid"
+            ng-class="{'disabled': registroDireccion.cargando === true}"
+            ng-disabled="registrarDireccionFrm.$invalid || registroDireccion.cargando === true"
             type="button" ng-click="registroDireccion.guardar()">
-        Enviar
+        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : registroDireccion.cargando}"></span>
+        <span ng-show="registroDireccion.cargando">cargando...</span>
+        <span ng-hide="registroDireccion.cargando">Enviar</span>
     </button>
     <!-- ALERTA: ÉXITO/FALLO al hacer la operación -->
     <div class="row">

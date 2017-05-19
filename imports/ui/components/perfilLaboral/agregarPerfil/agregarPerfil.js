@@ -19,7 +19,7 @@ class AgregarPerfil {
         'ngInject';
         $reactive(this).attach($scope);
 
-        this.cargando = true;
+        this.cargando = false;
         this.$state = $state;
         this.perfil = {};
 
@@ -28,16 +28,15 @@ class AgregarPerfil {
     }
 
     guardar() {
-        this.cargando = false;
+        this.cargando = true;
         crearPerfil.call(this.perfil, this.$bindToContext((err) => {
             if (err) {
                 console.log(err);
                 this.msj = ' No se pudieron guardar los datos. ' + err;
                 this.tipoMsj = 'danger';
-                this.cargando = true;
+                this.cargando = false;
             } else {
                 this.$state.go('app.vacantes.lista');
-                this.cargando = true;
             }
         }));
     }

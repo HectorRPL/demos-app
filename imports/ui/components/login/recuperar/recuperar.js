@@ -7,24 +7,28 @@ class Recuperar {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
+        this.cargando = false;
         this.titulo = 'Recuperar Contraseña';
         this.email = '';
     }
 
     enviar() {
+        this.cargando = true;
         Accounts.forgotPassword({email: this.email}, this.$bindToContext((err) => {
-                this.msj = '';
                 if (err) {
+                    this.msj = '';
                     this.tipoMsj = 'danger';
                     if (err.error === 403) {
                         this.msj = `El usuario ${this.email} no encontrado.`;
+                        this.cargando = false;
                     } else {
                         this.msj = err.message;
+                        this.cargando = false;
                     }
                 } else {
                     this.tipoMsj = 'success';
-                    this.msj = 'Success';
-                    console.log('Success, to send email to backend, I think');
+                    this.msj = 'Se ha enviado un correo de recuperación';
+                    this.cargando = false;
                 }
             })
         );
@@ -40,7 +44,7 @@ export default angular
         ReiniciarContrasenia
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        templateUrl: `imports/ui/components/login/${name}/${name}.html`,
         controllerAs: name,
         controller: Recuperar
     })

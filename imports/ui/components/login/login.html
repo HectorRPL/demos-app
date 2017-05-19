@@ -43,12 +43,12 @@
                 <!--BOTÓN INGFRESAR Y LINKS -->
                 <div class="col-xs-12">
                     <button class="btn btn-default btn-md btn-block"
-                            ng-class="{'disabled': login.cargando === false}"
-                            ng-disabled="loginForm.$invalid || login.cargando === false"
+                            ng-class="{'disabled': login.cargando === true}"
+                            ng-disabled="loginForm.$invalid || login.cargando === true"
                             ng-click="login.login()">
-                        <span ng-hide="login.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                        <span ng-hide="login.cargando">cargando...</span>
-                        <span ng-show="login.cargando">Ingresar</span>
+                        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : login.cargando}"></span>
+                        <span ng-show="login.cargando">procesando...</span>
+                        <span ng-hide="login.cargando">Ingresar</span>
                     </button>
                     <a style="color:white;" class="textoBlanco" ui-sref="demos.recuperar">Recuperar</a>
                     <a style="color:white;" class="textoBlanco text-right pull-right" ui-sref="demos.registro.datos">Registro</a>

@@ -137,12 +137,12 @@
         <div class="col-xs-12">
             <button class="btn btn-default btn-md btn-block"
                     type="submit"
-                    ng-class="{'disabled': actualizarPerfil.cargando === false}"
-                    ng-disabled="actualizarPerfilFrm.$invalid || actualizarPerfil.cargando === false"
+                    ng-class="{'disabled': actualizarPerfil.cargando === true}"
+                    ng-disabled="actualizarPerfilFrm.$invalid || actualizarPerfil.cargando === true"
                     ng-click="actualizarPerfil.actualizar()">
-                <span ng-hide="actualizarPerfil.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                <span ng-hide="actualizarPerfil.cargando">Procesando...</span>
-                <span ng-show="actualizarPerfil.cargando">Actualizar Perfil</span>
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : actualizarPerfil.cargando}"></span>
+                <span ng-show="actualizarPerfil.cargando">Procesando...</span>
+                <span ng-hide="actualizarPerfil.cargando">Actualizar Perfil</span>
             </button>
         </div>
     </div>

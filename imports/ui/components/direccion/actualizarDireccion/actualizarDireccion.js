@@ -12,7 +12,7 @@ class ActualizarDireccion {
         'ngInject';
         $reactive(this).attach($scope);
 
-        this.cargando = true;
+        this.cargando = false;
         this.colonias = [];
         this.direccion = {
             codigoPostal: '',
@@ -27,18 +27,17 @@ class ActualizarDireccion {
     }
 
     actualizar() {
-        this.cargando = false;
+        this.cargando = true;
         this.tipoMsj = '';
         actualizar.call(this.direccion, this.$bindToContext((err) => {
             if (err) {
                 this.msj = 'Error al actualizar la direccion.';
                 this.tipoMsj = 'danger';
-                this.cargando = true;
             } else {
                 this.msj = 'Se actualiza la direccion correctamente.';
                 this.tipoMsj = 'success';
-                this.cargando = true;
             }
+            this.cargando = false;
         }));
     }
 

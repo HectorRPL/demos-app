@@ -11,6 +11,7 @@ class ReiniciarContrasenia {
     constructor($reactive, $scope, $state, $stateParams) {
         'ngInject';
         $reactive(this).attach($scope);
+        this.cargando = false;
 
         this.titulo = 'Reiniciar Contraseña';
         this.$state = $state;
@@ -19,15 +20,18 @@ class ReiniciarContrasenia {
     }
 
     reiniciar() {
+        this.cargando = true;
         this.tipoMsj = '';
-        Accounts.resetPassword(this.token, this.newPassword, this.$bindToContext((err) =>{
+        Accounts.resetPassword(this.token, this.newPassword, this.$bindToContext((err) => {
             if (err) {
-               this.msj = 'No se puedo actualizar su contraseña.';
-               this.tipoMsj = 'danger';
-            }else {
-                this.tipoMsj='success';
+                console.log(err);
+                this.tipoMsj = 'danger';
+                this.msj = 'El Token expiró, vuelva a generar otro. Si el problema persiste póngase en contacto con soporte técnico.';
+            } else {
+                this.tipoMsj = 'success';
                 this.msj = 'Se ha cambiado con exito su contraseña.';
             }
+            this.cargando = false;
         }));
     }
 
@@ -43,7 +47,7 @@ export default angular
         uiRouter
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/recuperar/${name}/${name}.html`,
+        templateUrl: `imports/ui/components/login/recuperar/${name}/${name}.html`,
         controllerAs: name,
         controller: ReiniciarContrasenia
     })

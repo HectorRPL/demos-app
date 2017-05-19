@@ -18,7 +18,7 @@ class Login {
         this.$state = $state;
         $reactive(this).attach($scope);
         this.titulo = 'Ingresa a Demostradoras';
-        this.cargando = true;
+        this.cargando = false;
 
         this.credentials = {
             email: '',
@@ -29,15 +29,13 @@ class Login {
 
     login() {
         this.tipoMsj ='';
-        this.cargando = false;
+        this.cargando = true;
         Meteor.loginWithPassword(this.credentials.email.toLowerCase(), this.credentials.password,
             this.$bindToContext((err) => {
                 if (err) {
-                    this.cargando = true;
-                    if (err.message === 'User not found [403]') {
-                        this.msj = 'Usuario y/o Contraseña incorrectos';
-                        this.tipoMsj ='danger';
-                    }
+                    this.msj = 'Usuario y/o Contraseña incorrectos';
+                    this.tipoMsj ='danger';
+                    this.cargando = false;
                 } else {
                     obtenerEstadoReg.call({}, this.$bindToContext((err, result)=> {
                         if(err){
@@ -45,7 +43,6 @@ class Login {
                         }else{
                             this.$state.go(result);
                         }
-                        this.cargando = true;
                     }));
                 }
             })

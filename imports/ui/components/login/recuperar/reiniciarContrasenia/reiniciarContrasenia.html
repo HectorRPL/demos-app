@@ -4,7 +4,7 @@
     <div class="panel-body">
         <form role="form" class="form-inline" id="reiniciarContraseniaFormId" name="reiniciarContraseniaForm"
               nonvalidate>
-            <div class="row">
+            <div class="row" ng-hide="reiniciarContrasenia.tipoMsj === 'success'">
                 <!-- CONTRASEÑA  -->
                 <div class="col-xs-8 col-sm-8">
                     <div class="form-group"
@@ -26,9 +26,12 @@
                 <div class="col-xs-4">
                     <button type="button"
                             class="btn btn-default btn-block"
-                            ng-disabled="reiniciarContraseniaForm.$invalid"
+                            ng-class="{'disabled': reiniciarContrasenia.cargando === true}"
+                            ng-disabled="reiniciarContraseniaForm.$invalid || reiniciarContrasenia.cargando === true"
                             ng-click="reiniciarContrasenia.reiniciar()">
-                        Reestablecer
+                        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : reiniciarContrasenia.cargando}"></span>
+                        <span ng-show="reiniciarContrasenia.cargando">cargando...</span>
+                        <span ng-hide="reiniciarContrasenia.cargando">Reestablecer</span>
                     </button>
                 </div>
             </div>
@@ -36,14 +39,7 @@
             <div class="row">
                 <br>
                 <div class="col-xs-12">
-                    <div uib-alert ng-class="'alert-' + reiniciarContrasenia.tipoMsj"
-                         ng-show="reiniciarContrasenia.tipoMsj === 'success' ">
-                        {{reiniciarContrasenia.msj}}&nbsp;<a ui-sref="demos.login"><b>Ingresar</b></a>
-                    </div>
-                    <div uib-alert ng-class="'alert-' + reiniciarContrasenia.tipoMsj"
-                         ng-show="reiniciarContrasenia.tipoMsj === 'danger' ">
-
-                    </div>
+                    <alertas tipo="reiniciarContrasenia.tipoMsj" mensaje="reiniciarContrasenia.msj"></alertas>
                 </div>
             </div>
         </form>

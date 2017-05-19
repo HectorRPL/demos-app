@@ -8,16 +8,15 @@ class ConfirmarPostulacion {
     constructor($scope, $reactive, $state) {
         'ngInject';
         $reactive(this).attach($scope);
-        this.cargando = true;
+        this.cargando = false;
         this.$state = $state;
 
     }
 
     postularme() {
-        this.cargando = false;
-        console.log(this.resolve.datosVacante);
+        console.log('entró');
+        this.cargando = true;
         const vacante = this.resolve.datosVacante;
-        console.log(vacante);
         const postulacion = {tiendaId: vacante.tienda._id, vacanteId: vacante.vacanteId};
         registrar.call(postulacion, this.$bindToContext((error, result)=> {
             if (error) {
@@ -27,8 +26,8 @@ class ConfirmarPostulacion {
             } else {
                 this.tipoMsj ='success';
                 this.msj= '¡Felicitaciones, ya te postulaste para esta vacante!.';
-
             }
+            this.cargando = null;
         }));
     }
 

@@ -128,12 +128,12 @@
     <div class="row">
         <div class="col-xs-12">
             <button class="btn btn-default btn-md btn-block" type="submit"
-                    ng-class="{'disabled': actualizarCandidato.cargando === false}"
-                    ng-disabled="datosPersonalesFrm.$invalid || actualizarCandidato.cargando === false"
+                    ng-class="{'disabled': actualizarCandidato.cargando === true}"
+                    ng-disabled="datosPersonalesFrm.$invalid || actualizarCandidato.cargando === true"
                     ng-click="actualizarCandidato.actualizar()">
-                <span ng-hide="actualizarCandidato.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                <span ng-hide="actualizarCandidato.cargando">Procesando...</span>
-                <span ng-show="actualizarCandidato.cargando">Guardar Cambios</span>
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : actualizarCandidato.cargando}"></span>
+                <span ng-show="actualizarCandidato.cargando">Procesando...</span>
+                <span ng-hide="actualizarCandidato.cargando">Guardar Cambios</span>
             </button>
         </div>
     </div>

@@ -110,13 +110,14 @@
         <div class="col-xs-12">
             <button
                     class="btn btn-default btn-lg btn-block"
-                    ng-class="{'disabled': agregarPerfil.cargando === false}"
-                    ng-disabled="agregarPerfilFrm.$invalid || agregarPerfil.cargando === false"
+                    ng-class="{'disabled': agregarPerfil.cargando === true}"
+                    ng-disabled="agregarPerfilFrm.$invalid || agregarPerfil.cargando === true"
                     type="submit"
                     ng-click="agregarPerfil.guardar()">
-                <span ng-hide="agregarPerfil.cargando" class="glyphicon glyphicon-refresh animacion-cargando"></span>
-                <span ng-hide="agregarPerfil.cargando">cargando...</span>
-                <span ng-show="agregarPerfil.cargando">Enviar mi Perfil Laboral</span>
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : agregarPerfil.cargando}"></span>
+                <span ng-show="agregarPerfil.cargando">cargando...</span>
+                <span ng-hide="agregarPerfil.cargando">Ingresar</span>
+                Enviar mi Perfil Laboral
             </button>
         </div>
     </div>

@@ -12,19 +12,21 @@ class RegistroDireccion {
         'ngInject';
         $reactive(this).attach($scope);
         this.$state = $state;
+        this.cargando = false;
         this.direccion = {};
         this.actualizarEstado($state.current.name);
     }
 
     guardar() {
-        this.cargando = false;
+        this.cargando = true;
         let direccionFinal = angular.copy(this.direccion);
         delete direccionFinal.colonias;
         crear.call(direccionFinal, this.$bindToContext((err) => {
             if (err) {
-                console.log(err);
+                console.log(err); // Se deja este console, para manejar el err
                 this.tipoAlerta = 'danger';
                 this.msjAlerta = 'No se puedo agregar la dirección.';
+                this.cargando = false;
             } else {
                 this.$state.go('demos.registro.perfil');
             }

@@ -30,9 +30,15 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block" type="submit"
-                    ng-disabled="actualizarMailFrm.$invalid" ng-click="actualizarContacto.actualizarMail()">
-                Actualizar E-mail
+            <button class="btn btn-default btn-md btn-block"
+                    type="submit"
+                    ng-class="{'disabled': actualizarContacto.cargando1 === true}"
+                    ng-disabled="actualizarMailFrm.$invalid || actualizarContacto.cargando1 === true"
+                    ng-click="actualizarContacto.actualizarMail()">
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : actualizarContacto.cargando1}"></span>
+                <span ng-show="actualizarContacto.cargando1">Procesando...</span>
+                <span ng-hide="actualizarContacto.cargando1">Actualizar E-mail</span>
+
             </button>
         </div>
     </div>
@@ -81,9 +87,14 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block" type="submit"
-                    ng-disabled="actualizarCelFrm.$invalid" ng-click="actualizarContacto.actualizarCel()">
-                Actualizar Celular
+            <button class="btn btn-default btn-md btn-block"
+                    type="submit"
+                    ng-class="{'disabled': actualizarContacto.cargando2 === true}"
+                    ng-disabled="actualizarCelFrm.$invalid || actualizarContacto.cargando2 === true"
+                    ng-click="actualizarContacto.actualizarCel()">
+                <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : actualizarContacto.cargando2}"></span>
+                <span ng-show="actualizarContacto.cargando2">Procesando...</span>
+                <span ng-hide="actualizarContacto.cargando2">Actualizar Celular</span>
             </button>
         </div>
     </div>

@@ -10,7 +10,7 @@ class ActualizarCandidato {
     constructor($scope, $reactive) {
         'ngInject';
         $reactive(this).attach($scope);
-        this.cargando = true;
+        this.cargando = false;
 
         this.dias = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
         this.meses = [{
@@ -54,7 +54,7 @@ class ActualizarCandidato {
     }
 
     actualizar() {
-        this.cargando = false;
+        this.cargando = true;
         this.tipoMsj = '';
         delete this.datos.celular;
         delete this.datos.paisLada;
@@ -66,12 +66,11 @@ class ActualizarCandidato {
                 console.log(err);
                 this.msj = ' No se pudieron realizar los cambios.';
                 this.tipoMsj = 'danger';
-                this.cargando = true;
             } else {
                 this.msj = ' Los cambios se guardaron correctamente.';
                 this.tipoMsj = 'success';
-                this.cargando = true;
             }
+            this.cargando = false;
         }));
     }
 }
