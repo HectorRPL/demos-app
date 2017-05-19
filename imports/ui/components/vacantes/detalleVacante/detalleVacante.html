@@ -31,8 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <alertas ng-show="detalleVacante.postulado" tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
-                    </alertas>
+                    <alertas ng-show="detalleVacante.postulado" tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj"></alertas>
                     <br>
                     <alertas ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
                              tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
@@ -41,9 +40,9 @@
             </div>
             <!--BOTÓN REGRESAR -->
             <div class="pull-left">
-                <a class="btn btn-block btn-danger" ui-sref="^.lista">
+                <a class="btn btn-block btn-danger" ui-sref="{{detalleVacante.pantallaAnterior}}">
                     <span class="fa fa-chevron-left " aria-hidden="true"></span>
-                    Regregsar
+                    Regresar
                 </a>
             </div>
         </div>

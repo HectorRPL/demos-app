@@ -1,3 +1,4 @@
+import {Session} from "meteor/session";
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
@@ -16,6 +17,10 @@ class DetalleVacante {
 
         this.nuevotitulo = 'Detalles de la promoción';
         this.vacanteId = $stateParams.vacanteId;
+
+        /* Variable para volver a la pantalla anterior*/
+        this.pantallaAnterior = Session.get('pantalla');
+
         this.subscribe('vacantes.detalle', ()=> [{_id: this.vacanteId}]);
         this.subscribe('vacantes.tiendas', ()=> [{vacanteId: this.vacanteId}]);
         this.subscribe('vacantes.candidato.postulado', ()=> [{vacanteId: this.vacanteId}]);
@@ -94,7 +99,7 @@ function config($stateProvider) {
 
     $stateProvider
         .state('app.vacantes.detalle', {
-            url: '/detalle/:vacanteId',
+            url: '/detalle/:vacanteId/:pantalla',
             template: '<detalle-vacante></detalle-vacante>'
         });
 }

@@ -1,3 +1,4 @@
+import {Session} from "meteor/session";
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
@@ -16,6 +17,9 @@ class ListaVacantes {
         'ngInject';
         $reactive(this).attach($scope);
         this.$state = $state;
+
+        Session.setPersistent('pantalla', this.$state.current.name);
+
         this.actulizarEstado($state.current.name);
         this.nuevotitulo = 'Vacantes Disponibles';
         this.perPage = 6;

@@ -1,6 +1,7 @@
 /**
  * Created by jvltmtz on 25/08/16.
  */
+import {Session} from "meteor/session";
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
@@ -15,6 +16,10 @@ class PostEnproceso {
         'ngInject';
         this.$state = $state;
         $reactive(this).attach($scope);
+
+        /* Pantalla actual */
+        Session.setPersistent('pantalla', this.$state.current.name);
+
         this.nuevotitulo = 'Postuaciones en Proceso';
         this.perPage = 3;
         this.subscribe('postulaciones.mis', ()=> [{estado: 1}]);
