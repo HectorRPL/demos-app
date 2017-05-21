@@ -10,7 +10,7 @@
 <!--TARJETAS-->
 <div class="col-xs-12 col-md-4 tarjeta-post-en-proceso"
      dir-paginate="postulacion in postEnproceso.misPostulaciones | itemsPerPage: postEnproceso.perPage">
-    <a style="text-decoration:none; color: inherit;" href="" ng-click="postEnproceso.verMas(postulacion.vacanteId, postulacion._id)">
+    <a style="text-decoration:none; color: inherit;" href="" ng-click="postEnproceso.verMas(postulacion.vacanteId, postulacion._id, postulacion.tiendaId)">
         <div class="panel panel-default">
             <!-- BODY DE TARJETA -->
             <div class="panel-body">

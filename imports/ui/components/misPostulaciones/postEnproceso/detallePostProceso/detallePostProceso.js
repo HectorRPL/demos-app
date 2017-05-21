@@ -30,9 +30,11 @@ class DetallePostProceso {
                 });
             },
             tienda(){
-                return Tiendas.findOne({
-                    _id: this.tiendaId
-                });
+                return Tiendas.find(
+                    {
+                        _id: this.tiendaId
+                    }
+                );
             },
             postulado(){
                 const result = Counts.get(`count.vacante.candidato.postulado.${this.vacanteId}`);

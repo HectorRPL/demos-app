@@ -30,7 +30,7 @@ class DetalleSeleccionada {
                     _id: this.vacanteId
                 });
             },
-            tiendas(){
+            tienda(){
                 return Tiendas.find({
                     _id: this.tiendaId
                 });
