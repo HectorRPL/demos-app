@@ -1,9 +1,9 @@
 <titulo-inicio titulo="reiniciarContrasenia.titulo"></titulo-inicio>
 <br>
-<div class="panelRegistro">
+<div class="panel">
     <div class="panel-body">
         <form role="form" class="form-inline" id="reiniciarContraseniaFormId" name="reiniciarContraseniaForm"
-              nonvalidate>
+              nonvalidate autocomplete="off">
             <div class="row" ng-hide="reiniciarContrasenia.tipoMsj === 'success'">
                 <!-- CONTRASEÑA  -->
                 <div class="col-xs-8 col-sm-8">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-xs-4">
                     <button type="button"
-                            class="btn btn-default btn-block"
+                            class="btn btn-cat btn-cta-primary btn-block"
                             ng-class="{'disabled': reiniciarContrasenia.cargando === true}"
                             ng-disabled="reiniciarContraseniaForm.$invalid || reiniciarContrasenia.cargando === true"
                             ng-click="reiniciarContrasenia.reiniciar()">

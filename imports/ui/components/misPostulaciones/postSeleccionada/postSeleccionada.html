@@ -1,45 +1,50 @@
-<style>
-    .tarjeta-post-en-proceso a div div div div {
-        white-space:nowrap;
-        text-overflow:ellipsis;
-        overflow:hidden;
-    }
-</style>
-<!--TÍTULO-->
-<titulo nuevotitulo="{{postSeleccionada.nuevotitulo}}"></titulo>
-<!--TARJETAS-->
-<div class="col-xs-12 col-md-4 tarjeta-post-en-proceso"
-     dir-paginate="postulacion in postSeleccionada.misPostulaciones | itemsPerPage: postEnproceso.perPage">
-    <a style="text-decoration:none; color: inherit;" href="" ng-click="postSeleccionada.verDetallesEntrevista(postulacion)">
-        <div class="panel panel-default">
-            <!-- BODY DE TARJETA -->
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div>
-                            <strong class="text-uppercase">{{postulacion.tienda().cadena().descripcion}}</strong>
-                            <small style="color: gray;">{{postulacion.tienda().sucursal}}</small>
+<article class="article gradient-5">
+    <div class="container text-center">
+        <div class="row">
+            <!--
+            <vacantes-ordenar on-change="listaVacantes.busqueda(sort)" property="fechaCreacion" order="1"></vacantes-ordenar>
+             -->
+            <!--TÍTULO-->
+            <titulo nuevotitulo="{{postSeleccionada.nuevotitulo}}"></titulo>
+            <!--TARJETAS-->
+            <div class="col-xs-12 col-sm-6 col-md-4 ajustar-texto animated fadeInRight"
+                 dir-paginate="postulacion in postSeleccionada.misPostulaciones | itemsPerPage: postEnproceso.perPage">
+                <a style="text-decoration:none; color: inherit;" href="" ng-click="postSeleccionada.verDetallesEntrevista(postulacion)">
+                    <div class="panel panel-default text-left tarjetas-hover">
+                        <!-- BODY DE TARJETA -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div>
+                                        <strong class="text-uppercase">{{postulacion.tienda().cadena().descripcion}}</strong>
+                                        <small class="tarjetas">{{postulacion.tienda().sucursal}}</small>
+                                    </div>
+                                    <div class="tarjetas">
+                                        <small>
+                                            {{postulacion.vacante().puesto().descripcion}}&nbsp;de&nbsp;{{postulacion.vacante().marca}}
+                                        </small>
+                                    </div>
+                                    <div class="tarjetas">
+                                        <small>
+                                            Postulado(a): {{postulacion.fechaPostulacion | date : 'dd MMM, yyyy'}}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="color: gray;">
-                            <small>
-                                {{postulacion.vacante().puesto().descripcion}}&nbsp;de&nbsp;{{postulacion.vacante().marca}}
-                            </small>
-                        </div>
-                        <div style="color: gray;">
-                            <small>
-                                Postulado(a): {{postulacion.fechaPostulacion | date : 'dd MMM, yyyy'}} <span class="pull-right" style="color: lightgrey">ver más</span>
-                            </small>
-                        </div>
-                        <div style="color: gray">
-                            <small>{{postulacion.vacante().sueldo | currency}}&nbsp;x&nbsp;día</small>
-                            <span ng-show="postulacion.selecVistoCandidato === false" class="pull-right badge progress-bar-danger">nuevo</span>
+                        <div class="panel-footer">
+                            <div class="color01">
+                                <small>{{postulacion.vacante().sueldo | currency}}&nbsp;x&nbsp;día</small>
+                                <span ng-show="postulacion.selecVistoCandidato === false" class="pull-right badge progress-bar-danger">nuevo</span>
+                                <span ng-hide="postulacion.selecVistoCandidato === false" class="pull-right tarjetas"><small>ver más</small></span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
+            <div class="col-xs-12">
+                <dir-pagination-controls on-page-change="postSeleccionada.pageChanged(newPageNumber)"></dir-pagination-controls>
             </div>
         </div>
-    </a>
-</div>
-<div class="col-xs-12">
-    <dir-pagination-controls on-page-change="postSeleccionada.pageChanged(newPageNumber)"></dir-pagination-controls>
-</div>
+    </div>
+</article>

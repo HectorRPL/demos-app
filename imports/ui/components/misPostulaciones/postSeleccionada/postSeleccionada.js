@@ -17,7 +17,7 @@ class PostSeleccionada {
         'ngInject';
         $reactive(this).attach($scope);
         this.subscribe('postulaciones.mis', ()=> [{estado: 2}]);
-        this.nuevotitulo = 'Me seleccionaron para Entrevista';
+        this.nuevotitulo = 'Mis Entrevistas';
         this.$state = $state;
         this.helpers({
             misPostulaciones() {

@@ -1,6 +1,7 @@
 <hr>
-<form id="confirmarCelularId" class="property-submit-form" name="confirmarCelularFrm" role="form" nonvalidate>
+<form id="confirmarCelularId" class="property-submit-form" name="confirmarCelularFrm" role="form" nonvalidate autocomplete="off">
     <div class="row" >
+        <!-- CÓDIGO DE CONFIRMACIÓN -->
         <div class="col-xs-4">
             <div class="form-group"
                  ng-class="{ 'has-error' : confirmarCelularFrm.codigo.$invalid && !confirmarCelularFrm.codigo.$pristine}">
@@ -16,8 +17,9 @@
                 </div>
             </div>
         </div>
+        <!-- NUMERO CELULAR  -->
         <div class="col-xs-8">
-            <button class="btn btn-default btn-md btn-block" type="submit"
+            <button class="btn btn-cat btn-cta-primary btn-block" type="submit"
                     ng-disabled="confirmarCelularFrm.$invalid" ng-click="confirmarCelular.verificar()">
                 Verificar Celular
             </button>

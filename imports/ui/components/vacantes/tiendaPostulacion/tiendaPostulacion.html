@@ -3,11 +3,19 @@
 Se debe de usar un ng-repeat, porque lo que está llegando a este componente es un array
 con sólo elemento (en la posición [0]) y para procesar dicho array se necesita el ng-repeat
  -->
-<div class="col-xs-12" ng-repeat="tienda in tiendaPostulacion.tienda">
-    <div class="well">
-        <strong>{{ tienda.cadena().descripcion }}</strong> <br>
-        {{ tienda.delMpio }},
-        {{ tienda.sucursal }}
-    </div>
+<div class="list-group">
+    <button class="list-group-item disabled list-group-item-demos"
+            type="button"
+            ng-repeat="tienda in tiendaPostulacion.tienda"
+            ng-disabled="true">
+        <div class="row">
+            <div class="col-sm-12">
+                <small>
+                    <strong>{{ tienda.cadena().descripcion }}</strong> /
+                    {{ tienda.delMpio }} /
+                    {{ tienda.sucursal }}
+                </small>
+            </div>
+        </div>
+    </button>
 </div>
-

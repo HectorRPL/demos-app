@@ -1,8 +1,8 @@
 <titulo-inicio titulo="recuperar.titulo"></titulo-inicio>
 <br>
-<div class="panelRegistro">
+<div class="panel">
     <div class="panel-body">
-        <form role="form" class="form-inline" id="recuperarFormId" name="recuperarForm" nonvalidate>
+        <form role="form" class="form-inline" id="recuperarFormId" name="recuperarForm" nonvalidate autocomplete="off">
             <div class="row" ng-hide="recuperar.tipoMsj === 'success'">
                 <!-- CORREO  -->
                 <div class="col-sm-6">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-4">
                     <button type="button"
-                            class="btn btn-default btn-block"
+                            class="btn btn-cat btn-cta-primary btn-block"
                             ng-class="{'disabled': recuperar.cargando === true}"
                             ng-disabled="recuperarForm.$invalid || recuperar.cargando === true"
                             ng-click="recuperar.enviar()">

@@ -1,5 +1,5 @@
 <form role="form" class="property-submit-form" id="registroUsuarioFrmId"
-      name="registroUsuarioFrm" novalidate>
+      name="registroUsuarioFrm" novalidate autocomplete="off">
     <!--CORREO Y CONTRASEÑA-->
     <div class="row">
         <!-- CORREO  -->
@@ -207,7 +207,7 @@
     <div class="row">
         <div class="col-xs-12">
             <button type="button"
-                    class="btn btn-default btn-block"
+                    class="btn btn-cat btn-cta-primary btn-block"
                     ng-class="{'disabled': agregarCandidato.cargando === true}"
                     ng-disabled="registroUsuarioFrm.$invalid || agregarCandidato.cargando === true"
                     ng-click="agregarCandidato.crearUsuario()">

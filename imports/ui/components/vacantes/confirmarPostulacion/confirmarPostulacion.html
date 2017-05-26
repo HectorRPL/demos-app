@@ -1,44 +1,54 @@
-<div class="modal-body">
+<div class="gradient-3">
     <div class="row">
-        <div class="col-xs-12">
-            <strong>Confirmar</strong>
-            <a class="btn close" ng-click="confirmarPostulacion.cancelarCerrar()">
-                <span class="fa fa-times" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div>
-                ¿Confirmas que deseas postularte para <strong>{{confirmarPostulacion.resolve.datosVacante.cadenaDesc}}</strong>
-                sucursal <strong>{{confirmarPostulacion.resolve.datosVacante.tienda.sucursal}}</strong>, para
-                representar la marca <strong>{{confirmarPostulacion.resolve.datosVacante.marca}}</strong>
-                en <strong>{{confirmarPostulacion.resolve.datosVacante.tienda.delMpio}}</strong>?.
-            </div>
-            <br>
-            <alertas tipo="confirmarPostulacion.tipoMsj" mensaje="confirmarPostulacion.msj"></alertas>
-            <br>
-        </div>
-    </div>
-    <div class="row">
-        <!-- BOTONES CANCELAR / ACEPTAR -->
-        <div class="col-xs-12">
-            <div class="pull-right">
-                <div class="btn-group" role="group">
-                    <button class="btn btn-danger" type="button" ng-click="confirmarPostulacion.cancelarCerrar()">
-                        Cerrar
-                    </button>
+        <div class="col-sm-12">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <strong>Confirmar</strong>
+                        <a class="btn close" ng-click="confirmarPostulacion.cancelarCerrar()">
+                            <span class="fa fa-times" aria-hidden="true"></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="btn-group" role="group">
-                    <button class="btn btn-primary"
-                            type="button"
-                            ng-show="confirmarPostulacion.cargando != null"
-                            ng-click="confirmarPostulacion.postularme()"
-                            ng-disabled="confirmarPostulacion.cargando">
-                        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : confirmarPostulacion.cargando}"></span>
-                        <span ng-show="confirmarPostulacion.cargando">cargando...</span>
-                        <span ng-hide="confirmarPostulacion.cargando">¡Si! Deseo postularme</span>
-                    </button>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            ¿Confirmas que deseas postularte para <strong>{{confirmarPostulacion.resolve.datosVacante.cadenaDesc}}</strong>
+                            sucursal <strong>{{confirmarPostulacion.resolve.datosVacante.tienda.sucursal}}</strong>, para
+                            representar la marca <strong>{{confirmarPostulacion.resolve.datosVacante.marca}}</strong>
+                            en <strong>{{confirmarPostulacion.resolve.datosVacante.tienda.delMpio}}</strong>?.
+                        </div>
+                        <br>
+                        <alertas tipo="confirmarPostulacion.tipoMsj" mensaje="confirmarPostulacion.msj"></alertas>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- BOTONES CANCELAR / ACEPTAR -->
+                    <div class="col-xs-12">
+                        <div class="pull-right">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-cat btn-cta-primary btn-block"
+                                        type="button"
+                                        ng-click="confirmarPostulacion.cancelarCerrar()">
+                                    Cerrar
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-cat btn-cta-primary btn-block"
+                                        type="button"
+                                        ng-show="confirmarPostulacion.cargando != null"
+                                        ng-click="confirmarPostulacion.postularme()"
+                                        ng-disabled="confirmarPostulacion.cargando">
+                                    <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : confirmarPostulacion.cargando}"></span>
+                                    <span ng-show="confirmarPostulacion.cargando">cargando...</span>
+                                    <span ng-hide="confirmarPostulacion.cargando">Postularme
+                                        <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

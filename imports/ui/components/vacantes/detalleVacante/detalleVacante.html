@@ -1,50 +1,60 @@
-<titulo nuevotitulo="{{detalleVacante.nuevotitulo}}"></titulo>
-<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <tabs-detalle-vacante vacante="detalleVacante.vacante"></tabs-detalle-vacante>
-            <br>
-            <ol class="breadcrumb">
-                <li>Tiendas disponibles para ti, elige una:</li>
-            </ol>
-            <!-- TABLA / CONTIENE LA LISTA DE TIENDAS (CADENA / DELEG.MUN / SUCURSAL) -->
-            <div class="list-group">
-                <button class="list-group-item" type="button" ng-repeat="tienda in detalleVacante.tiendas"
-                        ng-disabled="tienda.cubierta || detalleVacante.postulado"
-                        ng-class="{'disabled' : tienda.cubierta || detalleVacante.postulado}"
-                        ng-click="detalleVacante.abrirConfirmacion(tienda, detalleVacante.vacante.marca, cadena.descripcion)">
-                    <div class="row">
-                        <div class="col-xs-2">
-                                <span class="badge">
-                                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>{{tienda.numPostulados}}
-                                </span>
+<article class="article gradient-3">
+    <div class="container text-center">
+        <div class="row">
+            <!--
+            <vacantes-ordenar on-change="listaVacantes.busqueda(sort)" property="fechaCreacion" order="1"></vacantes-ordenar>
+             -->
+            <titulo nuevotitulo="{{detalleVacante.nuevotitulo}}"></titulo>
+            <div class="col-sm-12 col-md-offset-3 col-md-6 animated fadeInRight">
+                <div class="panel panel-default text-left">
+                    <div class="panel-body">
+                        <tabs-detalle-vacante vacante="detalleVacante.vacante"></tabs-detalle-vacante>
+                        <ol class="breadcrumb panel text-center">
+                            <li>Tiendas disponibles para ti, elige una:</li>
+                        </ol>
+                        <!-- TABLA / CONTIENE LA LISTA DE TIENDAS (CADENA / DELEG.MUN / SUCURSAL) -->
+                        <div class="list-group">
+                            <button class="list-group-item list-group-item-demos"
+                                    type="button"
+                                    ng-repeat="tienda in detalleVacante.tiendas"
+                                    ng-disabled="tienda.cubierta || detalleVacante.postulado"
+                                    ng-class="{'disabled' : tienda.cubierta || detalleVacante.postulado}"
+                                    ng-click="detalleVacante.abrirConfirmacion(tienda, detalleVacante.vacante.marca, cadena.descripcion)">
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <span class="badge">
+                                            <i class="fa fa-user fa-lg" aria-hidden="true"></i>{{tienda.numPostulados}}
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <small>
+                                            <strong>{{ tienda.cadena().descripcion }}</strong> /
+                                            {{ tienda.delMpio }} /
+                                            {{ tienda.sucursal }}
+                                        </small>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
-                        <div class="col-xs-10">
-                            <small>
-                                <strong>{{ tienda.cadena().descripcion }}</strong> /
-                                {{ tienda.delMpio }} /
-                                {{ tienda.sucursal }}
-                            </small>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <alertas ng-show="detalleVacante.postulado" tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj"></alertas>
+                                <br>
+                                <alertas ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
+                                         tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
+                                </alertas>
+                            </div>
+                        </div>
+                        <!--BOTÓN REGRESAR -->
+                        <div class="pull-left">
+                            <button type="button"
+                                    class="btn btn-cat btn-cta-primary btn-block"
+                                    ui-sref="app.vacantes.lista"><span class="fa fa-chevron-left " aria-hidden="true"></span> Regresar
+                            </button>
                         </div>
                     </div>
-                </button>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <alertas ng-show="detalleVacante.postulado" tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj"></alertas>
-                    <br>
-                    <alertas ng-show="!detalleVacante.postulado && detalleVacante.vacante.cubierta"
-                             tipo="detalleVacante.tipoMsj" mensaje="detalleVacante.msj">
-                    </alertas>
                 </div>
-            </div>
-            <!--BOTÓN REGRESAR -->
-            <div class="pull-left">
-                <a class="btn btn-block btn-danger" ui-sref="app.vacantes.lista">
-                    <span class="fa fa-chevron-left " aria-hidden="true"></span>
-                    Regresar
-                </a>
             </div>
         </div>
     </div>
-</div>
+</article>

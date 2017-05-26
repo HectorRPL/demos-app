@@ -6,6 +6,21 @@ navigation {
     padding: 0 15px;
   }
 
+  nav {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+    border: none !important;
+  }
+
+
+  nav > ul > li > span > a  {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  nav > div > a {
+    color: white !important;
+  }
+
   @media (max-width: 5000px) {
     .navbar-header {
       float: none;
@@ -59,6 +74,16 @@ navigation {
     color: #fff;
   }
 
+  .boton-dropdown-demos {
+    color: white!important;
+    border: none
+  }
+
+  .boton-dropdown-demos:active,
+  .boton-dropdown-demos:hover {
+    background-color: transparent !important;
+  }
+
 
   /* Menú desplegable (tres puntos horizontales)*/
 
@@ -80,7 +105,7 @@ navigation {
 
   // Esta clase activa los iconos cuando están en el menú de navegación principal
   .icono-uisref-activo {
-    color: black !important;
+    color: white !important;
   }
 
   /* ESTILO PARA CUANDO LAS ALERTAS TIENEN SUB MENUS
@@ -170,11 +195,5 @@ navigation {
   color: #ffffff !important;
 }
 */
-
-  // Esta clase fue creada para que los nombres estén homogeneos, convierte a mayúsculas la primera
-  // letra de cada palabra, ejemplo: Héctor Flores Vizuet
-  .capitalizar-textos {
-    text-transform: capitalize;
-  }
 }
 

@@ -1,4 +1,4 @@
-<form id="actualiarPerfilFrmId" class="property-submit-form" name="actualizarPerfilFrm" role="form" nonvalidate>
+<form id="actualiarPerfilFrmId" class="property-submit-form" name="actualizarPerfilFrm" role="form" nonvalidate autocomplete="off">
     <!-- EXPERIENCIA  -->
     <div class="form-group row">
         <!-- TEXTO Tengo experiencia: -->
@@ -51,7 +51,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarPerfilFrm.estatura.$invalid && !actualizarPerfilFrm.estatura.$pristine}">
                 <div class="input-group input-group-sm">
-              <span class="input-group-addon ">
+              <span class="input-group-addon span-demos ">
                   <i class="fa fa-chevron-down" aria-hidden="true"></i>
               </span>
                     <elegir-estatura estatura="actualizarPerfil.perfil.estatura"></elegir-estatura>
@@ -75,7 +75,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarPerfilFrm.elegirTalla.$invalid && !actualizarPerfilFrm.elegirTalla.$pristine}">
                 <div class="input-group input-group-sm">
-            <span id="basic-addon1" class="input-group-addon">
+            <span id="basic-addon1" class="input-group-addon span-demos">
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </span>
                     <elegir-talla talla="actualizarPerfil.perfil.talla"></elegir-talla>
@@ -97,7 +97,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarPerfilFrm.elegirPuesto.$invalid && !actualizarPerfilFrm.elegirPuesto.$pristine}">
                 <div class="input-group input-group-sm">
-              <span class="input-group-addon" id="basic-addon1">
+              <span class="input-group-addon span-demos" id="basic-addon1">
                   <i class="fa fa-chevron-down" aria-hidden="true"></i>
               </span>
                     <elegir-puesto puestoid="actualizarPerfil.perfil.puestoId"></elegir-puesto>
@@ -120,7 +120,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarPerfilFrm.elegirEscuela.$invalid && !actualizarPerfilFrm.elegirEscuela.$pristine}">
                 <div class="input-group input-group-sm">
-              <span id="basic-addon1" class="input-group-addon">
+              <span id="basic-addon1" class="input-group-addon span-demos">
                   <i class="fa fa-chevron-down" aria-hidden="true"></i>
               </span>
                     <elegir-escuela escolaridad="actualizarPerfil.perfil.escolaridadId"></elegir-escuela>
@@ -135,7 +135,7 @@
     <!-- BOTON GUARDAR CAMBIOS-->
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block"
+            <button class="btn btn-cat btn-cta-primary btn-block"
                     type="submit"
                     ng-class="{'disabled': actualizarPerfil.cargando === true}"
                     ng-disabled="actualizarPerfilFrm.$invalid || actualizarPerfil.cargando === true"

@@ -16,7 +16,7 @@ class DetallePostProceso {
         'ngInject';
         $reactive(this).attach($scope);
 
-        this.nuevotitulo = 'Detalles de mi postulacion';
+        this.nuevotitulo = 'Detalles de mi postulación';
         this.vacanteId = $stateParams.vacanteId;
         this.tiendaId = $stateParams.tiendaId;
         this.subscribe('vacantes.detalle', () => [{_id: this.vacanteId}]);

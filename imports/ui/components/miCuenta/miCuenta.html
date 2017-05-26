@@ -1,33 +1,37 @@
-<titulo nuevotitulo="{{miCuenta.nuevotitulo}}"></titulo>
-<div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-        <uib-accordion close-others="oneAtATime">
-            <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloDatos}}">
-                <actualizar-candidato datos="miCuenta.candidato" id="miCuenta.candidato._id">
-                </actualizar-candidato>
-            </div>
-            <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloContacto}}">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p class="text-justify"> <small><strong>**Importante:&nbsp;</strong>Recuerda que esto datos los ocupa el Reclutador para poder comunicarse condigo una vez que te seleccionaron en un
-                            vacante.</small></p>
+<article class="article gradient-2">
+    <div class="container text-center">
+        <div class="row">
+            <titulo nuevotitulo="{{miCuenta.nuevotitulo}}"></titulo>
+            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloDatos}}">
+                        <actualizar-candidato datos="miCuenta.candidato" id="miCuenta.candidato._id">
+                        </actualizar-candidato>
                     </div>
-                </div>
-                <actualizar-contacto></actualizar-contacto>
+                    <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloContacto}}">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="text-justify"> <small><strong>**Importante:&nbsp;</strong>Recuerda que esto datos los ocupa el Reclutador para poder comunicarse condigo una vez que te seleccionaron en un
+                                    vacante.</small></p>
+                            </div>
+                        </div>
+                        <actualizar-contacto></actualizar-contacto>
+                    </div>
+                    <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloDireccion}}">
+                        <actualizar-direccion direccion="miCuenta.direccion" id="miCuenta.direccion._id">
+                        </actualizar-direccion>
+                    </div>
+                    <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloPerfil}}">
+                        <actualizar-perfil perfil="miCuenta.perfil" id="miCuenta.perfil._id"
+                                           listadoexp="miCuenta.perfil.experiencias.listado"
+                                           listadohab="miCuenta.perfil.habilidades.listado">
+                        </actualizar-perfil>
+                    </div>
+                    <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloPassword}}">
+                        <cambiar-contrasenia></cambiar-contrasenia>
+                    </div>
+                </uib-accordion>
             </div>
-            <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloDireccion}}">
-                <actualizar-direccion direccion="miCuenta.direccion" id="miCuenta.direccion._id">
-                </actualizar-direccion>
-            </div>
-            <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloPerfil}}">
-                <actualizar-perfil perfil="miCuenta.perfil" id="miCuenta.perfil._id"
-                                   listadoexp="miCuenta.perfil.experiencias.listado"
-                                   listadohab="miCuenta.perfil.habilidades.listado">
-                </actualizar-perfil>
-            </div>
-            <div uib-accordion-group class="panel-default" heading="{{miCuenta.tituloPassword}}">
-                <cambiar-contrasenia></cambiar-contrasenia>
-            </div>
-        </uib-accordion>
+        </div>
     </div>
-</div>
+</article>

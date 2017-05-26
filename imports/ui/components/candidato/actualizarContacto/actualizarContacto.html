@@ -1,4 +1,4 @@
-<form id="actualizarMailId" class="property-submit-form" name="actualizarMailFrm" role="form" nonvalidate>
+<form id="actualizarMailId" class="property-submit-form" name="actualizarMailFrm" role="form" nonvalidate autocomplete="off">
     <!-- CORREO-->
     <div class="row">
         <div class="col-xs-12">
@@ -60,7 +60,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarCelFrm.celular.$invalid && !actualizarCelFrm.celular.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon  span-demos">
+                    <span class="input-group-addon span-demos">
                          <i class="fa fa-phone" aria-hidden="true"></i>
                     </span>
                     <num-celular paislada="actualizarContacto.paisLada"
@@ -87,7 +87,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block"
+            <button class="btn btn-cat btn-cta-primary btn-block"
                     type="submit"
                     ng-class="{'disabled': actualizarContacto.cargando2 === true}"
                     ng-disabled="actualizarCelFrm.$invalid || actualizarContacto.cargando2 === true"

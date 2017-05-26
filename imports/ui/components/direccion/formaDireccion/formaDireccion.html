@@ -28,9 +28,9 @@
                     <span class="input-group-addon span-demos">
                         <strong>Tx</strong>
                     </span>
-                    <input id="estadoID" class="form-control" name="estado" type="text"
+                    <input id="estadoID" class="form-control disabled" name="estado" type="text"
                            placeholder="Estado" aria-describedby="sizing-addon1"
-                           required disabled="true" ng-model="formaDireccion.direccion.estado">
+                           required disabled ng-model="formaDireccion.direccion.estado">
                 </div>
                 <div ng-messages="direccionForm.estado.$dirty && direccionForm.estado.$error"
                      role="alert">

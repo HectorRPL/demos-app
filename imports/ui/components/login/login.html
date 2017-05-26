@@ -1,8 +1,8 @@
 <titulo-inicio titulo="login.titulo"></titulo-inicio>
 <br>
-<div class="panelRegistro">
+<div class="panel">
     <div class="panel-body">
-        <form role="form" class="property-submit-form" id="loginFormId" name="loginForm" nonvalidate>
+        <form role="form" class="property-submit-form" id="loginFormId" name="loginForm" nonvalidate autocomplete="off">
             <div class="row">
                 <!--FACEBOOK-->
                 <div class="col-xs-12">
@@ -42,7 +42,7 @@
                 </div>
                 <!--BOTÓN INGFRESAR Y LINKS -->
                 <div class="col-xs-12">
-                    <button class="btn btn-default btn-md btn-block"
+                    <button class="btn btn-cat btn-cta-primary btn-block"
                             ng-class="{'disabled': login.cargando === true}"
                             ng-disabled="loginForm.$invalid || login.cargando === true"
                             ng-click="login.login()">

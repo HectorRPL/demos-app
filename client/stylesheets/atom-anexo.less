@@ -1,0 +1,209 @@
+
+/* Colores */
+
+@color01: #ffffff; // Usualmente usado para ajustar el color de los textos en sintonía con lo general
+@color02: #d7d6d7; //
+@color03: #b8b7b8;
+@color04: rgba(0, 0, 0, 0.1); // Color negro translucido, usualmente se pone en los paneles
+@color05: rgba(0, 0, 0, 0.3); // Color negro translucido, usualmente se pone en los paneles hover
+@color06: #000000; // Color negro
+
+@color07: rgba(0, 0, 0, 0.2); // Usado normalmente para hovers
+
+html {
+
+  .color01 {
+    color: @color01;
+  }
+  .color02 {
+    color: @color02;
+  }
+  .color03 {
+    color: @color03;
+  }
+  .color04 {
+    color: @color04;
+  }
+  .color06 {
+    color: @color06;
+  }
+
+  app,
+  demos {
+
+    /* Global */
+
+
+    // Arreglar los textos muy largos de manera que se reduzcan a punto y no estropee los estilos que tengan renglones fijos
+
+    .ajustar-texto {
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
+
+    // Arregla el texto largoúnicamente para el nombre de la chava
+
+    .ajustar-texto-nombre {
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+      max-width: 200px;
+    }
+
+    // Esta clase fue creada para que los nombres estén homogeneos, convierte a mayúsculas la primera letra de cada palabra, ejemplo: Héctor Flores Vizuet
+
+    .capitalizar-textos {
+      text-transform: capitalize;
+    }
+
+    // Ajusta y da estilo al nombre del cantidado que aparece a un lado del menú dropdown en el navbar
+
+    .nombre-candidato-navbar {
+      color: white !important;
+      border: none;
+      pointer-events: none;
+      position: relative;
+      bottom: 3px;
+
+    }
+
+    /* logo demos en app*/
+
+    .logo-demos {
+      opacity:  0.8;
+      cursor: pointer;
+      z-index: 2000 !important;
+      float: left;
+      position: fixed;
+      left: 5%;
+    }
+
+    // Oculta el logo cuando es menor a ipad
+
+    @media screen and (max-width: 767px) {
+      .logo-demos { display: none; }
+    }
+
+    /* Panels */
+
+    .panel-default > .panel-heading {
+      background-color: @color05;
+      color: @color01;
+    }
+
+    .panel {
+      background: @color04;
+      border: none;
+      border-radius: 0px;
+    }
+
+    .panel-default {
+      color: @color01;
+      //background: @color04;
+      border: none;
+      border-radius: 0px;
+    }
+    .panel-footer {
+      border: none;
+      background: @color04;
+      padding: 15px;
+      margin-bottom: 0;
+    }
+
+    .panelTituloRegistro {
+      background: @color04;
+      border: none;
+      border-radius: 0px;
+      padding: 1px;
+      margin-top: 5%;
+    }
+
+    /* gradients / backgrounds / fondos */
+
+    // Anexo de estilo  al gradiente de los fondos de pantalla
+
+    .gradient-1,
+    .gradient-2,
+    .gradient-3,
+    .gradient-4,
+    .gradient-5 {
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    /* buttons */
+
+
+    // Span que pone los adornos de los inputs en sintonía con el estilo de atom
+    .span-demos {
+      background-color: transparent;
+      /*border-style: none;*/
+      opacity: 0.5;
+      color: @color01;
+    }
+
+    // Adaptación del disable al estilo de Atom
+    .disabled {
+        background-color: transparent !important;
+    }
+
+    /* selects */
+
+    input:disabled {
+      background: transparent !important;
+    }
+
+    select {
+      /* Desaparece la flecha de los selects en Chrome */
+      -moz-appearance: none;
+      /* Desaparece la flecha de los selects en FireFox */
+      -webkit-appearance: none;
+    }
+    /* Desaparece la flecha de los selects en IE10 */
+    select::-ms-expand {
+      display: none;
+    }
+
+    /* botones en forma de lista (lista de tiendas) */
+
+    .list-group-item-demos {
+      color: @color01 !important;
+      background-color: @color04 !important;
+      border-color: @color04;
+    }
+    .list-group-item-demos:hover {
+      background-color: @color05 !important;
+    }
+
+    /* notificaciones */
+
+    // Esta es el número que aparece en los icónos cuando hay un aviso
+    .notificacion-demos{
+      position:relative;
+      right: 10px;
+      bottom: 10px;
+    }
+
+
+    // hace opaca una notifición vista, usada para cuando un reclaturador observa la postulación y luego
+    // la chica la ve
+    .alerta-vista {
+      opacity: 0.5;
+    }
+
+    /* tarjetas */
+
+    .tarjetas {
+      color: @color01;
+      -webkit-opacity: 0.5;
+      -moz-opacity: 0.5;
+      opacity: 0.5;
+    }
+
+    .tarjetas-hover:hover {
+      background-color: @color07;
+    }
+
+  }
+}
