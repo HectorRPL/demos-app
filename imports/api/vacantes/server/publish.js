@@ -44,7 +44,8 @@ if (Meteor.isServer) {
                 estadoId: 1,
                 sueldo: 1,
                 puestoId: 1,
-                totalTiendas: 1
+                totalTiendas: 1,
+                perfil: 1
             };
             options.fields = fields;
             return {
