@@ -34,8 +34,8 @@
                         </div>
                         <div class="panel-footer">
                             <small class="color01">{{postulacion.vacante().sueldo | currency}}&nbsp;x&nbsp;día</small>
-                            <span class="pull-right" ng-hide="postulacion.postVistoAgencia === true"><small><small>Solicitud Revisada</small></small></span>
-                            <span class="pull-right tarjetas" ng-show="postulacion.postVistoAgencia === true"><small><small>Procesando</small></small></span>
+                            <span class="pull-right" ng-show="postulacion.postVistoAgencia === true && postulacion.postVistoCandidato === false"><small><small>Solicitud Revisada</small></small></span>
+                            <span class="pull-right tarjetas" ng-show="postulacion.postVistoAgencia === true && postulacion.postVistoCandidato === true"><small><small>Procesando</small></small></span>
                         </div>
                     </div>
                 </a>
