@@ -14,7 +14,7 @@ import "./registro.html";
 class Registro {
     constructor() {
         'ngInject';
-        this.titulo = '¡Unete a Demostradoras!';
+        this.titulo = 'Registro';
     }
 
 }

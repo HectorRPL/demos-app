@@ -3,24 +3,26 @@
     <div class="row" >
         <!-- CÓDIGO DE CONFIRMACIÓN -->
         <div class="col-xs-4">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : confirmarCelularFrm.codigo.$invalid && !confirmarCelularFrm.codigo.$pristine}">
+            <div class="form-group" ng-class="{ 'has-error' : confirmarCelularFrm.codigo.$invalid && !confirmarCelularFrm.codigo.$pristine}">
                 <div class="input-group">
                     <input id="codigoID" class="form-control" type="text" name="codigo"
+                           placeholder="código de 4 dígitos"
                            maxlength="4" minlength="4" aria-describedby="sizing-addon1" required
                            ng-model="confirmarCelular.codigo">
                 </div>
                 <div ng-messages="confirmarCelularFrm.codigo.$dirty && confirmarCelularFrm.codigo.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required">Campo requerido</div>
-                    <div style="color:red;" ng-message="minlength, maxlength">4 digitos</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="minlength, maxlength">4 digitos</div>
                 </div>
             </div>
         </div>
         <!-- NUMERO CELULAR  -->
         <div class="col-xs-8">
-            <button class="btn btn-cat btn-cta-primary btn-block" type="submit"
-                    ng-disabled="confirmarCelularFrm.$invalid" ng-click="confirmarCelular.verificar()">
+            <button class="btn btn-default btn-block"
+                    type="submit"
+                    ng-disabled="confirmarCelularFrm.$invalid"
+                    ng-click="confirmarCelular.verificar()">
                 Verificar Celular
             </button>
         </div>
@@ -29,6 +31,5 @@
         <div class="col-xs-12">
             <alertas tipo="confirmarCelular.tipoMsj" mensaje="confirmarCelular.msj"></alertas>
         </div>
-
     </div>
 </form>

@@ -1,29 +1,22 @@
 <div class="row">
     <div class="col-xs-12">
-        <div class="form-group">
-            <label class="control-label" style="color:white;">
-                <h5>¡Por tu segurirdad!
-                    Te hemos enviado un código de confirmación a tu teléfono celular (+{{registroConfirmacion.usuario.phone.number}}), por favor ingresalo en la
-                    siguiente casilla:
-                </h5>
-            </label>
-        </div>
+        ¡Por tu segurirdad!
+        Te hemos enviado un código de confirmación a tu teléfono celular <strong>+{{registroConfirmacion.usuario.phone.number}}</strong>, por favor ingrésalo en la
+        siguiente casilla:
+
     </div>
 </div>
 <form role="form" class="property-submit-form" id="confirmarRegFrmId" name="confirmarRegFrm" novalidate autocomplete="off">
     <div class="row">
-        <div class="col-xs-offset-4 col-xs-4 col-md-offset-5 col-md-2">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : confirmarRegFrm.codigo.$invalid && !confirmarRegFrm.codigo.$pristine}">
-                <div class="input-group">
-                    <input id="codigoID" class="form-control" type="text" name="codigo"
-                           maxlength="4" minlength="4" aria-describedby="sizing-addon1" required
-                           ng-model="registroConfirmacion.codigo">
-                </div>
-                <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error"
-                     role="alert">
-                    <div style="color:yellow;" ng-message="required">requerido</div>
-                    <div style="color:yellow;" ng-message="minlength, maxlength">4 digitos</div>
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : confirmarRegFrm.codigo.$invalid && !confirmarRegFrm.codigo.$pristine}">
+                <input id="codigoID" class="form-control text-center" type="text" name="codigo"
+                       placeholder="Código de 4 dígitos"
+                       maxlength="4" minlength="4" aria-describedby="sizing-addon1" required
+                       ng-model="registroConfirmacion.codigo">
+                <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error" role="alert">
+                    <div class="ng-mensajes" ng-message="required">requerido</div>
+                    <div class="ng-mensajes" ng-message="minlength, maxlength">4 digitos</div>
                 </div>
             </div>
         </div>
@@ -34,7 +27,7 @@
         </div>
     </div>
     <!-- BOTÓN SIGUIENTE -->
-    <button type="button" class="btn btn-default btn-lg btn-block"
+    <button type="button" class="btn btn-default btn-block"
             ng-disabled="confirmarRegFrm.$invalid"
             ng-click="registroConfirmacion.verficarNumero(confirmarRegFrm)">
         Confrimar Registro
@@ -43,11 +36,7 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-        <div class="form-group">
-            <label class="control-label" style="color:white;">
-                ¿No tienes el SMS?
-            </label>
-        </div>
+          <strong>¿No tienes el SMS?</strong>
     </div>
 </div>
 <div class="row">
