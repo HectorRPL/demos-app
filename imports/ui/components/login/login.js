@@ -17,7 +17,7 @@ class Login {
         'ngInject';
         this.$state = $state;
         $reactive(this).attach($scope);
-        this.titulo = 'Ingresa a Demostradoras';
+        this.titulo = 'Ingresar';
         this.cargando = false;
 
         this.credentials = {

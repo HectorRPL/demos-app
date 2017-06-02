@@ -2,7 +2,7 @@
     <!-- DIRECCION -->
     <div class="row">
         <!-- CÓDIGO POSTAL -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.codigoPostal.$invalid && !direccionForm.codigoPostal.$pristine}">
                 <codigos-postales direccion="formaDireccion.direccion"></codigos-postales>
                 <div ng-messages="direccionForm.codigoPostal.$dirty && direccionForm.codigoPostal.$error" role="alert">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <!-- ESTADO -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.estado.$invalid && !direccionForm.estado.$pristine}">
                 <input id="estadoID" class="form-control disabled" name="estado" type="text"
                        placeholder="Estado" aria-describedby="sizing-addon1"
@@ -25,7 +25,7 @@
             </div>
         </div>
         <!-- DELEGACIÓN o MUNICIPIO -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.delMpio.$invalid && !direccionForm.delMpio.$pristine}">
                 <input id="delMpioID" class="form-control" name="delMpio" type="text"
                        placeholder="Delegación/Municipio" aria-describedby="sizing-addon1"
@@ -39,7 +39,7 @@
 
     <div class="row">
         <!-- COLONIA -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.colonia.$invalid && !direccionForm.colonia.$pristine}">
                 <select id="coloniaID" class="form-control" name="colonia" type="text"
                         aria-describedby="sizing-addon1" required
@@ -55,7 +55,7 @@
             </div>
         </div>
         <!-- CALLE -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.calle.$invalid && !direccionForm.calle.$pristine}">
                 <input id="calleID" class="form-control" name="calle" type="text"
                        placeholder="Calle" aria-describedby="sizing-addon1"
@@ -70,7 +70,7 @@
             </div>
         </div>
         <!-- NÚMERO EXTERIOR -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.numExt.$invalid && !direccionForm.numExt.$pristine}">
                 <input id="numExtID" class="form-control" name="numExt" type="text"
                        placeholder="N° Exterior" aria-describedby="sizing-addon1"
@@ -85,7 +85,7 @@
             </div>
         </div>
         <!-- NÚMERO INTERIOR -->
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-sm-4">
             <div class="form-group" ng-class="{ 'has-error' : direccionForm.numInt.$invalid && !direccionForm.numInt.$pristine}">
                 <input id="numIntID" class="form-control" name="numInt" type="text"
                        placeholder="N° Interior" aria-describedby="sizing-addon1"
