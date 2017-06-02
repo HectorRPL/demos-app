@@ -12,16 +12,13 @@
 </div>
 <form role="form" class="property-submit-form" id="confirmarRegFrmId" name="confirmarRegFrm" novalidate autocomplete="off">
     <div class="row">
-        <div class="col-xs-offset-4 col-xs-4 col-md-offset-5 col-md-2">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : confirmarRegFrm.codigo.$invalid && !confirmarRegFrm.codigo.$pristine}">
-                <div class="input-group">
-                    <input id="codigoID" class="form-control" type="text" name="codigo"
-                           maxlength="4" minlength="4" aria-describedby="sizing-addon1" required
-                           ng-model="registroConfirmacion.codigo">
-                </div>
-                <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error"
-                     role="alert">
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : confirmarRegFrm.codigo.$invalid && !confirmarRegFrm.codigo.$pristine}">
+                <input id="codigoID" class="form-control text-center" type="text" name="codigo"
+                       placeholder="Código de 4 dígitos"
+                       maxlength="4" minlength="4" aria-describedby="sizing-addon1" required
+                       ng-model="registroConfirmacion.codigo">
+                <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error" role="alert">
                     <div class="ng-mensajes" ng-message="required">requerido</div>
                     <div class="ng-mensajes" ng-message="minlength, maxlength">4 digitos</div>
                 </div>

@@ -12,31 +12,34 @@
                 </div>
                 <!--CORREO-->
                 <div class="col-xs-12">
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : loginForm.usuario.$invalid && !loginForm.usuario.$pristine }">
+                    <div class="form-group" ng-class="{ 'has-error' : loginForm.usuario.$invalid && !loginForm.usuario.$pristine }">
+                        <input id="candidatoEmailId"
+                               class="form-control"
+                               name="usuario"
+                               type="email"
+                               placeholder="Correo electrónico"
+                               aria-describedby="basic-addon1"
+                               required
+                               ng-model="login.credentials.email">
                         <div ng-messages="loginForm.usuario.$dirty && loginForm.usuario.$error" role="alert">
                             <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                             <div class="ng-mensajes" ng-message="email">Formato incorrecto</div>
-                        </div>
-                        <div class="input-group input-group">
-                            <span class="input-group-addon">@</span>
-                            <input id="candidatoEmailID" class="form-control" name="usuario" type="email" placeholder="Correo electrónico"
-                                   aria-describedby="basic-addon1" required ng-model="login.credentials.email">
                         </div>
                     </div>
                 </div>
                 <!--CONTRASEÑA-->
                 <div class="col-xs-12">
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                    <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                        <input id="candidatoPasswordID"
+                               class="form-control"
+                               name="password"
+                               type="password"
+                               placeholder="Contraseña"
+                               aria-describedby="basic-addon1"
+                               required
+                               ng-model="login.credentials.password">
                         <div ng-messages="loginForm.password.$dirty && loginForm.password.$error" role="alert">
                             <div class="ng-mensajes" ng-message="required">Campo requerido</div>
-                        </div>
-                        <div class="input-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
-                            <input id="candidatoPasswordID" class="form-control" name="password" type="password"
-                                   placeholder="Contraseña" aria-describedby="basic-addon1" required
-                                   ng-model="login.credentials.password">
                         </div>
                     </div>
                 </div>

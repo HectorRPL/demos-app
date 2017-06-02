@@ -7,12 +7,10 @@
         </div>
         <!-- EXPERIENCIAS USANDO EL COMPONENT CHECKBOX-EXPERIENCIAS -->
         <div class="col-xs-12">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.textExperiencias.$invalid && !agregarPerfilFrm.textExperiencias.$pristine}">
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.textExperiencias.$invalid && !agregarPerfilFrm.textExperiencias.$pristine}">
                 <checkbox-experiencias listado="agregarPerfil.perfil.experiencias.listado"
                                        otraexperiencia="agregarPerfil.perfil.experiencias.otra"></checkbox-experiencias>
-                <div ng-messages="agregarPerfilFrm.textExperiencias.$dirty && agregarPerfilFrm.textExperiencias.$error"
-                     role="alert">
+                <div ng-messages="agregarPerfilFrm.textExperiencias.$dirty && agregarPerfilFrm.textExperiencias.$error" role="alert">
                     <div class="ng-mensajes" ng-message="pattern">Sólo caracteres alfabéticos</div>
                 </div>
             </div>
@@ -26,12 +24,10 @@
         </div>
         <!-- HABILIDADES USANDO EL COMPONENT CHECKBOX-HABILIDADES -->
         <div class="col-xs-12">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.textHabilidades.$invalid && !agregarPerfilFrm.textHabilidades.$pristine}">
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.textHabilidades.$invalid && !agregarPerfilFrm.textHabilidades.$pristine}">
                 <checkbox-habilidades listado="agregarPerfil.perfil.habilidades.listado"
                                       otrahabilidad="agregarPerfil.perfil.habilidades.otra"></checkbox-habilidades>
-                <div ng-messages="agregarPerfilFrm.textHabilidades.$dirty && agregarPerfilFrm.textHabilidades.$error"
-                     role="alert">
+                <div ng-messages="agregarPerfilFrm.textHabilidades.$dirty && agregarPerfilFrm.textHabilidades.$error" role="alert">
                     <div class="ng-mensajes" ng-message="pattern">Sólo caracteres alfabéticos</div>
                 </div>
             </div>
@@ -41,14 +37,8 @@
     <div class="form-group row">
         <!-- ESTATURA  -->
         <div class="col-xs-12 col-sm-6">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.estatura.$dirty && agregarPerfilFrm.estatura.$pristine}">
-                <div class="input-group input-group-sm">
-              <span class="input-group-addon">
-                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
-              </span>
-                    <elegir-estatura estatura="agregarPerfil.perfil.estatura"></elegir-estatura>
-                </div>
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.estatura.$dirty && agregarPerfilFrm.estatura.$pristine}">
+                <elegir-estatura estatura="agregarPerfil.perfil.estatura"></elegir-estatura>
                 <div ng-messages="agregarPerfilFrm.estatura.$dirty && agregarPerfilFrm.estatura.$error" role="alert">
                     <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                     <div class="ng-mensajes" ng-message="max">Máx 2.30 mts.</div>
@@ -58,14 +48,8 @@
         </div>
         <!-- TALLA -->
         <div class="col-xs-12 col-sm-6">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.elegirTalla.$invalid && !agregarPerfilFrm.elegirTalla.$pristine}">
-                <div class="input-group input-group-sm">
-                    <span id="basic-addon1" class="input-group-addon">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </span>
-                    <elegir-talla talla="agregarPerfil.perfil.talla"></elegir-talla>
-                </div>
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.elegirTalla.$invalid && !agregarPerfilFrm.elegirTalla.$pristine}">
+                <elegir-talla talla="agregarPerfil.perfil.talla"></elegir-talla>
                 <div ng-messages="agregarPerfilFrm.elegirTalla.$dirty && agregarPerfilFrm.elegirTalla.$error" role="alert">
                     <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
@@ -73,16 +57,9 @@
         </div>
         <!-- PUESTO -->
         <div class="col-xs-12 col-sm-6">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.elegirPuesto.$invalid && !agregarPerfilFrm.elegirPuesto.$pristine}">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="basic-addon1">
-                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </span>
-                    <elegir-puesto puestoid="agregarPerfil.perfil.puestoId"></elegir-puesto>
-                </div>
-                <div ng-messages="agregarPerfilFrm.elegirPuesto.$dirty && agregarPerfilFrm.elegirPuesto.$error"
-                     role="alert">
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.elegirPuesto.$invalid && !agregarPerfilFrm.elegirPuesto.$pristine}">
+                <elegir-puesto puestoid="agregarPerfil.perfil.puestoId"></elegir-puesto>
+                <div ng-messages="agregarPerfilFrm.elegirPuesto.$dirty && agregarPerfilFrm.elegirPuesto.$error" role="alert">
                     <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
             </div>
@@ -90,16 +67,9 @@
         </div>
         <!-- ESCUELA -->
         <div class="col-xs-12 col-sm-6">
-            <div class="form-group"
-                 ng-class="{ 'has-error' : agregarPerfilFrm.elegirEscuela.$invalid && !agregarPerfilFrm.elegirEscuela.$pristine}">
-                <div class="input-group input-group-sm">
-                    <span id="basic-addon1" class="input-group-addon">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </span>
-                    <elegir-escuela escolaridad="agregarPerfil.perfil.escolaridadId"></elegir-escuela>
-                </div>
-                <div ng-messages="agregarPerfilFrm.elegirEscuela.$dirty && agregarPerfilFrm.elegirEscuela.$error"
-                     role="alert">
+            <div class="form-group" ng-class="{ 'has-error' : agregarPerfilFrm.elegirEscuela.$invalid && !agregarPerfilFrm.elegirEscuela.$pristine}">
+                <elegir-escuela escolaridad="agregarPerfil.perfil.escolaridadId"></elegir-escuela>
+                <div ng-messages="agregarPerfilFrm.elegirEscuela.$dirty && agregarPerfilFrm.elegirEscuela.$error" role="alert">
                     <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
             </div>

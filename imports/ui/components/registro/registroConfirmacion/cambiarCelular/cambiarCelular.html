@@ -5,29 +5,20 @@
 <ng-form name="actualizarCelularFrm">
     <div uib-collapse="cambiarCelular.mostrarEdicion">
         <div class="row">
-            <div class="col-xs-3 col-md-2">
+            <div class="col-xs-3 col-sm-2">
                 <div class="form-group">
-                    <div class="input-group">
-                        <codigo-pais-celular iso2="cambiarCelular.paisiso2"
-                                             paislada="cambiarCelular.datosCel.paisLada">
-                        </codigo-pais-celular>
-                    </div>
+                    <codigo-pais-celular iso2="cambiarCelular.paisiso2"
+                                         paislada="cambiarCelular.datosCel.paisLada">
+                    </codigo-pais-celular>
                 </div>
             </div>
             <!-- TELÉFONO -->
-            <div class="col-xs-9 col-md-4">
-                <div class="form-group"
-                     ng-class="{ 'has-error' : actualizarCelularFrm.celular.$invalid && !actualizarCelularFrm.celular.$pristine}">
-                    <div class="input-group">
-                    <span class="input-group-addon">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                            </span>
-                        <num-celular paislada="cambiarCelular.datosCel.paisLada"
-                                     celular="cambiarCelular.datosCel.celular">
-                        </num-celular>
-                    </div>
-                    <div ng-messages="actualizarCelularFrm.celular.$dirty && actualizarCelularFrm.celular.$error"
-                         role="alert">
+            <div class="col-xs-9 col-sm-4">
+                <div class="form-group" ng-class="{ 'has-error' : actualizarCelularFrm.celular.$invalid && !actualizarCelularFrm.celular.$pristine}">
+                    <num-celular paislada="cambiarCelular.datosCel.paisLada"
+                                 celular="cambiarCelular.datosCel.celular">
+                    </num-celular>
+                    <div ng-messages="actualizarCelularFrm.celular.$dirty && actualizarCelularFrm.celular.$error" role="alert">
                         <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
                         <div class="ng-mensajes" ng-message="maxlength, minlength">Son requeridos 10 números</div>
                         <div class="ng-mensajes" ng-message="pattern">Celular, solo numeros</div>

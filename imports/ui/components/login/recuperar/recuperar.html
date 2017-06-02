@@ -2,29 +2,28 @@
 <br>
 <div class="panel panel-default">
     <div class="panel-body">
-        <form role="form" class="form-inline" id="recuperarFormId" name="recuperarForm" nonvalidate autocomplete="off">
+        <form role="form" class="property-submit-form" id="recuperarFormId" name="recuperarForm" nonvalidate autocomplete="off">
             <div class="row" ng-hide="recuperar.tipoMsj === 'success'">
                 <!-- CORREO  -->
                 <div class="col-sm-6">
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : recuperarForm.email.$invalid && !recuperarForm.email.$pristine}">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                              @
-                            </span>
-                            <input id="emailID" class="form-control" name="email" type="email"
-                                   placeholder="Correo Electrónico" aria-describedby="sizing-addon1" maxlength="50"
-                                   required  ng-model="recuperar.email">
-                        </div>
-                        <div ng-messages="recuperarForm.email.$dirty && recuperarForm.email.$error"
-                             role="alert">
+                    <div class="form-group" ng-class="{ 'has-error' : recuperarForm.email.$invalid && !recuperarForm.email.$pristine}">
+                        <input id="emailId"
+                               class="form-control"
+                               name="email"
+                               type="email"
+                               placeholder="Correo Electrónico"
+                               aria-describedby="sizing-addon1"
+                               maxlength="50"
+                               required
+                               ng-model="recuperar.email">
+                        <div ng-messages="recuperarForm.email.$dirty && recuperarForm.email.$error" role="alert">
                             <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                             <div class="ng-mensajes" ng-message="email">Formato de correo incorrecto</div>
                             <div class="ng-mensajes" ng-message="maxlength">Máximo 50 caracteres</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <button type="button"
                             class="btn btn-default btn-block"
                             ng-class="{'disabled': recuperar.cargando === true}"
