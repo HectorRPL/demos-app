@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="form-group">
-            <label class="control-label" style="color:white;">
+            <label class="control-label">
                 <h5>¡Por tu segurirdad!
                     Te hemos enviado un código de confirmación a tu teléfono celular (+{{registroConfirmacion.usuario.phone.number}}), por favor ingresalo en la
                     siguiente casilla:
@@ -22,8 +22,8 @@
                 </div>
                 <div ng-messages="confirmarRegFrm.codigo.$dirty && confirmarRegFrm.codigo.$error"
                      role="alert">
-                    <div style="color:yellow;" ng-message="required">requerido</div>
-                    <div style="color:yellow;" ng-message="minlength, maxlength">4 digitos</div>
+                    <div class="ng-mensajes" ng-message="required">requerido</div>
+                    <div class="ng-mensajes" ng-message="minlength, maxlength">4 digitos</div>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <!-- BOTÓN SIGUIENTE -->
-    <button type="button" class="btn btn-default btn-lg btn-block"
+    <button type="button" class="btn btn-default btn-block"
             ng-disabled="confirmarRegFrm.$invalid"
             ng-click="registroConfirmacion.verficarNumero(confirmarRegFrm)">
         Confrimar Registro
@@ -44,7 +44,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="form-group">
-            <label class="control-label" style="color:white;">
+            <label class="control-label">
                 ¿No tienes el SMS?
             </label>
         </div>

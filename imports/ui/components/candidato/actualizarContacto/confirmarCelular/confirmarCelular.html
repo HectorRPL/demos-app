@@ -12,14 +12,14 @@
                 </div>
                 <div ng-messages="confirmarCelularFrm.codigo.$dirty && confirmarCelularFrm.codigo.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required">Campo requerido</div>
-                    <div style="color:red;" ng-message="minlength, maxlength">4 digitos</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="minlength, maxlength">4 digitos</div>
                 </div>
             </div>
         </div>
         <!-- NUMERO CELULAR  -->
         <div class="col-xs-8">
-            <button class="btn btn-cat btn-cta-primary btn-block" type="submit"
+            <button class="btn btn-default btn-block" type="submit"
                     ng-disabled="confirmarCelularFrm.$invalid" ng-click="confirmarCelular.verificar()">
                 Verificar Celular
             </button>

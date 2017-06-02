@@ -3,23 +3,23 @@
     <div class="form-group"
          ng-class="{ 'has-error' : datosPersonalesFrm.nombre.$invalid && !datosPersonalesFrm.nombre.$pristine}">
         <div class="input-group">
-            <span class="input-group-addon span-demos"><i class="fa fa-neuter" aria-hidden="true"></i></span>
+            <span class="input-group-addon"><i class="fa fa-neuter" aria-hidden="true"></i></span>
             <input id="nombreID" class="form-control" name="nombre" type="text" placeholder="Nombre(s)"
                    aria-describedby="sizing-addon1" required minlength="2" maxlength="31" ng-minlength="2" ng-maxlength="30"
                    ng-pattern="/^[a-zA-Zñáéíóú\s]+$/" ng-model="actualizarCandidato.datos.nombre">
         </div>
         <div ng-messages="datosPersonalesFrm.nombre.$dirty && datosPersonalesFrm.nombre.$error" role="alert">
-            <div style="color:red;" ng-message="required">Campo requerido</div>
-            <div style="color:red;" ng-message="minlength">Longitud mínima 2 caracteres</div>
-            <div style="color:red;" ng-message="maxlength">Longitud máxima 30 caracteres</div>
-            <div style="color:red;" ng-message="pattern">Sólo caracteres alfabéticos</div>
+            <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+            <div class="ng-mensajes" ng-message="minlength">Longitud mínima 2 caracteres</div>
+            <div class="ng-mensajes" ng-message="maxlength">Longitud máxima 30 caracteres</div>
+            <div class="ng-mensajes" ng-message="pattern">Sólo caracteres alfabéticos</div>
         </div>
     </div>
     <!-- APELLIDOS  -->
     <div class="form-group"
          ng-class="{ 'has-error' : datosPersonalesFrm.apellidos.$invalid && !datosPersonalesFrm.apellidos.$pristine}">
         <div class="input-group">
-            <span class="input-group-addon span-demos">
+            <span class="input-group-addon">
                 <i class="fa fa-neuter" aria-hidden="true"></i>
             </span>
             <input id="apellidosID" class="form-control" name="apellidos" type="text" placeholder="Apellidos"
@@ -27,10 +27,10 @@
                    ng-pattern="/^[a-zA-Zñáéíóú\s]+$/" ng-model="actualizarCandidato.datos.apellidos">
         </div>
         <div ng-messages="datosPersonalesFrm.apellidos.$dirty && datosPersonalesFrm.apellidos.$error" role="alert">
-            <div style="color:red;" ng-message="required">Campo requerido</div>
-            <div style="color:red;" ng-message="minlength">Longitud mínima 2 caracteres</div>
-            <div style="color:red;" ng-message="maxlength">Longitud máxima 30 caracteres</div>
-            <div style="color:red;" ng-message="pattern">Sólo caracteres alfabéticos</div>
+            <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+            <div class="ng-mensajes" ng-message="minlength">Longitud mínima 2 caracteres</div>
+            <div class="ng-mensajes" ng-message="maxlength">Longitud máxima 30 caracteres</div>
+            <div class="ng-mensajes" ng-message="pattern">Sólo caracteres alfabéticos</div>
         </div>
     </div>
     <!-- SEXO -->
@@ -49,8 +49,8 @@
         </div>
     </div>
     <div ng-messages="datosPersonalesFrm.$dirty" role="alert">
-        <div style="color:red;" ng-message="required">Campo requerido</div>
-        <div style="color:red;" ng-message="required">Selecionar Sexo</div>
+        <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+        <div class="ng-mensajes" ng-message="required">Selecionar Sexo</div>
     </div>
 
     <br>
@@ -69,7 +69,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : datosPersonalesFrm.nacimientoDia.$invalid && !datosPersonalesFrm.nacimientoDia.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos" id="basic-addon1"><i class="fa fa-chevron-down"
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-chevron-down"
                                                                          aria-hidden="true"></i></span>
                     <select id="nacimientoDiaID" class="form-control" name="nacimientoDia" required
                             ng-options="dia for dia in actualizarCandidato.dias"
@@ -79,7 +79,7 @@
                 </div>
                 <div ng-messages="datosPersonalesFrm.nacimientoDia.$dirty && datosPersonalesFrm.nacimientoDia.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : datosPersonalesFrm.nacimientoMes.$invalid && !datosPersonalesFrm.nacimientoMes.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos" id="basic-addon1"><i class="fa fa-chevron-down"
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-chevron-down"
                                                                          aria-hidden="true"></i></span>
                     <select id="nacimientoMesID" class="form-control" name="nacimientoMes" required
                             ng-options="mes.id as mes.descripcion for mes in actualizarCandidato.meses"
@@ -98,7 +98,7 @@
                 </div>
                 <div ng-messages="datosPersonalesFrm.nacimientoMes.$dirty && datosPersonalesFrm.nacimientoMes.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : datosPersonalesFrm.nacimientoAnio.$invalid && !datosPersonalesFrm.nacimientoAnio.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos" id="basic-addon1"><i class="fa fa-chevron-down"
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-chevron-down"
                                                                          aria-hidden="true"></i></span>
                     <select id="nacimientoAnioID" class="form-control" name="nacimientoAnio" required
                             ng-options="anio for anio in actualizarCandidato.anios"
@@ -117,7 +117,7 @@
                 </div>
                 <div ng-messages="datosPersonalesFrm.nacimientoAnio.$dirty && datosPersonalesFrm.nacimientoAnio.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
     <!-- BOTON GUARDAR CAMBIOS-->
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block" type="submit"
+            <button class="btn btn-default btn-block" type="submit"
                     ng-class="{'disabled': actualizarCandidato.cargando === true}"
                     ng-disabled="datosPersonalesFrm.$invalid || actualizarCandidato.cargando === true"
                     ng-click="actualizarCandidato.actualizar()">

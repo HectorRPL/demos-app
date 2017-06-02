@@ -6,18 +6,18 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.codigoPostal.$invalid && !direccionForm.codigoPostal.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         &nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;
                     </span>
                     <codigos-postales direccion="formaDireccion.direccion"></codigos-postales>
                 </div>
-                    <div ng-messages="direccionForm.codigoPostal.$dirty && direccionForm.codigoPostal.$error"
-                         role="alert">
-                        <div style="color:yellow;" ng-message="required"> Campo requerido</div>
-                        <div style="color:yellow;" ng-message="minlength, maxlength"> Son requeridos 5 caracteres</div>
-                        <div style="color:yellow;" ng-message="pattern"> Sólo 5 caracteres numéricos</div>
-                        <div style="color:yellow;" ng-message="cpinvalido"> Codigo Postal, invalido</div>
-                    </div>
+                <div ng-messages="direccionForm.codigoPostal.$dirty && direccionForm.codigoPostal.$error"
+                     role="alert">
+                    <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="minlength, maxlength"> Son requeridos 5 caracteres</div>
+                    <div class="ng-mensajes" ng-message="pattern"> Sólo 5 caracteres numéricos</div>
+                    <div class="ng-mensajes" ng-message="cpinvalido"> Codigo Postal, invalido</div>
+                </div>
             </div>
         </div>
         <!-- ESTADO -->
@@ -25,7 +25,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.estado.$invalid && !direccionForm.estado.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <strong>Tx</strong>
                     </span>
                     <input id="estadoID" class="form-control disabled" name="estado" type="text"
@@ -34,7 +34,7 @@
                 </div>
                 <div ng-messages="direccionForm.estado.$dirty && direccionForm.estado.$error"
                      role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.delMpio.$invalid && !direccionForm.delMpio.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <strong>Tx</strong>
                     </span>
                     <input id="delMpioID" class="form-control" name="delMpio" type="text"
@@ -52,7 +52,7 @@
                 </div>
                 <div ng-messages="direccionForm.delMpio.$dirty && direccionForm.delMpio.$error"
                      role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.colonia.$invalid && !direccionForm.colonia.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </span>
                     <select id="coloniaID" class="form-control" name="colonia" type="text"
@@ -78,7 +78,7 @@
                 </div>
                 <div ng-messages="direccionForm.colonia.$dirty && direccionForm.colonia.$error"
                      role="alert">
-                    <div style="color:yellow;" ng-message="required"> Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.calle.$invalid && !direccionForm.calle.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <strong>Tx</strong>
                     </span>
                     <input id="calleID" class="form-control" name="calle" type="text"
@@ -96,9 +96,9 @@
                            ng-pattern="/^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/"
                            ng-model="formaDireccion.direccion.calle"></div>
                 <div ng-messages="direccionForm.calle.$dirty && direccionForm.calle.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 30 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
+                    <div class="ng-mensajes" ng-message="minlength"> Longitud mínima 1 caracter</div>
+                    <div class="ng-mensajes" ng-message="maxlength"> Longitud máxima 30 caracteres</div>
+                    <div class="ng-mensajes" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.numExt.$invalid && !direccionForm.numExt.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <strong>Tx</strong>
                     </span>
                     <input id="numExtID" class="form-control" name="numExt" type="text"
@@ -116,9 +116,9 @@
                            ng-pattern="/^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/"
                            ng-model="formaDireccion.direccion.numExt"></div>
                 <div ng-messages="direccionForm.numExt.$dirty && direccionForm.numExt.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 10 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
+                    <div class="ng-mensajes" ng-message="minlength"> Longitud mínima 1 caracter</div>
+                    <div class="ng-mensajes" ng-message="maxlength"> Longitud máxima 10 caracteres</div>
+                    <div class="ng-mensajes" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
             <div class="form-group input-group-sm"
                  ng-class="{ 'has-error' : direccionForm.numInt.$invalid && !direccionForm.numInt.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                         <strong>Tx</strong>
                     </span>
                     <input id="numIntID" class="form-control" name="numInt" type="text"
@@ -136,9 +136,9 @@
                            ng-pattern="/^[a-zA-Z-/.&ÑñáéíóúÁÉÍÓÚ-\s\d]+$/"
                            ng-model="formaDireccion.direccion.numInt"></div>
                 <div ng-messages="direccionForm.numInt.$dirty && direccionForm.numInt.$error" role="alert">
-                    <div style="color:yellow;" ng-message="minlength"> Longitud mínima 1 caracter</div>
-                    <div style="color:yellow;" ng-message="maxlength"> Longitud máxima 10 caracteres</div>
-                    <div style="color:yellow;" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
+                    <div class="ng-mensajes" ng-message="minlength"> Longitud mínima 1 caracter</div>
+                    <div class="ng-mensajes" ng-message="maxlength"> Longitud máxima 10 caracteres</div>
+                    <div class="ng-mensajes" ng-message="pattern"> Sólo caracteres alfanuméricos</div>
                 </div>
             </div>
         </div>

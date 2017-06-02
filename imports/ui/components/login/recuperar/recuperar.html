@@ -9,7 +9,7 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : recuperarForm.email.$invalid && !recuperarForm.email.$pristine}">
                         <div class="input-group">
-                            <span class="input-group-addon span-demos">
+                            <span class="input-group-addon">
                               @
                             </span>
                             <input id="emailID" class="form-control" name="email" type="email"
@@ -18,15 +18,15 @@
                         </div>
                         <div ng-messages="recuperarForm.email.$dirty && recuperarForm.email.$error"
                              role="alert">
-                            <div style="color:yellow;" ng-message="required">Campo requerido</div>
-                            <div style="color:yellow;" ng-message="email">Formato de correo incorrecto</div>
-                            <div style="color:yellow;" ng-message="maxlength">Máximo 50 caracteres</div>
+                            <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                            <div class="ng-mensajes" ng-message="email">Formato de correo incorrecto</div>
+                            <div class="ng-mensajes" ng-message="maxlength">Máximo 50 caracteres</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <button type="button"
-                            class="btn btn-cat btn-cta-primary btn-block"
+                            class="btn btn-default btn-block"
                             ng-class="{'disabled': recuperar.cargando === true}"
                             ng-disabled="recuperarForm.$invalid || recuperar.cargando === true"
                             ng-click="recuperar.enviar()">

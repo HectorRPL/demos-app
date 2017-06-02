@@ -10,7 +10,7 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : reiniciarContraseniaForm.newPassword.$invalid && !reiniciarContraseniaForm.newPassword.$pristine }">
                         <div class="input-group input-group-md">
-                          <span class="input-group-addon span-demos">
+                          <span class="input-group-addon">
                             <i class="fa fa-key" aria-hidden="true"></i>
                           </span>
                             <input id="candidatoPasswordID" class="form-control" name="newPassword" type="password"
@@ -19,13 +19,13 @@
                         </div>
                         <div ng-messages="reiniciarContraseniaForm.newPassword.$dirty && reiniciarContraseniaForm.newPassword.$error"
                              role="alert">
-                            <div ng-message="required" style="color:red">Campo requerido</div>
+                            <div class="ng-mensajes" ng-message="required">Campo requerido</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-4">
                     <button type="button"
-                            class="btn btn-cat btn-cta-primary btn-block"
+                            class="btn btn-default btn-block"
                             ng-class="{'disabled': reiniciarContrasenia.cargando === true}"
                             ng-disabled="reiniciarContraseniaForm.$invalid || reiniciarContrasenia.cargando === true"
                             ng-click="reiniciarContrasenia.reiniciar()">

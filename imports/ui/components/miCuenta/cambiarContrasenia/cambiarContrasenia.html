@@ -10,8 +10,8 @@
                            ng-minlength="6" ng-maxlength="8" minlength="6" maxlength="8"
                            ng-model="cambiarContrasenia.credentials.oldPassword">
                     <div ng-messages="cambiarContraseniaFrm.oldPassword.$dirty && cambiarContraseniaFrm.oldPassword.$error" role="alert">
-                        <div style="color:red" ng-message="required">Campo requerido</div>
-                        <div style="color:red;" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
+                        <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                        <div class="ng-mensajes" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                            ng-minlength="6" ng-maxlength="8" minlength="6" maxlength="8"
                            ng-model="cambiarContrasenia.credentials.newPassword">
                     <div ng-messages="cambiarContraseniaFrm.newPassword.$dirty && cambiarContraseniaFrm.newPassword.$error" role="alert">
-                        <div style="color:red" ng-message="required">Campo requerido</div>
-                        <div style="color:red;" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
+                        <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                        <div class="ng-mensajes" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
                     </div>
                 </div>
             </div>
@@ -44,9 +44,9 @@
                            ng-minlength="6" ng-maxlength="8" minlength="6" maxlength="8" conf-invalida
                            ng-model="cambiarContrasenia.credentials.confNewPassword">
                     <div ng-messages="cambiarContraseniaFrm.confNewPassword.$dirty && cambiarContraseniaFrm.confNewPassword.$error" role="alert">
-                        <div style="color:red" ng-message="required">Campo requerido</div>
-                        <div style="color:red;" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
-                        <div style="color:red" ng-message="confInvalida">Nueva Contraseña y confirmación no coinciden</div>
+                        <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                        <div class="ng-mensajes" ng-message="minlength, maxlength"> Minimo 6 caracteres, maximo 8</div>
+                        <div class="ng-mensajes" ng-message="confInvalida">Nueva Contraseña y confirmación no coinciden</div>
                     </div>
                 </div>
             </div>

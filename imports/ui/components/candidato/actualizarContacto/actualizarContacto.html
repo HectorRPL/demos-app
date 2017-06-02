@@ -5,7 +5,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarMailFrm.email.$invalid && !actualizarMailFrm.email.$pristine }">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                               @
                             </span>
                     <input id="candidatoEmailID" class="form-control" name="email" type="email"
@@ -14,8 +14,8 @@
                 </div>
 
                 <div ng-messages="actualizarMailFrm.email.$dirty && actualizarMailFrm.email.$error" role="alert">
-                    <div style="color:red" ng-message="required">Campo requerido</div>
-                    <div style="color:red" ng-message="email">Formato de email incorrecto.</div>
+                    <div class="ng-mensajes" ng-message="required">Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="email">Formato de email incorrecto.</div>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default btn-md btn-block"
+            <button class="btn btn-default btn-block"
                     type="submit"
                     ng-class="{'disabled': actualizarContacto.cargando1 === true}"
                     ng-disabled="actualizarMailFrm.$invalid || actualizarContacto.cargando1 === true"
@@ -60,7 +60,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error' : actualizarCelFrm.celular.$invalid && !actualizarCelFrm.celular.$pristine}">
                 <div class="input-group">
-                    <span class="input-group-addon span-demos">
+                    <span class="input-group-addon">
                          <i class="fa fa-phone" aria-hidden="true"></i>
                     </span>
                     <num-celular paislada="actualizarContacto.paisLada"
@@ -69,10 +69,10 @@
                 </div>
                 <div ng-messages="actualizarCelFrm.celular.$dirty && actualizarCelFrm.celular.$error"
                      role="alert">
-                    <div style="color:red;" ng-message="required"> Campo requerido</div>
-                    <div style="color:red;" ng-message="maxlength, minlength">Son requeridos 10 números</div>
-                    <div style="color:red;" ng-message="pattern">Celular, solo numeros</div>
-                    <div style="color:red;" ng-message="celInvalido">Celular ya esta registrado</div>
+                    <div class="ng-mensajes" ng-message="required"> Campo requerido</div>
+                    <div class="ng-mensajes" ng-message="maxlength, minlength">Son requeridos 10 números</div>
+                    <div class="ng-mensajes" ng-message="pattern">Celular, solo numeros</div>
+                    <div class="ng-mensajes" ng-message="celInvalido">Celular ya esta registrado</div>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-cat btn-cta-primary btn-block"
+            <button class="btn btn-default btn-block"
                     type="submit"
                     ng-class="{'disabled': actualizarContacto.cargando2 === true}"
                     ng-disabled="actualizarCelFrm.$invalid || actualizarContacto.cargando2 === true"
