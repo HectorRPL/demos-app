@@ -1,12 +1,11 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Meteor} from "meteor/meteor";
 
 import webTemplate from './web.html';
 import { Login as LoginWeb } from './web';
 import mobileTemplate from './mobile.html';
 import { Login as LoginMobile } from './mobile';
+import {name as Facebook} from "./facebook";
+import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
 
 const name = 'login';
 
@@ -17,8 +16,8 @@ const controller = Meteor.isCordova ? LoginMobile : LoginWeb;
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
+        Facebook,
+        TituloInicio
     ])
     .component(name, {
         template,

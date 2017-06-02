@@ -1,13 +1,19 @@
-import angular from "angular";
 import angularMeteor from "angular-meteor";
+import angularMessages from "angular-messages";
+import ngSanitize from 'angular-sanitize';
 import angularUiBootstrap from "angular-ui-bootstrap";
 import uiRouter from "angular-ui-router";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap-social/bootstrap-social.css";
-import "./demos.html";
+import 'ionic-sdk/release/js/ionic';
+import 'ionic-sdk/release/js/ionic-angular';
+import webTemplate from './web.html';
+import mobileTemplate from './mobile.html'
 import {name as Login} from "../login/login";
 import {name as DemosFooter} from "../footer/demosFooter";
+
+const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 class Demos {
     constructor() {
@@ -22,13 +28,15 @@ const name = 'demos';
 export default angular
     .module(name, [
         angularMeteor,
+        angularMessages,
+        ngSanitize,
         uiRouter,
         angularUiBootstrap,
         DemosFooter,
         Login
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Demos
     })

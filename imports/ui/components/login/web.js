@@ -1,21 +1,15 @@
 /**
  * Created by jvltmtz on 2/06/17.
  */
-import {Meteor} from "meteor/meteor";
 import {obtenerEstadoReg} from "../../../api/bitacoraLogin/methods";
-import {name as Registro} from "../registro/registro";
-import {name as Facebook} from "./facebook";
-import {name as App} from "../app/app";
-import {name as Recuperar} from "./recuperar/recuperar";
-import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
-import {name as Alertas} from '../comun/alertas/alertas';
 
 
-class Login {
+export class Login {
     constructor($scope, $reactive, $state) {
         'ngInject';
         this.$state = $state;
         $reactive(this).attach($scope);
+        console.log('Login Web');
         this.titulo = 'Ingresa a Demostradoras';
         this.cargando = false;
 
@@ -47,33 +41,4 @@ class Login {
             })
         );
     }
-}
-
-const name = 'login';
-
-// create a module
-export default angular
-    .module(name, [
-        Registro,
-        Facebook,
-        App,
-        Recuperar,
-        TituloInicio,
-        Alertas
-    ])
-    .component(name, {
-        templateUrl: `imports/ui/components/login/${name}.html`,
-        controllerAs: name,
-        controller: Login
-    })
-
-    .config(config);
-
-function config($stateProvider) {
-    'ngInject';
-    $stateProvider
-        .state('demos.login', {
-            url: '/login',
-            template: '<login></login>'
-        });
 }

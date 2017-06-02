@@ -1,9 +1,6 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Meteor} from "meteor/meteor";
 import {obtenerEstadoReg} from "../../../api/bitacoraLogin/methods";
-import "./facebook.html";
+import template from "./facebook.html";
 
 class Facebook {
     constructor($scope, $reactive, $state) {
@@ -38,11 +35,9 @@ const name = 'facebook';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/login/${name}.html`,
+        template,
         controllerAs: name,
         controller: Facebook
     });
