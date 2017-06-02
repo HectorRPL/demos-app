@@ -23,7 +23,7 @@ if (Meteor.isServer) {
     });
 
     Meteor.publishComposite('vacantes.publicadas', function (options) {
-        let selector = {$and: [{eliminada: false}, {cubierta: false}]};
+        let selector = {$and: [{eliminada: false}, {fechaExpiracion: {$gt: new Date()}}, {cubierta: false}]};
         options.sort = {fechaCreacion: -1};
         if (this.userId) {
             const candidato = Candidatos.findOne({propietario: this.userId});

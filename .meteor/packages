@@ -16,7 +16,6 @@ standard-minifier-js@1.2.1    # JS minifier run for production mode
 es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-angular-templates
 pbastowski:angular-babel
 accounts-password@1.3.3
 accounts-facebook@1.0.11
@@ -42,3 +41,4 @@ mrt:twilio-meteor
 ziarno:restrict-mixin
 crosswalk
 meteorhacks:ssr
+urigo:static-templates

@@ -1,0 +1,63 @@
+<titulo-inicio titulo="login.titulo"></titulo-inicio>
+<br>
+<div class="panel">
+    <div class="panel-body">
+        <form role="form" class="property-submit-form" id="loginFormId" name="loginForm" nonvalidate autocomplete="off">
+            <div class="row">
+                <!--FACEBOOK-->
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <facebook></facebook>
+                    </div>
+                </div>
+                <!--CORREO-->
+                <div class="col-xs-12">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : loginForm.usuario.$invalid && !loginForm.usuario.$pristine }">
+                        <div ng-messages="loginForm.usuario.$dirty && loginForm.usuario.$error" role="alert">
+                            <div style="color:yellow" ng-message="required">Campo requerido</div>
+                            <div style="color:yellow" ng-message="email">Formato incorrecto</div>
+                        </div>
+                        <div class="input-group input-group">
+                            <span class="input-group-addon span-demos">@</span>
+                            <input id="candidatoEmailID" class="form-control" name="usuario" type="email" placeholder=""
+                                   aria-describedby="basic-addon1" required ng-model="login.credentials.email">
+                        </div>
+                    </div>
+                </div>
+                <!--CONTRASEÑA-->
+                <div class="col-xs-12">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                        <div ng-messages="loginForm.password.$dirty && loginForm.password.$error" role="alert">
+                            <div style="color:yellow" ng-message="required">Campo requerido</div>
+                        </div>
+                        <div class="input-group input-group">
+                            <span class="input-group-addon span-demos"><i class="fa fa-key" aria-hidden="true"></i></span>
+                            <input id="candidatoPasswordID" class="form-control" name="password" type="password"
+                                   placeholder="" aria-describedby="basic-addon1" required
+                                   ng-model="login.credentials.password">
+                        </div>
+                    </div>
+                </div>
+                <!--BOTÓN INGFRESAR Y LINKS -->
+                <div class="col-xs-12">
+                    <button class="btn btn-cat btn-cta-primary btn-block"
+                            ng-class="{'disabled': login.cargando === true}"
+                            ng-disabled="loginForm.$invalid || login.cargando === true"
+                            ng-click="login.login()">
+                        <span ng-class="{'glyphicon glyphicon-refresh animacion-cargando' : login.cargando}"></span>
+                        <span ng-show="login.cargando">procesando...</span>
+                        <span ng-hide="login.cargando">Ingresar</span>
+                    </button>
+                    <a style="color:white;" class="textoBlanco" ui-sref="demos.recuperar">Recuperar</a>
+                    <a style="color:white;" class="textoBlanco text-right pull-right" ui-sref="demos.registro.datos">Registro</a>
+                </div>
+                <!--ALERTA-->
+                <div class="col-xs-12">
+                    <alertas tipo="login.tipoMsj" mensaje="login.msj"></alertas>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

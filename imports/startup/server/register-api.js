@@ -14,3 +14,4 @@ import "../../api/bitacoraLogin/methods";
 import "../../api/usuarios/methods";
 import "../../api/twilio/methods";
 import "../../api/twilio/utils";
+import "../../api/postulaciones/utils";

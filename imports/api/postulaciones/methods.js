@@ -33,7 +33,22 @@ export const registrar = new ValidatedMethod({
                 candidatoId: candidato._id,
                 estado: 1
             };
-            return Postulaciones.insert(postulacion);
+
+            Postulaciones.insert(postulacion, (err, id)=>{
+                if(id){
+                    Meteor.defer(()=>{
+                        try{
+                            PostulacionesUtils.enviarCorreo(vacanteId);
+                        }catch (e){
+                            console.log('Error ala enviar correo de nuevas postulaciones ', e)
+                        }
+
+                    });
+                    return id
+                } else {
+                    throw new Meteor.Error(401, 'Error al insertar la postulacion');
+                }
+            });
         }
     }
 });
@@ -87,6 +102,7 @@ export const activarSelecVistoXCandidato = new ValidatedMethod({
         });
     }
 });
+
 
 const POSTULACIONES_METODOS = _.pluck([registrar, activarVistoXCandidato, activarSelecVistoXCandidato], 'name');
 if (Meteor.isServer) {

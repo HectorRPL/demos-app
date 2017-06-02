@@ -1,4 +1,9 @@
 ﻿    BASE DE DATOS MONGO
+    Intrucciones para respladar la base y restaurar
+    	mongodump --out ~/Documents/demos/baseDatos/backup/ --db demos-dev
+    
+    	mongorestore --db demos-dev ~/Documents/demos/baseDatos/backup/demos-dev1
+
         Acceder a una misma base de datos
             Colocar la siguiente linea en la consola.
             
