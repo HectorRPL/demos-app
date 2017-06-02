@@ -1,6 +1,6 @@
 <div class="row">
     <!-- CHECK BOX EXPERIENCIAS SI (EN ESTE ROW SE CONTROLA EL NÚMERO DE CHECKBOX POR FILA) -->
-    <div class="col-xs-12 col-sm-3" ng-repeat="experiencia in checkboxExperiencias.datosExperiencias"
+    <div class="col-sm-6" ng-repeat="experiencia in checkboxExperiencias.datosExperiencias"
          ng-init="checkboxExperiencias.habilitarCheck(experiencia)">
         <div class="checkbox btn-block">
             <div class="btn-group btn-block">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <!-- OTRA (ACTIVAR CON EL BOTÓN) -->
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-sm-6">
         <div class="checkbox btn-block">
             <div class="btn-group btn-block">
                 <label id="otraExperienciaCheckID" class="btn btn-default btn-block btn-sm" name="otraExperienciaCheck"
@@ -23,14 +23,11 @@
         </div>
     </div>
     <!-- OTRA HABILIDAD EN INPUT TEXT -->
-    <div class="col-xs-12" ng-show="checkboxExperiencias.otra.activo">
-        <div class="input-group">
-            <span id="basic-addon1" class="input-group-addon">
-          <strong>Tx</strong>
-        </span>
+    <div class="col-sm-6" ng-show="checkboxExperiencias.otra.activo">
+        <div class="form-group">
             <input id="otraExperienciaID" class="form-control" name="textExperiencias"
                       placeholder="Escribe otra experiencia" ng-pattern="/^[a-zA-Zñáéíóú\s]+$/" maxlength="15"
-                      ng-model="checkboxExperiencias.otraexperiencia">      </input>
+                      ng-model="checkboxExperiencias.otraexperiencia">
         </div>
     </div>
 </div>
