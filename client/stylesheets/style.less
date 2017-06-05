@@ -1,13 +1,13 @@
 html {
 
   body {
-    background-color: @color-terciario;
+    background-color: @color-noviario;
     font-weight: normal;
     font-family: zag-regular;
     color: @color-quinario;
     font-size: 15px;
     letter-spacing: 1px;
-    line-height: 15px;
+    line-height: 15px; // Muy apreado afecta los font awesome, arreglar los fonts
 
       /* p */
 
@@ -28,7 +28,7 @@ html {
       /* panel */
 
       .panel-default {
-        border-color: @color-sextario;
+        border: none;
         -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
@@ -36,13 +36,13 @@ html {
 
       .panel-heading > div > div,
       .panel-heading {
-        padding: 0px !important;
+        //padding: 0px !important;
         border: none;
         background-color: transparent !important;
       }
 
       .panel-heading > div > div > titulo-inicio > h2 {
-        margin: 2%;
+        margin: 1%;
       }
 
       .panel-body {
@@ -65,7 +65,6 @@ html {
         border-radius: 0px;
       }
 
-      button,
       .btn-default {
         text-transform: uppercase;
         background-color: transparent;
@@ -114,9 +113,12 @@ html {
         opacity: 1
       }
 
-      .modal-component {
-        background-color: red !important;
-      }
+    /* tabs */
+
+    .nav-tabs {
+      margin-bottom: 5%;
+    }
+
   }
 }
 
