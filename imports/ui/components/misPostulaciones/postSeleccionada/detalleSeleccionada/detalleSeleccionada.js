@@ -1,15 +1,12 @@
 /**
  * Created by hector on 23/12/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Vacantes} from "../../../../../api/vacantes/collection.js";
 import {Tiendas} from "../../../../../api/tiendas/collection";
 import {name as DatosContacto} from "../../../agencia/datosContacto/datosContacto";
 import {name as TabsDetalleVacante} from "../../../vacantes/tabsDetalleVacante/tabsDetalleVacante";
 import {name as TiendaPostulacion} from "../../../vacantes/tiendaPostulacion/tiendaPostulacion";
-import "./detalleSeleccionada.html";
+import template from "./detalleSeleccionada.html";
 
 class DetalleSeleccionada {
     constructor($stateParams, $scope, $reactive) {
@@ -45,14 +42,12 @@ const name = 'detalleSeleccionada';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         DatosContacto,
         TabsDetalleVacante,
         TiendaPostulacion
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/misPostulaciones/postSeleccionada/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: DetalleSeleccionada
     })

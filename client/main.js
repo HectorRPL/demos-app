@@ -2,6 +2,7 @@ import angular from "angular";
 import {Meteor} from "meteor/meteor";
 import {name as Demos} from "../imports/ui/components/demos/demos";
 
+
 function onReady() {
     angular.bootstrap(document, [
         Demos

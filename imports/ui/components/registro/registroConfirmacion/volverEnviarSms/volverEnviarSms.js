@@ -1,11 +1,9 @@
 /**
  * Created by jvltmtz on 12/01/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {name as Alertas} from '../../../comun/alertas/alertas';
 import {volverEnviarSMS} from "../../../../../api/twilio/methods";
-import "./volverEnviarSms.html";
+import template from "./volverEnviarSms.html";
 
 class VolverEnviarSms {
     constructor($scope, $reactive) {
@@ -36,11 +34,10 @@ const name = 'volverEnviarSms';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/registroConfirmacion/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: VolverEnviarSms,
         bindings: {

@@ -1,12 +1,9 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
 import {verificarCelular} from "../../../../api/twilio/methods";
 import {name as EnviarSms} from "./volverEnviarSms/volverEnviarSms";
 import {name as CambiarCelular} from "./cambiarCelular/cambiarCelular";
 import {name as Alertas} from '../../comun/alertas/alertas';
-import "./registroConfirmacion.html";
+import template from "./registroConfirmacion.html";
 
 class RegistroConfirmacion {
     constructor($scope, $reactive, $state) {
@@ -56,14 +53,12 @@ const name = 'registroConfirmacion';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         EnviarSms,
         CambiarCelular,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: RegistroConfirmacion
     })

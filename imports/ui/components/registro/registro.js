@@ -1,6 +1,3 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {name as Politicas} from "../politicas/politicas";
 import {name as AvisoPrivacidad} from "../politicas/avisoPrivacidad";
 import {name as RegistroDatos} from "./registroDatos/registroDatos";
@@ -9,7 +6,7 @@ import {name as RegistroPerfil} from "./registroPerfil/registroPerfil";
 import {name as RegistroFacebook} from "./registroFacebook/registroFacebook";
 import {name as RegistroConfirmacion} from "./registroConfirmacion/registroConfirmacion";
 import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
-import "./registro.html";
+import template from "./registro.html";
 
 class Registro {
     constructor() {
@@ -24,8 +21,6 @@ const name = 'registro';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         Politicas,
         AvisoPrivacidad,
         RegistroDatos,
@@ -36,7 +31,7 @@ export default angular
         TituloInicio
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/${name}.html`,
+        template,
         controllerAs: name,
         controller: Registro
     })

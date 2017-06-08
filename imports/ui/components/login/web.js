@@ -9,7 +9,6 @@ export class Login {
         'ngInject';
         this.$state = $state;
         $reactive(this).attach($scope);
-        console.log('Login Web');
         this.titulo = 'Ingresa a Demostradoras';
         this.cargando = false;
 

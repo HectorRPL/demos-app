@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {Escuelas} from "../../../../../api/catalogos/escuelas/collection.js";
-import "./elegirEscuela.html";
+import template from "./elegirEscuela.html";
 
 class ElegirEscuela {
     constructor($scope, $reactive) {
@@ -28,7 +28,7 @@ export default angular
         angularMeteor
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/selects/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             escolaridad: '='

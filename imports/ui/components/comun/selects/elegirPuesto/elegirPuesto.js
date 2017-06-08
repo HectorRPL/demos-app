@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {Puestos} from "../../../../../api/catalogos/puestos/collection";
-import "./elegirPuesto.html";
+import template from "./elegirPuesto.html";
 
 class ElegirPuesto {
     constructor($scope, $reactive) {
@@ -26,7 +26,7 @@ export default angular
         angularMeteor
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/selects/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             puestoid: '='

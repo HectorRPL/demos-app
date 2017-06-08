@@ -1,12 +1,10 @@
 /**
  * Created by jvltmtz on 3/03/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {actualizarCelular, actualizarEmail} from "../../../../api/usuarios/methods.js";
 import {name as Alertas} from "../../comun/alertas/alertas";
 import {name as ConfirmarCelular} from "./confirmarCelular/confirmarCelular";
-import "./actualizarContacto.html";
+import template from "./actualizarContacto.html";
 
 class ActualizarContacto {
     constructor($scope, $reactive) {
@@ -65,12 +63,11 @@ const name = 'actualizarContacto';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
         Alertas,
         ConfirmarCelular
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ActualizarContacto
     });

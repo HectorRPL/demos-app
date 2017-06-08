@@ -1,9 +1,6 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import "angular-simple-logger";
 import "angular-google-maps";
-import "./direccionMapa.css";
-import "./direccionMapa.html";
+import template from "./direccionMapa.html";
 
 class DireccionMapa {
 
@@ -63,7 +60,7 @@ export default angular
 
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             location: '='

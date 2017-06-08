@@ -1,14 +1,11 @@
 /**
  * Created by jvltmtz on 25/08/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Postulaciones} from "../../../../api/postulaciones/collection";
 import {activarVistoXCandidato} from "../../../../api/postulaciones/methods.js";
 import utilsPagination from "angular-utils-pagination";
 import {name as DetallePostProceso} from "./detallePostProceso/detallePostProceso";
-import "./postEnproceso.html";
+import template from "./postEnproceso.html";
 
 class PostEnproceso {
 
@@ -46,13 +43,11 @@ const name = 'postEnproceso';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         utilsPagination,
         DetallePostProceso
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/misPostulaciones/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: PostEnproceso
     })

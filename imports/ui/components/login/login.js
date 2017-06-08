@@ -6,6 +6,10 @@ import mobileTemplate from './mobile.html';
 import { Login as LoginMobile } from './mobile';
 import {name as Facebook} from "./facebook";
 import {name as TituloInicio} from "../demos/tituloInicio/tituloInicio";
+import {name as Registro} from "../registro/registro";
+import {name as Recuperar} from "./recuperar/recuperar";
+import {name as Alertas} from '../comun/alertas/alertas';
+import {name as App} from "../app/app";
 
 const name = 'login';
 
@@ -16,8 +20,12 @@ const controller = Meteor.isCordova ? LoginMobile : LoginWeb;
 // create a module
 export default angular
     .module(name, [
+        App,
         Facebook,
-        TituloInicio
+        TituloInicio,
+        Registro,
+        Recuperar,
+        Alertas
     ])
     .component(name, {
         template,

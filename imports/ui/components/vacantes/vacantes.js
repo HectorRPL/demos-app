@@ -1,8 +1,5 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {name as Titulo} from "../comun/titulo/titulo";
-import "./vacantes.html";
+import template from "./vacantes.html";
 import {name as ListaVacantes} from "./listaVacantes/listaVacantes";
 
 class Vacantes {
@@ -19,13 +16,11 @@ const name = 'vacantes';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         Titulo,
         ListaVacantes
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Vacantes
     })

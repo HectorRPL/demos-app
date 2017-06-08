@@ -1,10 +1,6 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import ngMessages from "angular-messages";
 import {actualizar} from "../../../../api/candidatos/methods.js";
 import {name as Alertas} from "../../comun/alertas/alertas";
-import "./actualizarCandidato.html";
+import template from "./actualizarCandidato.html";
 
 class ActualizarCandidato {
     constructor($scope, $reactive) {
@@ -60,7 +56,6 @@ class ActualizarCandidato {
         delete this.datos.paisLada;
         delete this.datos.celularVerificado;
         delete this.datos.emailVerificado;
-        console.log(this.datos);
         actualizar.call(this.datos, this.$bindToContext((err) => {
             if (err) {
                 console.log(err);
@@ -80,13 +75,10 @@ const name = 'actualizarCandidato';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
-        ngMessages,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/candidato/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ActualizarCandidato,
         bindings: {

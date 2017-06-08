@@ -1,9 +1,7 @@
 /**
  * Created by jvltmtz on 30/12/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import "./estoyPostulado.html";
+import template from "./estoyPostulado.html";
 
 class EstoyPostulado {
     constructor($scope, $reactive) {
@@ -27,11 +25,9 @@ const name = 'estoyPostulado';
 
 // Módulo
 export default angular
-    .module(name, [
-        angularMeteor,
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: EstoyPostulado,
         bindings: {

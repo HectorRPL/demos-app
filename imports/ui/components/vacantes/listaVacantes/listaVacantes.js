@@ -1,6 +1,3 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import utilsPagination from "angular-utils-pagination";
 import {Counts} from "meteor/tmeasday:publish-counts";
 import {Vacantes} from "../../../../api/vacantes/collection.js";
@@ -9,7 +6,7 @@ import {name as VacantesBusqueda} from "../vacantesOrdenar/vacantesOrdenar";
 import {name as EstoyPostulado} from "../estoyPostulado/estoyPostulado";
 import {name as VacanteNueva} from "./vacanteNueva/vacanteNueva";
 import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
-import "./listaVacantes.html";
+import template from "./listaVacantes.html";
 
 class ListaVacantes {
     constructor($scope, $reactive, $state) {
@@ -61,8 +58,6 @@ const name = 'listaVacantes';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         DetalleVacante,
         utilsPagination,
         VacantesBusqueda,
@@ -70,7 +65,7 @@ export default angular
         VacanteNueva
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ListaVacantes
     })

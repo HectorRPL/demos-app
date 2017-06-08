@@ -1,15 +1,12 @@
 /**
  * Created by jvltmtz on 25/08/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import ngAnimate from "angular-animate";
 import {Postulaciones} from "../../../../api/postulaciones/collection.js";
 import {activarSelecVistoXCandidato} from "../../../../api/postulaciones/methods.js";
 import {name as DetalleSeleccionada} from "./detalleSeleccionada/detalleSeleccionada";
 import utilsPagination from "angular-utils-pagination";
-import "./postSeleccionada.html";
+import template from "./postSeleccionada.html";
 
 class PostSeleccionada {
 
@@ -48,14 +45,12 @@ const name = 'postSeleccionada';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         ngAnimate,
         DetalleSeleccionada,
         utilsPagination
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/misPostulaciones/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: PostSeleccionada
     })

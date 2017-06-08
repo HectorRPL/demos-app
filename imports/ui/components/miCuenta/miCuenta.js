@@ -1,6 +1,3 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import ngAnimate from "angular-animate";
 import {Candidatos} from "../../../api/candidatos/collection.js";
 import {Direcciones} from "../../../api/direcciones/collection.js";
@@ -10,7 +7,7 @@ import {name as ActualizarCandidato} from "../candidato/actualizarCandidato/actu
 import {name as ActualizarDireccion} from "../direccion/actualizarDireccion/actualizarDireccion";
 import {name as CambiarContrasenia} from "./cambiarContrasenia/cambiarContrasenia";
 import {name as ActualizarContacto} from "./../candidato/actualizarContacto/actualizarContacto";
-import "./miCuenta.html";
+import template from "./miCuenta.html";
 
 class MiCuenta {
     constructor($scope, $reactive) {
@@ -47,8 +44,6 @@ const name = 'miCuenta';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         ngAnimate,
         ActualizarPerfil,
         ActualizarCandidato,
@@ -57,7 +52,7 @@ export default angular
         ActualizarContacto
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: MiCuenta
     })

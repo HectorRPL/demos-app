@@ -1,8 +1,5 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
-import "./registroDireccion.html";
+import template from "./registroDireccion.html";
 import {name as FormaDireccion} from "../../direccion/formaDireccion/formaDireccion";
 import {name as Alertas} from "../../comun/alertas/alertas";
 import {crear} from "../../../../api/direcciones/methods";
@@ -46,13 +43,11 @@ const name = 'registroDireccion';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         FormaDireccion,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: RegistroDireccion
     })

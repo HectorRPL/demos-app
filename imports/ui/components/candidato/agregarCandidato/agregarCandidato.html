@@ -70,16 +70,22 @@
         <div  class="col-xs-3 col-md-2">
             <div class="form-group">
                 <div class="input-group">
-                    <codigo-pais-celular iso2="agregarCandidato.paisiso2"
-                                         paislada="agregarCandidato.credentials.profile.paisLada">
-                    </codigo-pais-celular>
+                    <input id="codigoPaisId"
+                           class="form-control disabled"
+                           type="text"
+                           name="codigoPais"
+                           aria-describedby="sizing-addon1"
+                           maxlength="3"
+                           ng-maxlength="3"
+                           ng-disabled="true"
+                           ng-model="agregarCandidato.pais.telefono">
                 </div>
             </div>
         </div>
         <!-- TELÉFONO -->
         <div class="col-xs-9 col-md-4">
             <div class="form-group" ng-class="{ 'has-error' : registroUsuarioFrm.celular.$invalid && !registroUsuarioFrm.celular.$pristine}">
-                <num-celular paislada="agregarCandidato.credentials.profile.paisLada"
+                <num-celular paislada="agregarCandidato.pais.telefono"
                              celular="agregarCandidato.credentials.profile.celular">
                 </num-celular>
                 <div ng-messages="registroUsuarioFrm.celular.$dirty && registroUsuarioFrm.celular.$error"

@@ -1,8 +1,5 @@
 import {Session} from "meteor/session";
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import "./detalleVacante.html";
+import template from "./detalleVacante.html";
 import {Vacantes} from "../../../../api/vacantes/collection.js";
 import {Tiendas} from "../../../../api/tiendas/collection";
 import {Counts} from "meteor/tmeasday:publish-counts";
@@ -81,14 +78,12 @@ const name = 'detalleVacante';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         ConfirmarPostulacion,
         Alertas,
         TabsDetalleVacante
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: DetalleVacante
     })

@@ -1,6 +1,4 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import "./confirmarPostulacion.html";
+import template from "./confirmarPostulacion.html";
 import {registrar} from "../../../../api/postulaciones/methods.js";
 import {name as Alertas} from "../../comun/alertas/alertas";
 
@@ -42,11 +40,10 @@ const name = 'confirmarPostulacion';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ConfirmarPostulacion,
         bindings: {

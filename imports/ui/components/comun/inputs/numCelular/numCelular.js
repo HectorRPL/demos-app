@@ -1,10 +1,8 @@
 /**
  * Created by jvltmtz on 16/01/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {existeCelular} from "../../../../../api/usuarios/methods";
-import "./numCelular.html";
+import template from "./numCelular.html";
 
 class NumCelular {
     constructor($scope) {
@@ -17,11 +15,9 @@ class NumCelular {
 const name = 'numCelular';
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/inputs/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: NumCelular,
         bindings: {
@@ -40,10 +36,13 @@ export default angular
                         celular: celular,
                         codigoLada: scope.numCelular.paislada
                     }).then(function (result) {
+                        console.log(celular);
+                        console.log(scope.numCelular.paislada);
                         if (result > 0) {
                             return $q.reject('No encontrado');
                         }
                     }).catch(function (err) {
+                        console.log(err);
                         return $q.reject('No encontrado');
                     });
                 };

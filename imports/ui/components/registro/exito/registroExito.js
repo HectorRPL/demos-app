@@ -1,7 +1,4 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import "./registroExito.html";
+import template from "./registroExito.html";
 
 class RegistroExito {
     constructor($scope, $reactive, $state) {
@@ -20,12 +17,9 @@ const name = 'registroExito';
 
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor,
-        uiRouter
-    ])
+    .module(name, [ ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/exito/${name}.html`,
+        template,
         controllerAs: name,
         controller: RegistroExito
     })

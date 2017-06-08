@@ -1,9 +1,7 @@
 /**
  * Created by Héctor on 19/12/2016.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import "./nuevasVacantes.html";
+import template from "./nuevasVacantes.html";
 
 class NuevasVacantes {
     constructor($scope, $reactive) {
@@ -16,11 +14,9 @@ const name = 'nuevasVacantes';
 
 // Módulo
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/navigation/alertas/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: NuevasVacantes
     });

@@ -1,6 +1,4 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import "./vacantesOrdenar.html";
+import template from "./vacantesOrdenar.html";
 
 class VacantesOrdenar {
     constructor() {
@@ -20,11 +18,9 @@ const name = 'vacantesOrdenar';
 
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         bindings: {
             onChange: '&',
             property: '@',

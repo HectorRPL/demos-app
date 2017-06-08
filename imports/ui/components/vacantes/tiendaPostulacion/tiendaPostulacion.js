@@ -1,10 +1,7 @@
 /**
  * Created by Héctor on 28/02/2017.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import "./tiendaPostulacion.html";
+import template from "./tiendaPostulacion.html";
 
 class TiendaPostulacion {
     constructor($scope, $reactive) {
@@ -25,12 +22,9 @@ const name = 'tiendaPostulacion';
 
 // Módulo
 export default angular
-    .module(name, [
-        angularMeteor,
-        uiRouter
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: TiendaPostulacion,
         bindings: {

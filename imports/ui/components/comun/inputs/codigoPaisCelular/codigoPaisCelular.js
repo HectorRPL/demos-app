@@ -1,10 +1,8 @@
 /**
  * Created by jvltmtz on 16/01/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {Paises} from "../../../../../api/catalogos/paises/collection";
-import "./codigoPaisCelular.html";
+import template from "./codigoPaisCelular.html";
 
 class CodigoPaisCelular {
     constructor($scope, $reactive) {
@@ -27,11 +25,9 @@ class CodigoPaisCelular {
 const name = 'codigoPaisCelular';
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/inputs/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: CodigoPaisCelular,
         bindings: {

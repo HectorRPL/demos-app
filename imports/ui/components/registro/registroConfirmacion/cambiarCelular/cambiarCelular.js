@@ -1,13 +1,11 @@
 /**
  * Created by jvltmtz on 31/01/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {actualizarCelular} from "../../../../../api/usuarios/methods";
 import {name as CodigoPaisCelular} from "../../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
 import {name as NumCelular} from "../../../comun/inputs/numCelular/numCelular";
 import {name as Alertas} from "../../../comun/alertas/alertas";
-import "./cambiarCelular.html";
+import template from "./cambiarCelular.html";
 
 class CambiarCelular {
     constructor($scope, $reactive) {
@@ -44,13 +42,12 @@ const name = 'cambiarCelular';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
         CodigoPaisCelular,
         NumCelular,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/registroConfirmacion/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: CambiarCelular
     });

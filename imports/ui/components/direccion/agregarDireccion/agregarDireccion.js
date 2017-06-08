@@ -1,8 +1,5 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import angularMessages from "angular-messages";
 import {crear} from "../../../../api/direcciones/methods.js";
-import "./agregarDireccion.html";
+import template from "./agregarDireccion.html";
 
 class AgregarDireccion {
     constructor($scope, $reactive, $state) {
@@ -31,12 +28,9 @@ const name = 'agregarDireccion';
 
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor,
-        angularMessages
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: AgregarDireccion
     });

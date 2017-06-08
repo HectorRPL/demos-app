@@ -1,7 +1,5 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {name as Alertas} from '../../comun/alertas/alertas'
-import "./cambiarContrasenia.html";
+import template from "./cambiarContrasenia.html";
 
 class CambiarContrasenia {
     constructor($scope, $reactive) {
@@ -41,11 +39,10 @@ const name = 'cambiarContrasenia';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/miCuenta/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: CambiarContrasenia
     })

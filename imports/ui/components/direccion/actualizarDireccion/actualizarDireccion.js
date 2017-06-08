@@ -1,11 +1,6 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import ngMessages from "angular-messages";
-import {name as Alertas} from "../../comun/alertas/alertas";
 import {obtenerColonias} from "../../../../api/codigosPostales/methods.js";
 import {actualizar} from "../../../../api/direcciones/methods";
-import "./actualizarDireccion.html";
+import template from "./actualizarDireccion.html";
 
 class ActualizarDireccion {
     constructor($scope, $reactive) {
@@ -47,13 +42,9 @@ const name = 'actualizarDireccion';
 
 // Módulo
 export default angular
-    .module(name, [
-        angularMeteor,
-        uiRouter,
-        ngMessages
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/direccion/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ActualizarDireccion,
         bindings: {

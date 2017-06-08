@@ -1,8 +1,7 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {Accounts} from "meteor/accounts-base";
 import {name as ReiniciarContrasenia} from "./reiniciarContrasenia/reiniciarContrasenia";
-import "./recuperar.html";
+import template from "./recuperar.html";
+
 class Recuperar {
     constructor($scope, $reactive) {
         'ngInject';
@@ -40,11 +39,10 @@ const name = 'recuperar';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
         ReiniciarContrasenia
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/login/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Recuperar
     })

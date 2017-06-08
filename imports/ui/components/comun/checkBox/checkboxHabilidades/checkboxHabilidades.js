@@ -1,8 +1,6 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {Session} from "meteor/session";
 import {Habilidades} from "../../../../../api/catalogos/habilidades/collection.js";
-import "./checkboxHabilidades.html";
+import template from "./checkboxHabilidades.html";
 
 class CheckboxHabilidades {
     constructor($scope, $reactive) {
@@ -52,11 +50,9 @@ const name = 'checkboxHabilidades';
 // create a module
 
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [ ])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/checkBox/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             listado: '=',

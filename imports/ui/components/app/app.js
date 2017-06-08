@@ -1,6 +1,4 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import "./app.html";
+import template from "./app.html";
 import {name as Navigation} from "../navigation/navigation";
 import {name as Vacantes} from "../vacantes/vacantes";
 import {name as MisPostualciones} from "../misPostulaciones/misPostulaciones";
@@ -15,7 +13,6 @@ const name = 'app';
 
 export default angular
     .module(name, [
-        angularMeteor,
         Navigation,
         Vacantes,
         MisPostualciones,
@@ -23,7 +20,7 @@ export default angular
         Logout
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: App
     })

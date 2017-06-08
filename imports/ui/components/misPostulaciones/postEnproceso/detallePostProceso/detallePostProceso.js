@@ -1,15 +1,12 @@
 /**
  * Created by Héctor on 28/02/2017.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Vacantes} from "../../../../../api/vacantes/collection.js";
 import {Tiendas} from "../../../../../api/tiendas/collection";
 import {Counts} from "meteor/tmeasday:publish-counts";
 import {name as TabsDetalleVacante} from "../../../vacantes/tabsDetalleVacante/tabsDetalleVacante";
 import {name as TiendaPostulacion} from "../../../vacantes/tiendaPostulacion/tiendaPostulacion";
-import "./detallePostProceso.html";
+import template from "./detallePostProceso.html";
 
 class DetallePostProceso {
     constructor($stateParams, $scope, $reactive) {
@@ -54,13 +51,11 @@ const name = 'detallePostProceso';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         TabsDetalleVacante,
         TiendaPostulacion
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/misPostulaciones/postEnproceso/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: DetallePostProceso
     })

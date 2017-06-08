@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import "./elegirEstatura.html";
+import template from "./elegirEstatura.html";
 
 class elegirEstatura {
     constructor($scope, $reactive) {
@@ -17,7 +17,7 @@ export default angular
         angularMeteor
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/inputs/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             estatura: '='

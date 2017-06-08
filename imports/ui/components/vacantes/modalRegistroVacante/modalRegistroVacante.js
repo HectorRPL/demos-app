@@ -1,8 +1,6 @@
 /**
  * Created by jvltmtz on 15/08/16.
  */
-import angular from 'angular';
-import angularMeteor from 'angular-meteor';
 import {name as Alertas} from '../../comun/alertas/alertas';
 import './modalRegistroVacante.html';
 
@@ -34,11 +32,10 @@ const name = 'modalRegistroVacante';
 
 export default angular
     .module(name, [
-        angularMeteor,
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ModalRegistroVacante,
         bindings: {

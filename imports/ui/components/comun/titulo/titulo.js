@@ -1,8 +1,7 @@
 /**
  * Created by Héctor on 01/12/2016.
  */
-import angular from "angular";
-import "./titulo.html";
+import template from "./titulo.html";
 
 class Titulo {
     constructor() {
@@ -16,7 +15,7 @@ const name = 'titulo';
 export default angular
     .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Titulo,
         bindings: {

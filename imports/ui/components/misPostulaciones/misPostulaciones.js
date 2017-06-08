@@ -1,10 +1,7 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import ngAnimate from "angular-animate";
 import {name as PostEnProceso} from "./postEnproceso/postEnproceso";
 import {name as PostSeleccionada} from "./postSeleccionada/postSeleccionada";
-import "./misPostulaciones.html";
+import template from "./misPostulaciones.html";
 
 class MisPostulaciones {
 
@@ -19,14 +16,12 @@ const name = 'misPostulaciones';
 // Módulo
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         ngAnimate,
         PostEnProceso,
         PostSeleccionada
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: MisPostulaciones
     })

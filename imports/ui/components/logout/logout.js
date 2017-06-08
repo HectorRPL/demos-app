@@ -1,7 +1,5 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {Meteor} from "meteor/meteor";
-import "./logout.html";
+import template from "./logout.html";
 
 class Logout {
     constructor($scope, $reactive, $state) {
@@ -30,11 +28,9 @@ const name = 'logout';
 // create a module
 
 export default angular
-    .module(name, [
-        angularMeteor
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Logout
     });

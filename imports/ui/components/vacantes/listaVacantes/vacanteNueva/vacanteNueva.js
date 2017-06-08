@@ -1,8 +1,7 @@
 /**
  * Created by jvltmtz on 30/12/16.
  */
-import angular from "angular";
-import "./vacanteNueva.html";
+import template from "./vacanteNueva.html";
 
 class VacanteNueva {
     constructor($scope, $reactive) {
@@ -29,7 +28,7 @@ const name = 'vacanteNueva';
 export default angular
     .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/vacantes/listaVacantes/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: VacanteNueva,
         bindings: {

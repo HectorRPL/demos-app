@@ -1,11 +1,8 @@
 /**
  * Created by jvltmtz on 14/03/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {Accounts} from 'meteor/accounts-base';
-import './reiniciarContrasenia.html';
+import template from './reiniciarContrasenia.html';
 
 class ReiniciarContrasenia {
     constructor($reactive, $scope, $state, $stateParams) {
@@ -42,12 +39,9 @@ const name = 'reiniciarContrasenia';
 
 // Crear módulo
 export default angular
-    .module(name, [
-        angularMeteor,
-        uiRouter
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/login/recuperar/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ReiniciarContrasenia
     })

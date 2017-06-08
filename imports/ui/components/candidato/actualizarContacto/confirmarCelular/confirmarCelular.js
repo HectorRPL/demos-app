@@ -10,7 +10,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {verificarCelular} from "../../../../../api/twilio/methods.js";
 import {name as Alertas} from "../../../comun/alertas/alertas";
-import "./confirmarCelular.html";
+import template from "./confirmarCelular.html";
 
 class ConfirmarCelular {
     constructor($scope, $reactive) {
@@ -47,7 +47,7 @@ export default angular
         Alertas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/candidato/actualizarContacto/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: ConfirmarCelular
     });

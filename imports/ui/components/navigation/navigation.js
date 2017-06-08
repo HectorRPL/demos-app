@@ -1,9 +1,7 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {Candidatos} from "../../../api/candidatos/collection";
 import {name as NumNuevasSelecciones} from "../counts/numNuevasSelecciones/numNuevasSelecciones";
 import {name as NumPostulacionesVistas} from "../counts/numPostulacionesVistas/numPostulacionesVistas";
-import "./navigation.html";
+import template from "./navigation.html";
 
 class Navigation {
     constructor($scope, $reactive, $state) {
@@ -28,12 +26,11 @@ const name = 'navigation';
 
 export default angular
     .module(name, [
-        angularMeteor,
         NumNuevasSelecciones,
         NumPostulacionesVistas
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: Navigation,
     });

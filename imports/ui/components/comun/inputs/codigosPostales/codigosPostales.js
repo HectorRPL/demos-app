@@ -1,10 +1,8 @@
 /**
  * Created by jvltmtz on 10/01/17.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
 import {obtenerColonias} from "../../../../../api/codigosPostales/methods.js";
-import "./codigosPostales.html";
+import template from "./codigosPostales.html";
 
 class CodigosPostales {
     constructor($scope) {
@@ -19,10 +17,9 @@ const name = 'codigosPostales';
 
 export default angular
     .module(name, [
-        angularMeteor
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/comun/inputs/${name}/${name}.html`,
+        template,
         controllerAs: name,
         bindings: {
             direccion: '='

@@ -5,7 +5,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import {Agencias} from "../../../../api/agencias/collection";
 import {Direcciones} from "../../../../api/direcciones/collection";
-import "./datosContacto.html";
+import template from "./datosContacto.html";
 
 class DatosContacto {
     constructor($scope, $reactive) {
@@ -37,7 +37,7 @@ export default angular
         angularMeteor
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/agencia/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: DatosContacto,
         bindings: {

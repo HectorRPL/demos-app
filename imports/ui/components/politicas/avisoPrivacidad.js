@@ -1,7 +1,4 @@
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
-import "./avisoPrivacidad.html";
+import template from "./avisoPrivacidad.html";
 
 class AvisoPrivacidad {
 }
@@ -10,12 +7,9 @@ const name = 'avisoPrivacidad';
 
 // create a module
 export default angular
-    .module(name, [
-        angularMeteor,
-        uiRouter
-    ])
+    .module(name, [])
     .component(name, {
-        templateUrl: `imports/ui/components/politicas/${name}.html`,
+        template,
         controllerAs: name,
         controller: AvisoPrivacidad
     })

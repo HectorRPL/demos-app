@@ -1,11 +1,8 @@
 /**
  * Created by jvltmtz on 19/09/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import uiRouter from "angular-ui-router";
 import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
-import "./registroPerfil.html";
+import template from "./registroPerfil.html";
 import {name as AgregarPerfil} from "../../perfilLaboral/agregarPerfil/agregarPerfil";
 
 class RegistroPerfil {
@@ -27,12 +24,10 @@ const name = 'registroPerfil';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        uiRouter,
         AgregarPerfil
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: RegistroPerfil
     })

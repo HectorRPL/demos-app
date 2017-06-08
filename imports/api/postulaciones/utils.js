@@ -19,6 +19,7 @@ PostulacionesUtils = {
         const numPostulaciones = Postulaciones.find(selector).count();
         const vacante = Vacantes.findOne({_id: vacanteId});
         const agencia = Agencias.findOne({_id: vacante.propietario});
+        const usuario = Meteor.users.findOne({_id: agencia.propietario});
 
         let result = {
             numPostulaciones: numPostulaciones,
@@ -30,7 +31,7 @@ PostulacionesUtils = {
 
         SSR.compileTemplate('nuevasPostulaciones', Assets.getText('emailTemplates/nuevasPostulaciones/nuevasPostulaciones.html'));
         Email.send({
-            to: agencia.correoElectronico,
+            to: usuario.emails[0].address,
             from: AGENCIAS_EMAIL,
             subject: 'Nuevas Postulaciones',
             html: SSR.render('nuevasPostulaciones', result)

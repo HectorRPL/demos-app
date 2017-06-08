@@ -40,7 +40,7 @@ export const registrar = new ValidatedMethod({
                         try{
                             PostulacionesUtils.enviarCorreo(vacanteId);
                         }catch (e){
-                            console.log('Error ala enviar correo de nuevas postulaciones ', e)
+                            console.log('Error al enviar correo de nuevas postulaciones ', e)
                         }
 
                     });

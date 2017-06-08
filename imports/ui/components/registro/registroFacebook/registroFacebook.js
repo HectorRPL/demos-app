@@ -1,9 +1,6 @@
 /**
  * Created by jvltmtz on 26/09/16.
  */
-import angular from "angular";
-import angularMeteor from "angular-meteor";
-import angularMessages from "angular-messages";
 import {actualizarEstadoReg} from "../../../../api/bitacoraLogin/methods";
 import {actualizarRegFacebook} from "../../../../api/usuarios/methods";
 import {Candidatos} from "../../../../api/candidatos/collection";
@@ -15,7 +12,7 @@ import {name as CodigosPostales} from "../../comun/inputs/codigosPostales/codigo
 import {name as NumCelular} from "../../comun/inputs/numCelular/numCelular";
 import {name as CodigoPaisCelular} from "../../comun/inputs/codigoPaisCelular/codigoPaisCelular";
 import {name as Alerts} from "../../comun/alertas/alertas";
-import "./registroFacebook.html";
+import template from "./registroFacebook.html";
 
 class RegistroFacebook {
     constructor($scope, $reactive, $state) {
@@ -62,8 +59,6 @@ const name = 'registroFacebook';
 // create a module
 export default angular
     .module(name, [
-        angularMeteor,
-        angularMessages,
         ElegirAnio,
         ElegirMes,
         ElegirDia,
@@ -73,7 +68,7 @@ export default angular
         CodigoPaisCelular
     ])
     .component(name, {
-        templateUrl: `imports/ui/components/registro/${name}/${name}.html`,
+        template,
         controllerAs: name,
         controller: RegistroFacebook
     })
