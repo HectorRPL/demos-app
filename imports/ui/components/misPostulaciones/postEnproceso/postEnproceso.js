@@ -18,7 +18,9 @@ class PostEnproceso {
         this.subscribe('postulaciones.mis', ()=> [{estado: 1}]);
         this.helpers({
             misPostulaciones() {
-                return Postulaciones.find();
+                return Postulaciones.find({}, {
+                    sort: {fechaPostulacion: -1}
+                });
             }
         });
     }

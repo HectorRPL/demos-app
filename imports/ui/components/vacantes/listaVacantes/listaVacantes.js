@@ -18,9 +18,6 @@ class ListaVacantes {
         this.perPage = 6;
         this.page = 1;
         this.puestoId = '';
-        this.sort = {
-            fechaCreacion: 1
-        };
         this.subscribe('vacantes.publicadas', ()=>[{
             limit: parseInt(this.perPage),
             skip: parseInt((this.getReactively('page') - 1) * this.perPage)
@@ -28,7 +25,9 @@ class ListaVacantes {
         ]);
         this.helpers({
             vacantes() {
-                return Vacantes.find({});
+                return Vacantes.find({}, {
+                    sort: {fechaCreacion: -1}
+                });
             },
             vacantesCount() {
                 return Counts.get('numVacantes');

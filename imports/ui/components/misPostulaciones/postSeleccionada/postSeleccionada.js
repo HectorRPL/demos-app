@@ -18,7 +18,9 @@ class PostSeleccionada {
         this.$state = $state;
         this.helpers({
             misPostulaciones() {
-                return Postulaciones.find();
+                return Postulaciones.find({}, {
+                    sort: {fechaPostulacion: -1}
+                });
             }
         });
     }
