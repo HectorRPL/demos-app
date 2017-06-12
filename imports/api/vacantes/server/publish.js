@@ -17,9 +17,13 @@ const EDO = 'MEX';
 if (Meteor.isServer) {
 
     Meteor.publish('vacantes.candidato.postulado', function (vacanteId) {
-        const candidato = Candidatos.findOne({propietario: this.userId});
-        let selector = {$and: [vacanteId, {candidatoId: candidato._id}]};
-        Counts.publish(this, `count.vacante.candidato.postulado.${vacanteId.vacanteId}`, Postulaciones.find(selector));
+        if (this.userId) {
+            const candidato = Candidatos.findOne({propietario: this.userId});
+            let selector = {$and: [vacanteId, {candidatoId: candidato._id}]};
+            Counts.publish(this, `count.vacante.candidato.postulado.${vacanteId.vacanteId}`, Postulaciones.find(selector));
+        } else {
+            this.ready();
+        }
     });
 
     Meteor.publishComposite('vacantes.publicadas', function (options) {
