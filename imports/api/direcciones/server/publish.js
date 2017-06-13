@@ -7,14 +7,19 @@ import {Candidatos} from "../../candidatos/collection";
 
 if (Meteor.isServer) {
     Meteor.publish('direccion.candidato', function () {
-        const candidato = Candidatos.findOne({propietario: this.userId});
-        const selector = {propietario: candidato._id};
-        return Direcciones.find(selector, {
-            fields: {
-                fechaCreacion: 0,
-                propietario: 0
-            }
-        });
+        if (this.userId) {
+            const candidato = Candidatos.findOne({propietario: this.userId});
+            const selector = {propietario: candidato._id};
+            return Direcciones.find(selector, {
+                fields: {
+                    fechaCreacion: 0,
+                    propietario: 0
+                }
+            });
+        } else {
+            this.ready
+        }
+
     });
 
     Meteor.publish('direcciones.agencia', (agenciaId) => {
