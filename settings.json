@@ -7,8 +7,8 @@
     },
     "facebook": {
       "service": "facebook",
-      "appId": "582431125259763",
-      "secret": "c901a04e704b348025ce0a65a1fedbf3",
+      "appId": "112164966080411",
+      "secret": "26a404ebe351a791b0c301adb21aab65",
       "loginStyle": "popup"
     },
     "twilioConfig": {
