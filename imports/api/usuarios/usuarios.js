@@ -82,11 +82,11 @@ if (Meteor.isServer) {
     });
 
     Accounts.emailTemplates.siteName = "Demostradoras con experiencia";
-    Accounts.emailTemplates.from = "Demostradoras con experiencia <demostradoras01@gmail.com>";
+    Accounts.emailTemplates.from = "Demostradoras con experiencia <postmaster@yodemos.com>";
 
     // Verificación de registro con link en el email
     Accounts.emailTemplates.resetPassword.from  = function () {
-        return "Demostradoras con experiencia <demostradoras01@gmail.com>";
+        return "Demostradoras con experiencia <postmaster@yodemos.com>";
     };
     Accounts.emailTemplates.resetPassword.html = function (user, url) {
         url = url.replace("#", "demos");
